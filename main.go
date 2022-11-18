@@ -1,1 +1,1 @@
-package hangman_web
+package main
