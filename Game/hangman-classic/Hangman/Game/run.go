@@ -15,6 +15,7 @@ func StartGame(arg string) GameData {
 	WordsSlice := GetFile("Game/hangman-classic/Hangman/Assets/" + arg)
 	Data.ToFind = strings.ToUpper(TakeRandomWord(WordsSlice))
 	Data = InitialLetters(Data)
+	Data.Guess = []string{}
 	return Data
 }
 

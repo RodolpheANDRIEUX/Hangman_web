@@ -13,14 +13,18 @@
     <div class="column">
         <h1>Hangman Game</h1>
         <h3 id="hangman_word">{{.Word}}</h3>
-        {{ if eq .State "goodGuess" "won"}}
+        {{ if eq .State "won"}}
         <h4 id="success_text">{{.Error}}</h4>
         {{ else }}
         <h4 id="error_text">{{.Error}}</h4>
         {{ end }}
     </div>
     <div class="column">
-        <p>Letter suggested : {{.Guess}}</p>
+        <p>Letters suggested :
+            {{range .Guess}}
+            {{.}}
+            {{end}}
+        </p>
         <form action="/hangman" method="POST" class="form-hangman">
             {{ if eq .State "lost" "won" }}
             <input type="submit" name="Replay" value="Play Again ?" />

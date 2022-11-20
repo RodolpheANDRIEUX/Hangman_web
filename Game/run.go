@@ -17,14 +17,14 @@ func HangMan(data Hangman.GameData, input string) Hangman.GameData {
 	}
 
 	switch data.State {
+
+	case "won":
+		data.State = "won"
+		data.Error = "GG WP, YOU WON ! YOUR DICK IS ENORME"
+
 	case "goodGuess":
 		data.Word = Hangman.RevealLetters(data)
-		data.Error = " "
-
-		if Hangman.WordGuessed(data) {
-			data.State = "won"
-			data.Error = "GG WP, YOU WON ! YOUR DICK IS ENORME"
-		}
+		data.Error = "GG"
 
 	case "badGuess":
 		data.Attempts++

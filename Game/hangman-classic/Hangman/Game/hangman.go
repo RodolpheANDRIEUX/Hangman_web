@@ -45,6 +45,9 @@ func IntputTesting(guess string, data GameData) GameData {
 		if strings.Contains(data.ToFind, guess) && !(strings.Contains(data.Word, guess)) {
 			data.State = "goodGuess"
 			data.Guess = append(data.Guess, guess)
+			if WordGuessed(data) {
+				data.State = "won"
+			}
 		}
 		if !(strings.Contains(data.ToFind, guess)) && !(strings.Contains(strings.Join(data.Guess, " "), guess)) {
 			data.State = "badGuess"
