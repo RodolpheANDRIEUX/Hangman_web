@@ -9,16 +9,30 @@
 </head>
 <body>
 <h3>Salut</h3>
+<div class="container">
+    <div class="column">
+        <h1>Hangman Game</h1>
+        <h3 id="error_text">{{.Error}}</h3>
+        <h3 id="hangman_word">{{.Word}}</h3>
+        <p class="attempts_left">You have {{.Attempts}} left.</p>
+    </div>
 
-{{.}}
+    <div class="column">
+        <p>Letter suggested : {{.Guess}}</p>
+        <form action="/hangman" method="POST" class="form-hangman">
+            <input class="form-hangman-input" name="Letter" required placeholder="Choose a letter or guess a word">
+            <input type="submit" name="Submit" value="Validate 👌" />
+        </form>
+    </div>
+
+    <div class="column">
+        <div class="hangman_state">
+
+        </div>
+    </div>
+</div>
 
 <h3>{{.Error}}</h3>
-
-
-<form action="/hangman" method="POST" class="form-hangman">
-    <input class="form-hangman-input" name="Letter" required placeholder="Choose a letter or guess a word">
-    <input type="submit" name="Submit" value="Validate 👌" />
-</form>
 
 </body>
 </html>
