@@ -9,7 +9,6 @@ import (
 type GameData struct {
 	Word             string   // Word with _ ( ex A _ _ _ )
 	ToFind           string   // Final word chosen by the program at the beginning. It is the word to find
-	LetterIsCorrect  bool     // True if we found the letter, false if not
 	State            string   // The state of pur game
 	Attempts         int      // Number of attempts left
 	Guess            []string // Letters tried

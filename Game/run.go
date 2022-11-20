@@ -11,6 +11,11 @@ func HangMan(data Hangman.GameData, input string) Hangman.GameData {
 
 	data = Hangman.IntputTesting(input, data)
 
+	if data.Attempts == 9 {
+		data.Error = fmt.Sprintf("Sorry, you loose!, word was: %s", data.ToFind)
+		data.State = "lost"
+	}
+
 	switch data.State {
 	case "goodGuess":
 		data.Word = Hangman.RevealLetters(data)

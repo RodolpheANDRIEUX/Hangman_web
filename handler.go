@@ -22,9 +22,14 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, data Hangman.GameData) {
 
 func game(w http.ResponseWriter, r *http.Request) {
 
-	l := r.FormValue("Letter")
-	if l != "" {
-		data = Game.HangMan(data, l)
+	replay := r.FormValue("Replay")
+	if replay != "" {
+		data = Hangman.StartGame(file)
+	}
+
+	guess := r.FormValue("Letter")
+	if guess != "" {
+		data = Game.HangMan(data, guess)
 	}
 	RenderTemplate(w, "game", data)
 }
