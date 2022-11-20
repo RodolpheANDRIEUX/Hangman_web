@@ -4,10 +4,11 @@ import (
 	Hangman "hangman-web/Game/hangman-classic/Hangman/Game"
 )
 
-var data Hangman.GameData
+const file = "words.txt"
 
-func HangMan(data Hangman.GameData, input, file string) Hangman.GameData {
-	data = Hangman.StartGame(file)
+var data Hangman.GameData = Hangman.StartGame(file)
+
+func HangMan(data Hangman.GameData, input string) Hangman.GameData {
 
 	data.Guess = []string{}
 
