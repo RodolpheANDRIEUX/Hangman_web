@@ -1,35 +1,43 @@
 package Game
 
 import (
+	"fmt"
 	Hangman "hangman-web/Game/hangman-classic/Hangman/Game"
+	"strings"
 )
 
-const file = "words.txt"
-
-var data Hangman.GameData = Hangman.StartGame(file)
-
 func HangMan(data Hangman.GameData, input string) Hangman.GameData {
+	input = strings.ToUpper(input)
 
-	data.Guess = []string{}
+	data = Hangman.IntputTesting(input, data)
 
-	for {
-		data = Hangman.IntputTesting(input, data)
+	switch data.State {
+	case "goodGuess":
+		data.Word = Hangman.RevealLetters(data)
+		data.Error = " "
 
-		switch data.State {
-		case "goodGuess":
-			data.Word = Hangman.RevealLetters(data)
-
-			if Hangman.WordGuessed(data) {
-				data.State = "won"
-			}
-
-		case "badGuess":
-			data.Attempts++
-
-		case "badWordGuessed":
-			data.Attempts += 2
-
+		if Hangman.WordGuessed(data) {
+			data.State = "won"
+			data.Error = "GG WP, YOU WON ! YOUR DICK IS ENORME"
 		}
+
+	case "badGuess":
+		data.Attempts++
+		data.Error = fmt.Sprintf("Sorry, the letter %s is not in the word. %d attempts lefts", input, 10-data.Attempts)
+
+	case "badWordGuessed":
+		data.Attempts += 2
+		data.Error = fmt.Sprintf("Sorry, %s is not the word to find. %d attempts lefts", input, 10-data.Attempts)
+
+	case "alreadyGuessed":
+		data.Error = "This letter is already guessed"
+
+	case "alreadyFound":
+		data.Error = "This letter is already found"
+
+	case "invalidInput":
+		data.Error = "Please enter a valid input"
+
 	}
 	return data
 }

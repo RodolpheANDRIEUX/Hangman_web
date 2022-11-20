@@ -14,6 +14,7 @@ type GameData struct {
 	Attempts         int      // Number of attempts left
 	Guess            []string // Letters tried
 	HangmanPositions int      // State of Jose
+	Error            string   // Error to display ( for web version )
 }
 
 // RevealLetters : return the word with a letter revealed
@@ -30,8 +31,9 @@ func RevealLetters(data GameData) string {
 
 // IntputTesting : Game input testing and logic
 func IntputTesting(guess string, data GameData) GameData {
-	if guess == "" || guess < "a" || guess > "z" {
+	if guess == "" || guess < "A" || guess > "Z" {
 		data.State = "invalidInput"
+		return data
 	}
 	if len(guess) < 2 {
 		if strings.Contains(data.Word, guess) {
