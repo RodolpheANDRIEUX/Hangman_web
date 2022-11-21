@@ -1,22 +1,29 @@
 package Hangman
 
 import (
-	"io/ioutil"
+	"bufio"
 	"log"
 	"math/rand"
-	"strings"
+	"os"
 	"time"
 )
 
 // GetFile : Take the words.txt file convert it into []string
 func GetFile(filePath string) []string {
-	WordFile, err := ioutil.ReadFile(filePath)
+	WordFile, err := os.Open(filePath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	WordStr := string(WordFile)
-	WordsSlice := strings.Split(WordStr, "\n")
-	return WordsSlice
+	scanner := bufio.NewScanner(WordFile)
+	scanner.Split(bufio.ScanLines)
+	var txtlines []string
+
+	for scanner.Scan() {
+		txtlines = append(txtlines, scanner.Text())
+	}
+
+	WordFile.Close()
+	return txtlines
 }
 
 // GetRandomNumber : Return a random int value
