@@ -42,7 +42,7 @@ func TakeRandomWord(txt []string) string {
 }
 
 // InitialLetters : chose 0<n<len(word) / 2 - 1 letters in the word to print and return the index of these letters in th word
-func InitialLetters(data GameData) GameData {
+func InitialLetters(data GameData) string {
 	var nbLetterToReveal int
 	for range data.ToFind {
 		data.Word += "_"
@@ -62,5 +62,5 @@ func InitialLetters(data GameData) GameData {
 		data.Guess = append(data.Guess, string(data.ToFind[index]))
 		data.Word = RevealLetters(data)
 	}
-	return data
+	return data.Word
 }

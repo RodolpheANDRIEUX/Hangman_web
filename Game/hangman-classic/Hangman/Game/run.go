@@ -14,8 +14,7 @@ func StartGame(arg string) GameData {
 	Data.Word = ""
 	WordsSlice := GetFile("./Assets/Words/" + arg)
 	Data.ToFind = strings.ToUpper(TakeRandomWord(WordsSlice))
-	Data = InitialLetters(Data)
-	Data.Guess = []string{}
+	Data.Word = InitialLetters(Data)
 	return Data
 }
 
