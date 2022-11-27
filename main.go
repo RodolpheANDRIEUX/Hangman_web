@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"hangman-web/Game"
+	"log"
 	"net/http"
 )
 
@@ -11,8 +13,8 @@ func main() {
 
 	fmt.Println("(http://localhost:8080) - Server started on port", port)
 
-	http.HandleFunc("/", game)
+	http.HandleFunc("/", Game.PathHandler)
 
-	http.ListenAndServe(port, nil)
+	log.Fatal(http.ListenAndServe(port, nil))
 
 }
