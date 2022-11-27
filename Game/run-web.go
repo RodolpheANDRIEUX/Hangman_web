@@ -10,31 +10,40 @@ import (
 
 const file = "words.txt"
 
+var data Hangman.GameData
+
+func MainMenu(w http.ResponseWriter, r *http.Request) {
+	RenderTemplate(w, "MainMenu")
+}
+
 func PathHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 	case "/hangman":
 		LaunchGame(w, r)
 	case "/login": // make a login page here
 	case "/loginSubmit": // make a submit log page here
-	case "/mainMenu": // make the main menu page here
-	default: // redirect to the login page instead of error
-		http.Redirect(w, r, "login", http.StatusFound)
+	case "/mainMenu":
+		// make the main menu page here
+		MainMenu(w, r)
+	case "/mainMenu-Play":
+		data = Hangman.StartGame(file)
+		http.Redirect(w, r, "hangman", http.StatusFound)
+	default: // redirect to the login page instead of error (currently mainmenu tho)
+		http.Redirect(w, r, "mainMenu", http.StatusFound)
 	}
 }
 
-func RenderTemplate(w http.ResponseWriter, tmpl string, data *Hangman.GameData) {
+func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
-	t, err := template.ParseFiles("./Templates/" + tmpl + ".page.tmpl")
+	t, err := template.ParseFiles("./Templates/" + tmpl + ".html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = t.Execute(w, *data)
+	err = t.Execute(w, data)
 }
 
 func LaunchGame(w http.ResponseWriter, r *http.Request) {
-
-	data := Hangman.StartGame(file)
 
 	replay := r.FormValue("Replay")
 	if replay != "" {
@@ -46,7 +55,7 @@ func LaunchGame(w http.ResponseWriter, r *http.Request) {
 		data = DisplayMessage(&data, guess)
 	}
 
-	RenderTemplate(w, "game", &data)
+	RenderTemplate(w, "game")
 }
 
 func DisplayMessage(data *Hangman.GameData, input string) Hangman.GameData {
