@@ -43,7 +43,7 @@ func LaunchGame(w http.ResponseWriter, r *http.Request) {
 
 	guess := r.FormValue("Letter")
 	if guess != "" {
-		data = HangMan(&data, guess)
+		data = DisplayMessage(&data, guess)
 	}
 
 	RenderTemplate(w, "game", &data)
