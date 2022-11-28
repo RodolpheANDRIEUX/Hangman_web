@@ -5,6 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="/Assets/Css/game.page.css">
     <title>Hangman</title>
 </head>
 <body>
@@ -29,7 +31,7 @@
             {{ if eq .State "lost" "won" }}
             <input type="submit" name="Replay" value="Play Again ?" />
             {{ else }}
-            <input class="form-hangman-input" name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+            <input class="form-hangman-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
             <input type="submit" name="Submit" value="Validate 👌" />
             {{ end }}
         </form>
@@ -38,76 +40,38 @@
     <div class="column">
         <div class="hangman_state">
             {{ if eq .Attempts 1 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-01.png?v=1668981634" alt="hangman-1">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_1.png" alt="hangman-1">
             {{end}}
             {{ if eq .Attempts 2 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-02.png?v=1668981634" alt="hangman-2">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_2.png" alt="hangman-2">
             {{end}}
             {{ if eq .Attempts 3 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-03.png?v=1668981634" alt="hangman-3">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_3.png" alt="hangman-3">
             {{end}}
             {{ if eq .Attempts 4 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-04.png?v=1668981634" alt="hangman-4">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_4.png" alt="hangman-4">
             {{end}}
             {{ if eq .Attempts 5 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-05.png?v=1668981634" alt="hangman-5">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_5.png" alt="hangman-5">
             {{end}}
             {{ if eq .Attempts 6 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-06.png?v=1668981634" alt="hangman-6">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_6.png" alt="hangman-6">
             {{end}}
             {{ if eq .Attempts 7 }}
-            <img src="https://cdn.shopify.com/s/files/1/0555/5296/6964/files/Hangman-07.png?v=1668981634" alt="hangman-7">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_7.png" alt="hangman-7">
             {{end}}
             {{ if eq .Attempts 8 }}
-            <img src="../Assets/Hangman_images/Hangman-01.png" alt="hangman-1">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_8.png" alt="hangman-8">
             {{end}}
             {{ if eq .Attempts 9 }}
-            <img src="../Assets/Hangman_images/Hangman-01.png" alt="hangman-1">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_9.png" alt="hangman-9">
             {{end}}
             {{ if eq .Attempts 10 }}
-            <img src="../Assets/Hangman_images/Hangman-01.png" alt="hangman-1">
+            <img src="/Assets/Hangman_images/hangman%20dessin/state_10.png" alt="hangman-10">
             {{end}}
-
         </div>
     </div>
 </div>
-
-<style>
-
-    #error_text{
-        color: red;
-    }
-
-    #hangman_word{
-        letter-spacing: 10px;
-    }
-
-    #success_text{
-        color: green;
-    }
-
-    .container{
-        height: 100vh;
-        display: flex;
-        max-width: 1000px;
-        align-items: center;
-        margin: auto;
-    }
-
-    .column{
-        width: 33%;
-        margin: 0 20px;
-        background: darkgray;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .hangman_state img{
-        max-width: 200px;
-    }
-
-
-</style>
 
 
 </body>

@@ -63,7 +63,7 @@ func DisplayMessage(data *Hangman.GameData, input string) Hangman.GameData {
 
 	*data = Hangman.IntputTesting(input, *data)
 
-	if data.Attempts == 9 {
+	if data.Attempts >= 9 {
 		data.Error = fmt.Sprintf("Sorry, you loose!, word was: %s", data.ToFind)
 		data.State = "lost"
 	}
