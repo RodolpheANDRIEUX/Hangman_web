@@ -26,13 +26,13 @@ func Difficulty(r *http.Request) {
 	case "easy":
 		data = Hangman.StartGame(EASY)
 		data.Difficulty = EASY
-	case "?difficulty=medium":
+	case "medium":
 		data = Hangman.StartGame(MEDIUM)
 		data.Difficulty = MEDIUM
-	case "?difficulty=hard":
+	case "hard":
 		data = Hangman.StartGame(HARD)
 		data.Difficulty = HARD
-	case "?difficulty=impossible":
+	case "impossible":
 		data = Hangman.StartGame(IMPOSSIBLE)
 		data.Difficulty = IMPOSSIBLE
 	}
