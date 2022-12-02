@@ -1,6 +1,3 @@
-[submodule "hangman-classic"]
-	path = hangman-classic
-	url = https://github.com/RodolpheANDRIEUX/hangman-classic.git
-[submodule "hangman-classic-game"]
-	path = hangman-classic-game
-	url = https://gitlab.com/florian-alb/hangman-classic-game
+[submodule "hangman-classic-for-web"]
+	path = hangman-classic-for-web
+	url = https://ytrack.learn.ynov.com/git/arodolph/hangman-classic-for-web.git

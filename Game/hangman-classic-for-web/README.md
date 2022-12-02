@@ -1,0 +1,1 @@
+hangman classic special version optimized for web use
