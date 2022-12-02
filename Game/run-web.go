@@ -15,7 +15,7 @@ const IMPOSSIBLE = "words3.txt"
 
 var data Hangman.GameData
 
-// MainMenu : We render the Menu template
+// MainMenu : We render the Menu template 1
 func MainMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "MainMenu")
 }
