@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="stylesheet" href="/Assets/Css/game.page.css">
+    <link rel="stylesheet" href="/Assets/Css/hangman_state.page.css">
     <title>Hangman</title>
 </head>
 <body>
@@ -37,39 +38,48 @@
         </form>
     </div>
 
-    <div class="column">
-        <div class="hangman_state">
-            {{ if eq .Attempts 1 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_1.png" alt="hangman-1">
+    <div class="column hangman_state">
+
+
+        <div id="container-hangman">
+            {{ if gt .Attempts 2}}
+            <div class="hangman-item" style="width: 35%; position:relative; left: 8%;">
+                {{ if gt .Attempts 4}}
+                <div id="rope" class="hangman-item">
+                    {{ if gt .Attempts 5}}
+                    <div id="head" class="hangman-item">
+                        {{ if gt .Attempts 6}}
+                        <div id="body" class="hangman-item">
+                            {{ if gt .Attempts 7}}
+                            <div id="arms" class="hangman-item"></div>
+                            {{end}}
+                            {{ if gt .Attempts 8}}
+                            <div class="hangman-item leg" id="leg-left"></div>
+                            {{end}}
+                            {{ if gt .Attempts 9}}
+                            <div class="hangman-item leg" id="leg-right"></div>
+                            {{end}}
+                        </div>
+                        {{end}}
+                    </div>
+                    {{end}}
+                </div>
+                {{end}}
+            </div>
             {{end}}
-            {{ if eq .Attempts 2 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_2.png" alt="hangman-2">
-            {{end}}
-            {{ if eq .Attempts 3 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_3.png" alt="hangman-3">
-            {{end}}
-            {{ if eq .Attempts 4 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_4.png" alt="hangman-4">
-            {{end}}
-            {{ if eq .Attempts 5 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_5.png" alt="hangman-5">
-            {{end}}
-            {{ if eq .Attempts 6 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_6.png" alt="hangman-6">
-            {{end}}
-            {{ if eq .Attempts 7 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_7.png" alt="hangman-7">
-            {{end}}
-            {{ if eq .Attempts 8 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_8.png" alt="hangman-8">
-            {{end}}
-            {{ if eq .Attempts 9 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_9.png" alt="hangman-9">
-            {{end}}
-            {{ if eq .Attempts 10 }}
-            <img src="/Assets/Hangman_images/hangman%20dessin/state_10.png" alt="hangman-10">
+            {{ if gt .Attempts 1}}
+            <div id="trunc" class="hangman-item" style="height: 50vh;width:0px;">
+                {{ if gt .Attempts 3}}
+                <div class="hangman-item" style="transform: rotate(45deg); position:relative; top: -20px; left: 35px;height: 100px;"></div>
+                {{end}}
+            </div>
+            {{ end }}
+            {{ if gt .Attempts 0}}
+            <div id="base" style="width: 50%" class="hangman-item"></div>
             {{end}}
         </div>
+
+
     </div>
 </div>
 

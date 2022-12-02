@@ -28,6 +28,13 @@
 }
 
 .hangman_state img{
-    max-width: 200px;
+    height: 100%;
+    vertical-align: center;
+}
+
+.hangman_state {
+    display: flex;
+    background: darkgray;
+    height: 25%;
 }
 

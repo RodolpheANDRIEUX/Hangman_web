@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	Hangman "hangman-classic/Hangman/Game"
+	Hangman "hangman-web/Game/hangman-classic/Hangman/Game"
 	"os"
 )
 

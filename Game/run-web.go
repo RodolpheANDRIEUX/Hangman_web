@@ -8,12 +8,18 @@ import (
 	"strings"
 )
 
-const file = "words.txt"
+const EASY = "words.txt"
+const MEDIUM = "words2.txt"
+const HARD = "words3.txt"
 
 var data Hangman.GameData
 
 func MainMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "MainMenu")
+}
+
+func Difficulty(w http.ResponseWriter, r *http.Request) {
+	RenderTemplate(w, "difficulty")
 }
 
 func PathHandler(w http.ResponseWriter, r *http.Request) {
@@ -25,9 +31,25 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/mainMenu":
 		// make the main menu page here
 		MainMenu(w, r)
+	case "/difficulty":
+		// make the main menu page here
+		Difficulty(w, r)
+
 	case "/mainMenu-Play":
-		data = Hangman.StartGame(file)
+		http.Redirect(w, r, "difficulty", http.StatusFound)
+
+	case "/play-easy":
+		data = Hangman.StartGame(EASY)
 		http.Redirect(w, r, "hangman", http.StatusFound)
+
+	case "/play-medium":
+		data = Hangman.StartGame(MEDIUM)
+		http.Redirect(w, r, "hangman", http.StatusFound)
+
+	case "/play-hard":
+		data = Hangman.StartGame(HARD)
+		http.Redirect(w, r, "hangman", http.StatusFound)
+
 	default: // redirect to the login page instead of error (currently mainmenu tho)
 		http.Redirect(w, r, "mainMenu", http.StatusFound)
 	}
@@ -47,7 +69,7 @@ func LaunchGame(w http.ResponseWriter, r *http.Request) {
 
 	replay := r.FormValue("Replay")
 	if replay != "" {
-		data = Hangman.StartGame(file)
+		data = Hangman.StartGame(EASY)
 	}
 
 	guess := r.FormValue("Letter")
