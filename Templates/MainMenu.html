@@ -9,10 +9,19 @@
 </head>
 <body>
 <h1>MAIN MENU</h1>
+
 <form action="/mainMenu-Play">
+    <label for="difficulty">Choose a car:</label>
+    <select name="difficulty" id="difficulty" required>
+        <option value="">Choose your difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+        <option value="impossible">Impossible</option>
+    </select>
+    <br><br>
     <input type="submit" value="PLAY">
 </form>
-
 
 
 </body>
