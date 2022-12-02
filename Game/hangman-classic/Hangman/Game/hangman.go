@@ -14,7 +14,7 @@ type GameData struct {
 	Guess            []string // Letters tried
 	HangmanPositions int      // State of Jose
 	Error            string   // Error to display ( for web version )
-	Difficulty       string   // The difficulty of our game
+	Difficulty       string   // The difficulty of our game words
 }
 
 // RevealLetters : return the word with a letter revealed
