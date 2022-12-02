@@ -46,7 +46,8 @@ func IntputTesting(guess string, data GameData) GameData {
 		if strings.Contains(data.ToFind, guess) && !(strings.Contains(data.Word, guess)) {
 			data.State = "goodGuess"
 			data.Guess = append(data.Guess, guess)
-			if WordGuessed(data) {
+			data.Word = RevealLetters(data)
+			if data.ToFind == data.Word {
 				data.State = "won"
 			}
 		}
@@ -72,20 +73,6 @@ func FindLetter(input string, data GameData) GameData {
 		data.State = "goodGuess"
 	}
 	return data
-}
-
-// WordGuessed : Check if we found the word or not
-func WordGuessed(data GameData) bool {
-	count := 0
-	for _, v := range data.Word {
-		if v == 95 {
-			count++
-		}
-	}
-	if count == 0 {
-		return true
-	}
-	return false
 }
 
 // PrintWord : Simply prints spaces between letters

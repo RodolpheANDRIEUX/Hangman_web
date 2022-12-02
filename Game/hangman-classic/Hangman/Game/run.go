@@ -54,7 +54,7 @@ func Run(arg string) {
 			fmt.Println(Green("Good guess !"))
 			Data.Word = RevealLetters(Data)
 			PrintWord(Data.Word)
-			if WordGuessed(Data) {
+			if Data.Word == Data.ToFind {
 				Data.State = "won"
 			}
 		case "alreadyGuessed":

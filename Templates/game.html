@@ -16,7 +16,7 @@
     <div class="column">
         <h1>Hangman Game</h1>
         <h3 id="hangman_word">{{.Word}}</h3>
-        {{ if eq .State "won"}}
+        {{ if eq .State "won" "goodGuess" }}
         <h4 id="success_text">{{.Error}}</h4>
         {{ else }}
         <h4 id="error_text">{{.Error}}</h4>
@@ -39,7 +39,6 @@
     </div>
 
     <div class="column hangman_state">
-
         {{ if eq .Attempts 1 }}
         <img src="/Assets/Hangman_images/hangman%20dessin/state_1.png" alt="hangman-1">
         {{end}}

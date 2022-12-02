@@ -92,11 +92,6 @@ func DisplayMessage(data *Hangman.GameData, input string) Hangman.GameData {
 
 	*data = Hangman.IntputTesting(input, *data)
 
-	if data.Attempts >= 9 {
-		data.Error = fmt.Sprintf("Sorry, you loose!, word was: %s", data.ToFind)
-		data.State = "lost"
-	}
-
 	switch data.State {
 
 	case "won":
@@ -104,12 +99,15 @@ func DisplayMessage(data *Hangman.GameData, input string) Hangman.GameData {
 		data.Error = "GG WP, YOU WON ! YOUR DICK IS ENORME"
 
 	case "goodGuess":
-		data.Word = Hangman.RevealLetters(*data)
 		data.Error = "GG"
 
 	case "badGuess":
 		data.Attempts++
 		data.Error = fmt.Sprintf("Sorry, the letter %s is not in the word. %d attempts lefts", input, 10-data.Attempts)
+		if data.Attempts >= 10 {
+			data.Error = fmt.Sprintf("Sorry, you loose!, word was: %s", data.ToFind)
+			data.State = "lost"
+		}
 
 	case "badWordGuessed":
 		data.Attempts += 2
