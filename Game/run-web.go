@@ -15,10 +15,30 @@ const IMPOSSIBLE = "words3.txt"
 
 var data Hangman.GameData
 
+// MainMenu : We render the Menu template
 func MainMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "MainMenu")
 }
 
+// Difficulty : We chose a difficulty on the menu. Here we start the game with the difficulty chosen
+func Difficulty(r *http.Request) {
+	switch r.FormValue("difficulty") {
+	case "easy":
+		data = Hangman.StartGame(EASY)
+		data.Difficulty = EASY
+	case "?difficulty=medium":
+		data = Hangman.StartGame(MEDIUM)
+		data.Difficulty = MEDIUM
+	case "?difficulty=hard":
+		data = Hangman.StartGame(HARD)
+		data.Difficulty = HARD
+	case "?difficulty=impossible":
+		data = Hangman.StartGame(IMPOSSIBLE)
+		data.Difficulty = IMPOSSIBLE
+	}
+}
+
+// PathHandler : We render a specific template for every path
 func PathHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 	case "/hangman":
@@ -30,22 +50,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		MainMenu(w, r)
 
 	case "/mainMenu-Play":
-
-		switch r.FormValue("difficulty") {
-		case "easy":
-			data = Hangman.StartGame(EASY)
-			data.Difficulty = EASY
-		case "?difficulty=medium":
-			data = Hangman.StartGame(MEDIUM)
-			data.Difficulty = MEDIUM
-		case "?difficulty=hard":
-			data = Hangman.StartGame(HARD)
-			data.Difficulty = HARD
-		case "?difficulty=impossible":
-			data = Hangman.StartGame(IMPOSSIBLE)
-			data.Difficulty = IMPOSSIBLE
-		}
-
+		Difficulty(r)
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	default: // redirect to the login page instead of error (currently mainmenu tho)
@@ -53,6 +58,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// RenderTemplate : helps to render the html templates
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
 	t, err := template.ParseFiles("./Templates/" + tmpl + ".html")
@@ -63,6 +69,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	err = t.Execute(w, data)
 }
 
+// LaunchGame : Game launcher. The function we call to start a new game
 func LaunchGame(w http.ResponseWriter, r *http.Request) {
 
 	replay := r.FormValue("Replay")
@@ -79,6 +86,7 @@ func LaunchGame(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "game")
 }
 
+// DisplayMessage : Basically the game loop with the message displayed to the user
 func DisplayMessage(data *Hangman.GameData, input string) Hangman.GameData {
 	input = strings.ToUpper(input)
 
