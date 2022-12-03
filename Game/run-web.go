@@ -2,7 +2,7 @@ package Game
 
 import (
 	"hangmanWeb/Game/HangmanWeb"
-	"hangmanWeb/Game/hangman-classic-for-web/Functions"
+	hangmanClassic "hangmanWeb/Game/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
 )
@@ -13,7 +13,7 @@ type UserData struct {
 }
 
 type WebData struct {
-	Game         Functions.Game
+	Game         hangmanClassic.Game
 	User         UserData
 	Status       string
 	JoseFilePath string

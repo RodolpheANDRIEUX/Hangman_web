@@ -7,8 +7,6 @@ import (
 	"net/http"
 )
 
-// bonjour
-
 const port = ":8080"
 
 func main() {
