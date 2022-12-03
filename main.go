@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"hangman-web/Game"
+	"hangmanWeb/Game"
 	"log"
 	"net/http"
 )
