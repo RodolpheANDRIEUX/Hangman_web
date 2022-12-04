@@ -2,7 +2,7 @@ package Game
 
 import (
 	"hangmanWeb/Game/HangmanWeb"
-	hangmanClassic "hangmanWeb/Game/hangman-classic-for-web/Functions"
+	HangmanClassic "hangmanWeb/Game/hangmanClassicForWeb/Functions"
 	"html/template"
 	"net/http"
 )
@@ -13,7 +13,7 @@ type UserData struct {
 }
 
 type WebData struct {
-	Game         hangmanClassic.Game
+	Game         HangmanClassic.Game
 	User         UserData
 	Status       string
 	JoseFilePath string
@@ -30,15 +30,19 @@ var data WebData
 // PathHandler : handle every path in a switch
 func PathHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
+
 	case "/hangman":
 		HangmanWeb.LaunchGame(w, r)
-	case "/login": // make a login page here
-	case "/loginSubmit": // make a submit log page here
-	case "/mainMenu":
-		// make the main menu page here
+
+	case "/login": // TODO: make a login page here
+
+	case "/loginSubmit": // TODO: make a submit log page here
+
+	case "/mainMenu": // TODO: make the main menu page here
 		HangmanWeb.MainMenu(w, r)
+
 	case "/mainMenu-Play":
-		// Functions.NewGame("Assets/words/words.txt")
+		HangmanClassic.NewGame("Assets/words/words.txt")
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	default: // redirect to the login page instead of error (currently mainmenu tho)
