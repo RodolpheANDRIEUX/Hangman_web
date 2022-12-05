@@ -16,8 +16,9 @@ type UserData struct {
 type WebData struct {
 	Game         HangmanClassic.Game
 	User         UserData
-	Status       string
+	State        string
 	JoseFilePath string
+	Error        bool
 	Message      string
 }
 
@@ -38,7 +39,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		MainMenu(w, r, &Data)
 
 	case "/mainMenu-Play":
-		HangmanClassic.NewGame("Assets/words/words.txt")
+		HangmanClassic.NewGame(GetWordDifficulty(&Data.User), &Data.Game)
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	default: // redirect to the login page instead of error (currently mainMenu tho)

@@ -15,19 +15,20 @@
 <div class="container">
     <div class="column">
         <h1>Hangman Game</h1>
-        <h3 id="hangman_word">{{.Word}}</h3>
+        <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
         {{ if eq .State "won" "goodGuess" }}
-        <h4 id="success_text">{{.Error}}</h4>
-        {{ else }}
-        <h4 id="error_text">{{.Error}}</h4>
+        <h4 id="success_text">{{.Message}}</h4>
         {{ end }}
     </div>
     <div class="column">
         <p>Letters suggested :
-            {{range .Guess}}
+            {{range .Game.BadGuess}}
             {{.}}
             {{end}}
         </p>
+        {{ if eq .Error true}}
+        <h4 id="error_text">{{.Message}}</h4>
+        {{end}}
         <form action="/hangman" method="POST" class="form-hangman">
             {{ if eq .State "lost" "won" }}
             <input type="submit" name="Replay" value="Play Again ?" />
@@ -39,34 +40,34 @@
     </div>
 
     <div class="column hangman_state">
-        {{ if eq .Attempts 1 }}
+        {{ if eq .Game.Tries 1 }}
         <img src="/Assets/Hangman_images/state_1.png" alt="hangman-1">
         {{end}}
-        {{ if eq .Attempts 2 }}
+        {{ if eq .Game.Tries 2 }}
         <img src="/Assets/Hangman_images/state_2.png" alt="hangman-2">
         {{end}}
-        {{ if eq .Attempts 3 }}
+        {{ if eq .Game.Tries 3 }}
         <img src="/Assets/Hangman_images/state_3.png" alt="hangman-3">
         {{end}}
-        {{ if eq .Attempts 4 }}
+        {{ if eq .Game.Tries 4 }}
         <img src="/Assets/Hangman_images/state_4.png" alt="hangman-4">
         {{end}}
-        {{ if eq .Attempts 5 }}
+        {{ if eq .Game.Tries 5 }}
         <img src="/Assets/Hangman_images/state_5.png" alt="hangman-5">
         {{end}}
-        {{ if eq .Attempts 6 }}
+        {{ if eq .Game.Tries 6 }}
         <img src="/Assets/Hangman_images/state_6.png" alt="hangman-6">
         {{end}}
-        {{ if eq .Attempts 7 }}
+        {{ if eq .Game.Tries 7 }}
         <img src="/Assets/Hangman_images/state_7.png" alt="hangman-7">
         {{end}}
-        {{ if eq .Attempts 8 }}
+        {{ if eq .Game.Tries 8 }}
         <img src="/Assets/Hangman_images/state_8.png" alt="hangman-8">
         {{end}}
-        {{ if eq .Attempts 9 }}
+        {{ if eq .Game.Tries 9 }}
         <img src="/Assets/Hangman_images/state_9.png" alt="hangman-9">
         {{end}}
-        {{ if eq .Attempts 10 }}
+        {{ if eq .Game.Tries 10 }}
         <img src="/Assets/Hangman_images/state_10.png" alt="hangman-10">
         {{end}}
 

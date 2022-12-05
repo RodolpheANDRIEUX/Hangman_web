@@ -14,15 +14,17 @@ func MainMenu(w http.ResponseWriter, r *http.Request, data *WebData) {
 	RenderTemplate(w, "MainMenu")
 }
 
-func GetWordDifficulty(data *WebData) {
-	//switch r.FormValue("difficulty") {
-	//case "easy":
-	//
-	//case "medium":
-	//	data.User.Difficulty = MEDIUM
-	//case "hard":
-	//	data.User.Difficulty = HARD
-	//case "impossible":
-	//	data.User.Difficulty = IMPOSSIBLE
-	//}
+func GetWordDifficulty(user *UserData) string {
+	switch user.Difficulty {
+	case "easy":
+		return "Assets/words/words.txt"
+	case "medium":
+		return "Assets/words/words2.txt"
+	case "hard":
+		return "Assets/words/words3.txt"
+	case "impossible":
+		return "Assets/words/words3.txt"
+	default:
+		return "Assets/words/words.txt"
+	}
 }
