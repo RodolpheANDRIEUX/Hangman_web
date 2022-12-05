@@ -50,7 +50,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 // RenderTemplate : helps to render the html templates
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 
-	t, err := template.ParseFiles("./Templates/" + tmpl + ".html")
+	t, err := template.ParseFiles("./Templates/" + tmpl + ".gohtml")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
