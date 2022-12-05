@@ -1,12 +1,13 @@
 package HangmanWeb
 
 import (
+	"fmt"
 	"net/http"
 )
 
-// LaunchGame : Game launcher. The function we call to start a new game
-func LaunchGame(w http.ResponseWriter, r *http.Request) {
-
+// LaunchGame : HangmanWeb launcher. The function we call to start a new game
+func LaunchGame(w http.ResponseWriter, r *http.Request, data *WebData) {
+	fmt.Fprint(w, data.Game.ToFind)
 	//replay := r.FormValue("Replay")
 	//if replay != "" {
 	//	fmt.Println(data.Difficulty)

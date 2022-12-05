@@ -1,15 +1,16 @@
-package Game
+package HangmanWeb
 
 import (
-	"hangmanWeb/Game/HangmanWeb"
-	HangmanClassic "hangmanWeb/Game/hangmanClassicForWeb/Functions"
+	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
 )
 
 type UserData struct {
-	Name   string
-	Record int
+	Name       string
+	Language   string
+	Difficulty string
+	Record     int
 }
 
 type WebData struct {
@@ -20,32 +21,27 @@ type WebData struct {
 	Message      string
 }
 
-const EASY = "words.txt"
-const MEDIUM = "words2.txt"
-const HARD = "words3.txt"
-const IMPOSSIBLE = "words3.txt"
-
-var data WebData
+var Data WebData
 
 // PathHandler : handle every path in a switch
 func PathHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 
 	case "/hangman":
-		HangmanWeb.LaunchGame(w, r)
+		LaunchGame(w, r, &Data)
 
 	case "/login": // TODO: make a login page here
 
 	case "/loginSubmit": // TODO: make a submit log page here
 
 	case "/mainMenu": // TODO: make the main menu page here
-		HangmanWeb.MainMenu(w, r)
+		MainMenu(w, r, &Data)
 
 	case "/mainMenu-Play":
 		HangmanClassic.NewGame("Assets/words/words.txt")
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
-	default: // redirect to the login page instead of error (currently mainmenu tho)
+	default: // redirect to the login page instead of error (currently mainMenu tho)
 		http.Redirect(w, r, "mainMenu", http.StatusFound)
 	}
 }
@@ -58,5 +54,5 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	err = t.Execute(w, data)
+	err = t.Execute(w, Data)
 }
