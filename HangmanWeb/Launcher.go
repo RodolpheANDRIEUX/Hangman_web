@@ -8,6 +8,9 @@ import (
 // LaunchGame : HangmanWeb launcher. The function we call to start a new game
 func LaunchGame(w http.ResponseWriter, r *http.Request, data *WebData) {
 	fmt.Fprint(w, data.Game.ToFind)
+	for {
+		fmt.Println(data.Game.ToFind)
+	}
 	//replay := r.FormValue("Replay")
 	//if replay != "" {
 	//	fmt.Println(data.Difficulty)
