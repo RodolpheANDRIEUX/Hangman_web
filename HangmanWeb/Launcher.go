@@ -1,7 +1,6 @@
 package HangmanWeb
 
 import (
-	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"net/http"
 	"strings"
@@ -11,11 +10,8 @@ func HandleLetter(guess *string) {
 
 }
 
-func ErrorInLetter(w http.ResponseWriter, guess *string, ptrData *WebData) bool {
+func (ptrData *WebData) ErrorInLetter(guess *string) bool {
 	switch {
-
-	case *guess == "DEVMODE":
-		fmt.Fprintf(w, ptrData.Game.ToFind)
 
 	case !HangmanClassic.IsAlpha(*guess):
 		ptrData.Error = true
@@ -37,17 +33,17 @@ func ErrorInLetter(w http.ResponseWriter, guess *string, ptrData *WebData) bool 
 	return false
 }
 
-// LaunchGame : HangmanWeb launcher. The function we call to start a new game
-func LaunchGame(w http.ResponseWriter, r *http.Request, data *WebData) {
+// LaunchGame : HangmanWeb launcher. The method we call to start the game
+func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 	replay := r.FormValue("Replay")
 	if replay != "" {
-		HangmanClassic.NewGame(GetWordDifficulty(&Data.User), &Data.Game)
+		HangmanClassic.NewGame(Data.User.GetWordDifficulty(), &Data.Game)
 	}
 
 	guess := r.FormValue("Letter")
 	if guess != "" {
 		guess = strings.ToUpper(guess)
-		if !ErrorInLetter(w, &guess, &Data) {
+		if !Data.ErrorInLetter(&guess) {
 			HandleLetter(&guess)
 		}
 	}

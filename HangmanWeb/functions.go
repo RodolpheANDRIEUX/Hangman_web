@@ -10,11 +10,11 @@ import (
 //const IMPOSSIBLE = "words3.txt"
 
 // MainMenu : We render the Menu template 1
-func MainMenu(w http.ResponseWriter, r *http.Request, data *WebData) {
+func (ptrData *WebData) MainMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "MainMenu")
 }
 
-func GetWordDifficulty(user *UserData) string {
+func (user *UserData) GetWordDifficulty() string {
 	switch user.Difficulty {
 	case "easy":
 		return "Assets/words/words.txt"

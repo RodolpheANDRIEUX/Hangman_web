@@ -29,17 +29,17 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 
 	case "/hangman":
-		LaunchGame(w, r, &Data)
+		Data.LaunchGame(w, r)
 
 	case "/login": // TODO: make a login page here
 
 	case "/loginSubmit": // TODO: make a submit log page here
 
 	case "/mainMenu": // TODO: make the main menu page here
-		MainMenu(w, r, &Data)
+		Data.MainMenu(w, r)
 
 	case "/mainMenu-Play":
-		HangmanClassic.NewGame(GetWordDifficulty(&Data.User), &Data.Game)
+		HangmanClassic.NewGame(Data.User.GetWordDifficulty(), &Data.Game)
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	default: // redirect to the login page instead of error (currently mainMenu tho)
