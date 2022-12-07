@@ -1,0 +1,70 @@
+html {
+    background: #303030 url("/Assets/Hangman_images/BGForest.jpg") no-repeat center bottom fixed;
+    background-size: cover;
+}
+
+#HangmanTitle {
+    color: #aa0000;
+    text-align: center;
+    font-size: 80px;
+    margin-bottom: 10vh;
+}
+
+#MainMenuTitle{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10vh;
+}
+
+#difficultyForm {
+    text-align: center;
+}
+
+#difficultySelectors {
+    background-color: #50505080;
+    backdrop-filter: blur(8px);
+    color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CustomButton{
+    font-size: 30px;
+    cursor: pointer;
+    margin: 30px;
+    display: flex;
+    transition: .5s;
+}
+
+.CustomButton:hover {
+    text-decoration-line: underline;
+    scale: 1.2;
+}
+
+.HitboxCircle:checked ~ .difficulty {
+    color: #aa0000;
+}
+
+.HitboxCircle{
+    display: none;
+}
+
+#MenuPlay:hover {
+    background-color: #20202040;
+    scale: 1.1;
+}
+
+#MenuPlay{
+    width: 150px;
+    height: 70px;
+    background-color: #50505040;
+    backdrop-filter: blur(4px);
+    color: white;
+    border-radius: 30px;
+    font-size: 30px;
+    margin: 20px;
+    cursor: pointer;
+    transition: .5s;
+}

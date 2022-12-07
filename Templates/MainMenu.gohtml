@@ -5,22 +5,31 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/Assets/Css/MainMenu.css">
     <title>Hangman</title>
 </head>
 <body>
-<h1>MAIN MENU</h1>
+<div id="HangmanTitle">HANGMAN</div>
+<div id="MainMenuTitle">MAIN MENU</div>
 
-<form action="/mainMenu-Play">
-    <label for="difficulty">Choose a difficulty:</label>
-    <select name="difficulty" id="difficulty" required>
-        <option value="">Choose your difficulty</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-        <option value="impossible">Impossible</option>
-    </select>
-    <br><br>
-    <input type="submit" value="PLAY">
+<form id="difficultyForm" action="/mainMenu-Play" method="post">
+    <div id="difficultySelectors">
+    <label class="CustomButton" for="easy">
+        <input class="HitboxCircle" type="radio" id="easy" name="difficulty" value="easy">
+        <span class="difficulty">Easy</span>
+    </label>
+
+    <label class="CustomButton" for="medium">
+        <input class="HitboxCircle" type="radio" id="medium" name="difficulty" value="medium">
+        <span class="difficulty">Medium</span>
+    </label>
+
+    <label class="CustomButton" for="hard">
+        <input class="HitboxCircle" type="radio" id="hard" name="difficulty" value="hard">
+        <span class="difficulty">Hard</span>
+    </label>
+    </div>
+    <input id="MenuPlay" type="submit" value="PLAY">
 </form>
 
 

@@ -6,9 +6,17 @@ import (
 	"strings"
 )
 
-// MainMenu : We render the Menu template 1
+// MainMenu : We render the Menu template
 func (ptrData *WebData) MainMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "MainMenu")
+}
+
+func (ptrData *WebData) menuPlay(w http.ResponseWriter, r *http.Request) {
+
+	difficulty := r.FormValue("difficulty")
+	if difficulty != "" {
+		ptrData.User.Difficulty = difficulty
+	}
 }
 
 // LaunchGame : HangmanWeb launcher. The method we call to start the game
@@ -25,7 +33,7 @@ func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 		if !ptrData.ErrorInLetter(&guess) {
 			ptrData.HandleLetter(&guess)
 			//if ptrData.State == "won" || ptrData.State == "lost" {
-			//	http.Redirect(w, r, "gameMenu", http.StatusFound)
+			//	http.Redirect(w, r, "gameMenu.gohtml", http.StatusFound)
 			//}
 		}
 	}
@@ -33,5 +41,5 @@ func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 }
 
 func (ptrData *WebData) gameMenu(w http.ResponseWriter, r *http.Request) {
-	RenderTemplate(w, "gameMenu")
+	RenderTemplate(w, "gameMenu.gohtml")
 }
