@@ -1,7 +1,6 @@
 package HangmanWeb
 
 import (
-	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"net/http"
 	"strings"
 )
@@ -21,25 +20,20 @@ func (ptrData *WebData) menuPlay(w http.ResponseWriter, r *http.Request) {
 
 // LaunchGame : HangmanWeb launcher. The method we call to start the game
 func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
-	replay := r.FormValue("Replay")
-	if replay != "" {
-		ptrData.Reset()
-		HangmanClassic.NewGame(ptrData.User.GetWordDifficulty(), &ptrData.Game)
-	}
-
 	guess := r.FormValue("Letter")
 	if guess != "" {
 		guess = strings.ToUpper(guess)
 		if !ptrData.ErrorInLetter(&guess) {
 			ptrData.HandleLetter(&guess)
-			//if ptrData.State == "won" || ptrData.State == "lost" {
-			//	http.Redirect(w, r, "gameMenu.gohtml", http.StatusFound)
-			//}
+			if ptrData.State == "WIN" || ptrData.State == "LOST" {
+				ptrData.UpdateScore()
+				http.Redirect(w, r, "gameMenu", http.StatusFound)
+			}
 		}
 	}
 	RenderTemplate(w, "game")
 }
 
 func (ptrData *WebData) gameMenu(w http.ResponseWriter, r *http.Request) {
-	RenderTemplate(w, "gameMenu.gohtml")
+	RenderTemplate(w, "gameMenu")
 }

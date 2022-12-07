@@ -13,7 +13,7 @@ func (ptrData *WebData) Reset() {
 
 func (ptrData *WebData) CheckTries() {
 	if ptrData.Game.Tries >= 10 {
-		ptrData.State = "lost"
+		ptrData.State = "LOST"
 	}
 }
 
@@ -21,7 +21,7 @@ func (ptrData *WebData) HandleLetter(guess *string) {
 	if len(*guess) > 1 {
 		if *guess == ptrData.Game.ToFind {
 			ptrData.Game.WordDisplayed = ptrData.Game.ToFind
-			ptrData.State = "won"
+			ptrData.State = "WIN"
 		} else {
 			ptrData.Game.Tries += 2
 			ptrData.CheckTries()
@@ -37,7 +37,7 @@ func (ptrData *WebData) HandleLetter(guess *string) {
 	ptrData.Game.GoodGuess = append(ptrData.Game.GoodGuess, *guess)
 	HangmanClassic.UpdateWordDisplayed(&ptrData.Game)
 	if ptrData.Game.WordDisplayed == ptrData.Game.ToFind {
-		ptrData.State = "won"
+		ptrData.State = "WIN"
 	}
 }
 
@@ -76,5 +76,18 @@ func (user *UserData) GetWordDifficulty() string {
 		return "Assets/words/words3.txt"
 	default:
 		return "Assets/words/words.txt"
+	}
+}
+
+func (ptrData *WebData) UpdateScore() {
+	if ptrData.State == "WIN" {
+		switch ptrData.User.Difficulty {
+		case "easy":
+			ptrData.User.Record++
+		case "medium":
+			ptrData.User.Record += 2
+		case "hard":
+			ptrData.User.Record += 3
+		}
 	}
 }

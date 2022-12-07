@@ -3,7 +3,7 @@ html {
     background-size: cover;
 }
 
-#HangmanTitle {
+.HangmanTitle {
     color: #aa0000;
     text-align: center;
     font-size: 80px;
@@ -51,20 +51,20 @@ html {
     display: none;
 }
 
-#MenuPlay:hover {
+.MenuPlay:hover {
     background-color: #20202040;
     scale: 1.1;
 }
 
-#MenuPlay{
-    width: 150px;
-    height: 70px;
+.MenuPlay{
+    padding: 15px 40px 15px 40px;
     background-color: #50505040;
     backdrop-filter: blur(4px);
     color: white;
     border-radius: 30px;
     font-size: 30px;
-    margin: 20px;
+    margin: 20px auto auto;
     cursor: pointer;
     transition: .5s;
+    display: flex;
 }
