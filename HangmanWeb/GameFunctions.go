@@ -5,18 +5,21 @@ import (
 	"strings"
 )
 
+// Reset : Simply reset the game if we click on replay
 func (ptrData *WebData) Reset() {
 	ptrData.State = "InGame"
 	ptrData.Error = false
 	ptrData.Message = ""
 }
 
+// CheckTries : Check if the game is lost
 func (ptrData *WebData) CheckTries() {
 	if ptrData.Game.Tries >= 10 {
 		ptrData.State = "LOST"
 	}
 }
 
+// HandleLetter : Our game loop. We deal with our guess
 func (ptrData *WebData) HandleLetter(guess *string) {
 	if len(*guess) > 1 {
 		if *guess == ptrData.Game.ToFind {
@@ -41,6 +44,7 @@ func (ptrData *WebData) HandleLetter(guess *string) {
 	}
 }
 
+// ErrorInLetter : Check if the input is valid or not
 func (ptrData *WebData) ErrorInLetter(guess *string) bool {
 	switch {
 
@@ -64,6 +68,7 @@ func (ptrData *WebData) ErrorInLetter(guess *string) bool {
 	return false
 }
 
+// GetWordDifficulty : Assign a file for each difficulty chosen
 func (user *UserData) GetWordDifficulty() string {
 	switch user.Difficulty {
 	case "easy":
@@ -79,6 +84,7 @@ func (user *UserData) GetWordDifficulty() string {
 	}
 }
 
+// UpdateScore : Update the player score for each difficulty chosen
 func (ptrData *WebData) UpdateScore() {
 	if ptrData.State == "WIN" {
 		switch ptrData.User.Difficulty {

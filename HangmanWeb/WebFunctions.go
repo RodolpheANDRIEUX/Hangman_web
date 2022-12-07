@@ -34,6 +34,7 @@ func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "game")
 }
 
+// gameMenu : We render the Game Menu template with difficulty
 func (ptrData *WebData) gameMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "gameMenu")
 }
