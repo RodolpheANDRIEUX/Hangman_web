@@ -7,7 +7,8 @@ import (
 )
 
 type UserData struct {
-	Name       string
+	Username   string
+	Password   string
 	Language   string
 	Difficulty string
 	Record     int
