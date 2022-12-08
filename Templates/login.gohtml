@@ -9,5 +9,22 @@
 </head>
 
 <body>
+<h1>Signup</h1>
+
+<form action="/login-Submit" method="get" class="form-example">
+    <div class="form-example">
+        <label for="name">Username: </label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div class="form-example">
+        <label for="email">Password: </label>
+        <input type="password" name="password" id="email" required minlength="6">
+    </div>
+    <div class="form-example">
+        <input type="submit" value="Sign Up!">
+    </div>
+</form>
+
+{{.Message}}
 
 </body>

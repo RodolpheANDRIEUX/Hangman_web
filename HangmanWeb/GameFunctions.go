@@ -69,8 +69,8 @@ func (ptrData *WebData) ErrorInLetter(guess *string) bool {
 }
 
 // GetWordDifficulty : Assign a file for each difficulty chosen
-func (user *UserData) GetWordDifficulty() string {
-	switch user.Difficulty {
+func (ptrData *WebData) GetWordDifficulty() string {
+	switch ptrData.Difficulty {
 	case "easy":
 		return "Assets/words/words.txt"
 	case "medium":
@@ -87,7 +87,7 @@ func (user *UserData) GetWordDifficulty() string {
 // UpdateScore : Update the player score for each difficulty chosen
 func (ptrData *WebData) UpdateScore() {
 	if ptrData.State == "WIN" {
-		switch ptrData.User.Difficulty {
+		switch ptrData.Difficulty {
 		case "easy":
 			ptrData.User.Record++
 		case "medium":

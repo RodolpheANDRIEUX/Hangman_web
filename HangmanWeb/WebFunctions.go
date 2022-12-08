@@ -10,11 +10,15 @@ func (ptrData *WebData) MainMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "MainMenu")
 }
 
+func (ptrData *WebData) Login(w http.ResponseWriter, r *http.Request) {
+	RenderTemplate(w, "login")
+}
+
 func (ptrData *WebData) menuPlay(w http.ResponseWriter, r *http.Request) {
 
 	difficulty := r.FormValue("difficulty")
 	if difficulty != "" {
-		ptrData.User.Difficulty = difficulty
+		ptrData.Difficulty = difficulty
 	}
 }
 
