@@ -9,6 +9,8 @@ import (
 	"strings"
 )
 
+var UsersData = make(map[string]*UserData)
+
 func CheckUsernameAvailability(r *http.Request) bool {
 	Data.Message = ""
 	UserFile, err := os.ReadFile("Saves/users.json")
@@ -28,28 +30,11 @@ func (ptrData *WebData) HandleUser(r *http.Request) {
 	ptrData.User.Language = r.Header.Get("Accept-Language")[:2]
 }
 
-func MarshallUser() {
-	NewUser, err := json.MarshalIndent(Data.User, "", "\t")
-	UserFile, err := os.OpenFile("Saves/users.json", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer UserFile.Close()
-	n, err := UserFile.Write(NewUser)
-	if err != nil {
-		fmt.Println(n, err)
-	}
-	if n, err = UserFile.WriteString("\n"); err != nil {
-		fmt.Println(n, err)
-	}
-}
-
-func SaveUser(UsersData map[string]*UserData) {
+func MarshalUser(UsersData map[string]*UserData) {
 	/*
 		Save the score into the database.
 	*/
-	encoded, err := json.Marshal(UsersData)
+	encoded, err := json.MarshalIndent(UsersData, "", "\t")
 	if err == nil {
 		ioutil.WriteFile("Saves/users.json", encoded, 0777)
 	} else {
@@ -72,5 +57,11 @@ func AddUser(r *http.Request) {
 	LoadDB(UsersData)
 	Data.HandleUser(r)
 	UsersData[Data.User.Username] = &Data.User
-	SaveUser(UsersData)
+	MarshalUser(UsersData)
+}
+
+func UpdateDatabase(userName string) {
+	LoadDB(UsersData)
+	UsersData[Data.User.Username] = &Data.User
+	MarshalUser(UsersData)
 }

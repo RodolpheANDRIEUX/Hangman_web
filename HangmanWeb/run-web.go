@@ -22,8 +22,6 @@ type WebData struct {
 	Difficulty string
 }
 
-var UsersData = make(map[string]*UserData)
-
 var Data WebData
 
 // PathHandler : handle every path in a switch

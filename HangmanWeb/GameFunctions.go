@@ -96,4 +96,5 @@ func (ptrData *WebData) UpdateScore() {
 			ptrData.User.Score += 3
 		}
 	}
+	UpdateDatabase(ptrData.User.Username)
 }

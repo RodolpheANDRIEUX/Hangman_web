@@ -1,1 +1,14 @@
-{"caca":{"user_id":"caca","password":"gfgfgfgfg","locale":"fr","score":0},"pipi":{"user_id":"pipi","password":"agagaga","locale":"fr","score":0}}
+{
+	"flo": {
+		"user_id": "flo",
+		"password": "dededede",
+		"locale": "fr",
+		"score": 0
+	},
+	"laura": {
+		"user_id": "laura",
+		"password": "laura21",
+		"locale": "fr",
+		"score": 3
+	}
+}
