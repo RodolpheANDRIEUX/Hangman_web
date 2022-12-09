@@ -1,14 +1,20 @@
 {
-	"flo": {
-		"user_id": "flo",
-		"password": "dededede",
+	"caca": {
+		"user_id": "caca",
+		"password": "defrgt",
+		"locale": "fr",
+		"score": 1
+	},
+	"florian_a31": {
+		"user_id": "florian_a31",
+		"password": "testest",
+		"locale": "fr",
+		"score": 2
+	},
+	"pipi": {
+		"user_id": "pipi",
+		"password": "defrgt",
 		"locale": "fr",
 		"score": 0
-	},
-	"laura": {
-		"user_id": "laura",
-		"password": "laura21",
-		"locale": "fr",
-		"score": 3
 	}
 }

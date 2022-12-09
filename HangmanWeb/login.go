@@ -28,6 +28,7 @@ func (ptrData *WebData) HandleUser(r *http.Request) {
 	ptrData.User.Username = r.FormValue("username")
 	ptrData.User.Password = r.FormValue("password")
 	ptrData.User.Language = r.Header.Get("Accept-Language")[:2]
+	ptrData.User.Score = 0
 }
 
 func MarshalUser(UsersData map[string]*UserData) {
@@ -42,7 +43,7 @@ func MarshalUser(UsersData map[string]*UserData) {
 	}
 }
 
-func LoadDB(UsersData map[string]*UserData) {
+func UnmarshalDataBase(UsersData map[string]*UserData) {
 	/*
 		Load the scores from the database.
 	*/
@@ -53,15 +54,28 @@ func LoadDB(UsersData map[string]*UserData) {
 	}
 }
 
-func AddUser(r *http.Request) {
-	LoadDB(UsersData)
-	Data.HandleUser(r)
-	UsersData[Data.User.Username] = &Data.User
-	MarshalUser(UsersData)
+func SucessfulLogin(r *http.Request) bool {
+	UserFile, err := os.ReadFile("Saves/users.json")
+	if err != nil {
+		fmt.Println(err)
+	}
+	if (strings.Contains(string(UserFile), r.FormValue("username"))) && (strings.Contains(string(UserFile), r.FormValue("password"))) {
+		return true
+	}
+	Data.Message = "Wrong username of password"
+	return false
 }
 
-func UpdateDatabase(userName string) {
-	LoadDB(UsersData)
+func (ptrData *WebData) LoadUser(user string) {
+	UnmarshalDataBase(UsersData)
+	ptrData.User = *UsersData[user]
+}
+
+func UpdateDatabase(r *http.Request) {
+	UnmarshalDataBase(UsersData)
+	if r != nil {
+		Data.HandleUser(r)
+	}
 	UsersData[Data.User.Username] = &Data.User
 	MarshalUser(UsersData)
 }

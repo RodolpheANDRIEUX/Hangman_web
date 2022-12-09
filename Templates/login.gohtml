@@ -9,22 +9,44 @@
 </head>
 
 <body>
-<h1>Signup</h1>
+<div class="column" id="singup">
+    <h2>Signup</h2>
 
-<form action="/login-Submit" method="get" class="form-example">
-    <div class="form-example">
-        <label for="name">Username: </label>
-        <input type="text" name="username" id="username" required>
-    </div>
-    <div class="form-example">
-        <label for="email">Password: </label>
-        <input type="password" name="password" id="email" required minlength="6">
-    </div>
-    <div class="form-example">
-        <input type="submit" value="Sign Up!">
-    </div>
-</form>
+    <form action="/sign-up" method="get" class="form-example">
+        <div class="form-example">
+            <label for="name">Username: </label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="form-example">
+            <label for="email">Password: </label>
+            <input type="password" name="password" id="email" required minlength="6">
+        </div>
+        <div class="form-example">
+            <input type="submit" value="Sign Up">
+        </div>
+    </form>
 
-{{.Message}}
+    {{.Message}}
+</div>
+<div class="column" id="login">
+    <h2>Login</h2>
+
+    <form action="/log-in" method="get" class="form-example">
+        <div class="form-example">
+            <label for="name">Username: </label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="form-example">
+            <label for="email">Password: </label>
+            <input type="password" name="password" id="email" required minlength="6">
+        </div>
+        <div class="form-example">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+
+    {{.Message}}
+</div>
+
 
 </body>
