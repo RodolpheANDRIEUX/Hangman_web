@@ -11,6 +11,7 @@ import (
 
 var UsersData = make(map[string]*UserData)
 
+// CheckUsernameAvailability : All username must be unique or non nil. This function make sure of this
 func CheckUsernameAvailability(r *http.Request) bool {
 	Data.Message = ""
 	UserFile, err := os.ReadFile("Saves/users.json")
@@ -20,10 +21,14 @@ func CheckUsernameAvailability(r *http.Request) bool {
 	if strings.Contains(string(UserFile), r.FormValue("username")) {
 		Data.Message = "This username is already taken"
 		return false
+	} else if (r.FormValue("username")) == "" {
+		Data.Message = "Username cannot be blank"
+		return false
 	}
 	return true
 }
 
+// HandleUser : We update the Structure with the values of the signup form
 func (ptrData *WebData) HandleUser(r *http.Request) {
 	ptrData.User.Username = r.FormValue("username")
 	ptrData.User.Password = r.FormValue("password")
@@ -31,10 +36,8 @@ func (ptrData *WebData) HandleUser(r *http.Request) {
 	ptrData.User.Score = 0
 }
 
+// MarshalUser : We save the User information into the database.
 func MarshalUser(UsersData map[string]*UserData) {
-	/*
-		Save the score into the database.
-	*/
 	encoded, err := json.MarshalIndent(UsersData, "", "\t")
 	if err == nil {
 		ioutil.WriteFile("Saves/users.json", encoded, 0777)
@@ -43,10 +46,8 @@ func MarshalUser(UsersData map[string]*UserData) {
 	}
 }
 
+// UnmarshalDataBase : We load the database.
 func UnmarshalDataBase(UsersData map[string]*UserData) {
-	/*
-		Load the scores from the database.
-	*/
 	data, _ := ioutil.ReadFile("Saves/users.json")
 	dele := json.Unmarshal(data, &UsersData)
 	if dele != nil {
@@ -54,7 +55,8 @@ func UnmarshalDataBase(UsersData map[string]*UserData) {
 	}
 }
 
-func SucessfulLogin(r *http.Request) bool {
+// SuccessfulLogin : Check if the combination login-password is good
+func SuccessfulLogin(r *http.Request) bool {
 	UserFile, err := os.ReadFile("Saves/users.json")
 	if err != nil {
 		fmt.Println(err)
@@ -62,15 +64,17 @@ func SucessfulLogin(r *http.Request) bool {
 	if (strings.Contains(string(UserFile), r.FormValue("username"))) && (strings.Contains(string(UserFile), r.FormValue("password"))) {
 		return true
 	}
-	Data.Message = "Wrong username of password"
+	Data.Message = "Wrong username or password"
 	return false
 }
 
+// LoadUser : We update the user infos after log in
 func (ptrData *WebData) LoadUser(user string) {
 	UnmarshalDataBase(UsersData)
 	ptrData.User = *UsersData[user]
 }
 
+// UpdateDatabase : We simply update the database with de Data we have
 func UpdateDatabase(r *http.Request) {
 	UnmarshalDataBase(UsersData)
 	if r != nil {

@@ -1,19 +1,19 @@
 {
 	"caca": {
 		"user_id": "caca",
-		"password": "defrgt",
+		"password": "azertyuiop",
 		"locale": "fr",
-		"score": 1
+		"score": 5
 	},
-	"florian_a31": {
-		"user_id": "florian_a31",
-		"password": "testest",
+	"laura": {
+		"user_id": "laura",
+		"password": "pipidu31",
 		"locale": "fr",
-		"score": 2
+		"score": 3
 	},
-	"pipi": {
-		"user_id": "pipi",
-		"password": "defrgt",
+	"pitre": {
+		"user_id": "pitre",
+		"password": "azerty",
 		"locale": "fr",
 		"score": 0
 	}
