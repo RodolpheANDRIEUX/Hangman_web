@@ -7,10 +7,10 @@ import (
 )
 
 type UserData struct {
-	Username string
-	Password string
-	Language string
-	Score    int
+	Username string `json:"user_id"`
+	Password string `json:"password"`
+	Language string `json:"locale"`
+	Score    int    `json:"score"`
 }
 
 type WebData struct {
@@ -21,6 +21,8 @@ type WebData struct {
 	Message    string
 	Difficulty string
 }
+
+var UsersData = make(map[string]*UserData)
 
 var Data WebData
 

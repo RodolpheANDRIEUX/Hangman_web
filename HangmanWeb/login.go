@@ -3,6 +3,7 @@ package HangmanWeb
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strings"
@@ -28,7 +29,7 @@ func (ptrData *WebData) HandleUser(r *http.Request) {
 }
 
 func MarshallUser() {
-	NewUser, err := json.Marshal(Data.User)
+	NewUser, err := json.MarshalIndent(Data.User, "", "\t")
 	UserFile, err := os.OpenFile("Saves/users.json", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		fmt.Println(err)
@@ -44,7 +45,32 @@ func MarshallUser() {
 	}
 }
 
+func SaveUser(UsersData map[string]*UserData) {
+	/*
+		Save the score into the database.
+	*/
+	encoded, err := json.Marshal(UsersData)
+	if err == nil {
+		ioutil.WriteFile("Saves/users.json", encoded, 0777)
+	} else {
+		fmt.Println(err)
+	}
+}
+
+func LoadDB(UsersData map[string]*UserData) {
+	/*
+		Load the scores from the database.
+	*/
+	data, _ := ioutil.ReadFile("Saves/users.json")
+	dele := json.Unmarshal(data, &UsersData)
+	if dele != nil {
+		fmt.Println(dele)
+	}
+}
+
 func AddUser(r *http.Request) {
+	LoadDB(UsersData)
 	Data.HandleUser(r)
-	MarshallUser()
+	UsersData[Data.User.Username] = &Data.User
+	SaveUser(UsersData)
 }
