@@ -10,7 +10,7 @@ type UserData struct {
 	Username string
 	Password string
 	Language string
-	Record   int
+	Score    int
 }
 
 type WebData struct {

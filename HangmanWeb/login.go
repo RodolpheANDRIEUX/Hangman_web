@@ -29,19 +29,16 @@ func (ptrData *WebData) HandleUser(r *http.Request) {
 
 func MarshallUser() {
 	NewUser, err := json.Marshal(Data.User)
-
 	UserFile, err := os.OpenFile("Saves/users.json", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 	defer UserFile.Close()
-
 	n, err := UserFile.Write(NewUser)
 	if err != nil {
 		fmt.Println(n, err)
 	}
-
 	if n, err = UserFile.WriteString("\n"); err != nil {
 		fmt.Println(n, err)
 	}

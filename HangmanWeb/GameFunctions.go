@@ -89,11 +89,11 @@ func (ptrData *WebData) UpdateScore() {
 	if ptrData.State == "WIN" {
 		switch ptrData.Difficulty {
 		case "easy":
-			ptrData.User.Record++
+			ptrData.User.Score++
 		case "medium":
-			ptrData.User.Record += 2
+			ptrData.User.Score += 2
 		case "hard":
-			ptrData.User.Record += 3
+			ptrData.User.Score += 3
 		}
 	}
 }
