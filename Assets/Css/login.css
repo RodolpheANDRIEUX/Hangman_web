@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'druktextwide-med';
+    src: url("https://cdn.shopify.com/s/files/1/0502/2331/7176/files/Druk-Wide-Medium.woff?v=1623343764") format("woff");
+}
+
+.title{
+    font-size: 5em;
+    position: absolute;
+    top : 20%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+body{
+    background-color: black;
+    color : white;
+    font-family: "druktextwide-med";
+}
+
+.user_login_signup{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_form {
+    margin: 30px;
+    flex-direction: row;
+}
+
+/* ------------------------------------- */
+
