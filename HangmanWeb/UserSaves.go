@@ -3,6 +3,7 @@ package HangmanWeb
 import (
 	"encoding/json"
 	"fmt"
+	"golang.org/x/crypto/bcrypt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -28,11 +29,19 @@ func CheckUsernameAvailability(r *http.Request) bool {
 	return true
 }
 
+// GetPasswordHash : Wash the password using bcrypt package
+func GetPasswordHash(password string) ([]byte, error) {
+	hash, err := bcrypt.GenerateFromPassword([]byte(password), 0)
+	if err != nil {
+		return []byte(nil), err
+	}
+	return hash, nil
+}
+
 // HandleUser : We update the Structure with the values of the signup form
 func (ptrData *WebData) HandleUser(r *http.Request) {
-
 	ptrData.User.Username = r.FormValue("username")
-	ptrData.User.Password = r.FormValue("password")
+	ptrData.User.Password, _ = GetPasswordHash(r.FormValue("password"))
 	ptrData.User.Language = r.Header.Get("Accept-Language")[:2]
 	ptrData.User.Score = 0
 }
@@ -58,12 +67,13 @@ func UnmarshalDataBase(UsersData map[string]*UserData) {
 
 // SuccessfulLogin : Check if the combination login-password is good
 func SuccessfulLogin(r *http.Request) bool {
-	UserFile, err := os.ReadFile("Saves/users.json")
-	if err != nil {
-		fmt.Println(err)
-	}
-	if (strings.Contains(string(UserFile), r.FormValue("username"))) && (strings.Contains(string(UserFile), r.FormValue("password"))) {
-		return true
+	UnmarshalDataBase(UsersData)
+	for key, _ := range UsersData {
+		if r.FormValue("username") == key {
+			if bcrypt.CompareHashAndPassword(UsersData[key].Password, []byte(r.FormValue("password"))) == nil {
+				return true
+			}
+		}
 	}
 	Data.Message = "Wrong username or password"
 	return false

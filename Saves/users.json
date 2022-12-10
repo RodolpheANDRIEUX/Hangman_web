@@ -1,20 +1,14 @@
 {
 	"caca": {
 		"user_id": "caca",
-		"password": "azertyuiop",
-		"locale": "fr",
-		"score": 5
-	},
-	"laura": {
-		"user_id": "laura",
-		"password": "pipidu31",
-		"locale": "fr",
-		"score": 3
-	},
-	"pitre": {
-		"user_id": "pitre",
-		"password": "azerty",
+		"password": "JDJhJDEwJFN6SXEvS2ZzSTgwNHU4b1RFLnptL3VSMVNCMERLQ2h5c2xpQU5oR3RSSjFDaDZOWUdpMHht",
 		"locale": "fr",
 		"score": 0
+	},
+	"florian_a31": {
+		"user_id": "florian_a31",
+		"password": "JDJhJDEwJEh2VVBYbmsuMklhdFF2b3gzVTRsMk9BVzRLYllWZDdlRHNTNjJQN2UuMy9KOTJyZW9GVUhx",
+		"locale": "fr",
+		"score": 2
 	}
 }

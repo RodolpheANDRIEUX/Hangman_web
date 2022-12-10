@@ -8,7 +8,7 @@ import (
 
 type UserData struct {
 	Username string `json:"user_id"`
-	Password string `json:"password"`
+	Password []byte `json:"password"`
 	Language string `json:"locale"`
 	Score    int    `json:"score"`
 }
