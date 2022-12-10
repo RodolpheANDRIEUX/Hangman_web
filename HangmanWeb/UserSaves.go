@@ -30,6 +30,7 @@ func CheckUsernameAvailability(r *http.Request) bool {
 
 // HandleUser : We update the Structure with the values of the signup form
 func (ptrData *WebData) HandleUser(r *http.Request) {
+
 	ptrData.User.Username = r.FormValue("username")
 	ptrData.User.Password = r.FormValue("password")
 	ptrData.User.Language = r.Header.Get("Accept-Language")[:2]
