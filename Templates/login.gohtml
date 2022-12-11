@@ -6,58 +6,53 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/Assets/Css/login.css">
+    <script src="/Assets/Css/login.js" defer></script>
     <title>Hangman</title>
 </head>
 
 <body>
 <section id="login_page">
-    <h1 class="title" >HANGMAN</h1>
-    <div class="user_login_signup">
-        <div class="user_form" id="singup">
-            <h2>Signup</h2>
-            <form action="/sign-up" method="get" class="form-example">
-                <div class="form-example">
-                    <label for="name">Username: </label>
-                    <input type="text" name="username" id="username" required>
-                </div>
-                <div class="form-example">
-                    <label for="email">Password: </label>
-                    <input type="password" name="password" id="email" required minlength="6">
-                </div>
-                <div class="form-example">
-                    <input type="submit" value="Sign Up">
-                </div>
-            </form>
-            {{ if eq .Message "This username is already taken"}}
-                {{.Message}}
-            {{end}}
-        </div>
-        <div class="user_form" id="login">
-            <h2>Login</h2>
-            <form action="/log-in" method="get" class="form-example">
-                <div class="form-example">
-                    <label for="name">Username: </label>
-                    <input type="text" name="username" id="username" required>
-                </div>
-                <div class="form-example">
-                    <label for="email">Password: </label>
-                    <input type="password" name="password" id="email" required minlength="6">
-                </div>
-                <div class="form-example">
-                    <input type="submit" value="Login">
-                </div>
-            </form>
-            {{ if eq .Message "Wrong username of password"}}
-                {{.Message}}
-            {{end}}
+    <h1 class="title">HANGMAN</h1>
 
+    <div class="container">
+        <h1 class="title" onclick="closeAll()">HANGMAN</h1>
+        <div class="content">
+
+            <div onclick="showSignupForm()" id="container-play-form" class="button_user">
+                <p>Play Now</p>
+                <div id="sinup-form" class="signup_form">
+                    <form action="/sign-up">
+                        <label for="name">Username: </label>
+                        <input type="text" name="username" id="username" required>
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" id="email" required minlength="6">
+                        <input type="submit" value="Sign-Up">
+                    </form>
+                    {{ if eq .Message "This username is already taken"}}
+                        {{.Message}}
+                    {{end}}
+                </div>
+            </div>
+
+
+            <div onclick="showLoginForm()" id="container-login-form" class="button_user">
+                <p>Login</p>
+                <div id="login-form" class="login_form">
+                    <form action="/log-in">
+                        <label for="name">Username: </label>
+                        <input type="text" name="username" id="username" required>
+                        <label for="email">Password: </label>
+                        <input type="password" name="password" id="email" required minlength="6">
+                        <input type="submit" value="Login">
+                    </form>
+                    {{ if eq .Message "Wrong username of password"}}
+                        {{.Message}}
+                    {{end}}
+                </div>
+            </div>
         </div>
     </div>
-    <div class="test_flo">
 
-
-
-    </div>
 </section>
 
 </body>

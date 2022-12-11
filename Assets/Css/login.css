@@ -3,15 +3,7 @@
     src: url("https://cdn.shopify.com/s/files/1/0502/2331/7176/files/Druk-Wide-Medium.woff?v=1623343764") format("woff");
 }
 
-.title{
-    font-size: 5em;
-    position: absolute;
-    top : 20%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
+html, body {margin: 0; height: 100%; overflow: hidden}
 
 body{
     background-color: black;
@@ -19,18 +11,62 @@ body{
     font-family: "druktextwide-med";
 }
 
-.user_login_signup{
+.container{
     display: flex;
     width: 100vw;
     height: 100vh;
     justify-content: center;
-    align-items: center;
+    align-items:flex-end ;
 }
 
-.user_form {
-    margin: 30px;
-    flex-direction: row;
+.content {
+    margin-bottom: 15vh;
+    display: grid;
+    place-items: center;
 }
 
-/* ------------------------------------- */
+.button_user{
+    transition: ease, 500ms;
+    color: white;
+    font-size: 18px;
+    margin: 10px;
+    padding: 30px;
+    background-color: rgba(250, 234, 214, 0.2);
+    border-radius: 5%;
+    cursor:pointer;
+}
+
+#container-play-form {
+    width: 10em;
+}
+
+#container-login-form {
+    width: 10em;
+}
+
+.button_user:hover{
+    background-color: rgba(250, 234, 214, 1);
+    color: black;
+}
+
+.login_form, .signup_form{
+    transition: ease, 500ms;
+    display: none;
+    place-items: center;
+}
+
+.login_form input, .signup_form input{
+    display: flex;
+    margin: 10px;
+}
+
+.signup_form{
+    display: none;
+    place-items: center;
+}
+
+.signup_form input{
+    display: flex;
+    margin: 10px;
+}
 
