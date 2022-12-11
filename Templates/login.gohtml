@@ -12,10 +12,17 @@
 
 <body>
 <section id="login_page">
-    <h1 class="title">HANGMAN</h1>
-
+    <div class="moon"></div>
     <div class="container">
-        <h1 class="title" onclick="closeAll()">HANGMAN</h1>
+        <div class="title" >
+            <h1 onclick="closeAll()">HANGMAN</h1>
+            {{ if eq .Message "Wrong username of password"}}
+                <p>{{.Message}}</p>
+            {{end}}
+            {{ if eq .Message "This username is already taken"}}
+                <p>{{.Message}}</p>
+            {{end}}
+        </div>
         <div class="content">
 
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
@@ -28,9 +35,6 @@
                         <input type="password" name="password" id="email" required minlength="6">
                         <input type="submit" value="Sign-Up">
                     </form>
-                    {{ if eq .Message "This username is already taken"}}
-                        {{.Message}}
-                    {{end}}
                 </div>
             </div>
 
@@ -45,9 +49,6 @@
                         <input type="password" name="password" id="email" required minlength="6">
                         <input type="submit" value="Login">
                     </form>
-                    {{ if eq .Message "Wrong username of password"}}
-                        {{.Message}}
-                    {{end}}
                 </div>
             </div>
         </div>

@@ -1,7 +1,19 @@
 {
+	"caca": {
+		"user_id": "caca",
+		"password": "JDJhJDEwJHppaXp4NC5PZ0phTFBPWEpUc1JHYmV2VVFoZHgxMUxqNEtha1hEd3JOYkJJMDdyTmRCYzJl",
+		"locale": "fr",
+		"score": 0
+	},
 	"flo": {
 		"user_id": "flo",
 		"password": "JDJhJDEwJDViUVlvRlBsakdZVEhaMy9DdUtMQXV6U2ZaaXpFaGYxM0NPRmMvOGVUZGVLRTJDNnZGQlJp",
+		"locale": "fr",
+		"score": 0
+	},
+	"florian_a31": {
+		"user_id": "florian_a31",
+		"password": "JDJhJDEwJFFrR04xYzhVdnAxbDRQU2FQcXJXQ2U4bUFlYWcyT2F0Mm54NEJ6RkFZNG5CTzROMTNqSnNT",
 		"locale": "fr",
 		"score": 0
 	}
