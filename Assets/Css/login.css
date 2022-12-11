@@ -3,7 +3,17 @@
     src: url("https://cdn.shopify.com/s/files/1/0502/2331/7176/files/Druk-Wide-Medium.woff?v=1623343764") format("woff");
 }
 
+
 html, body {margin: 0; height: 100%; overflow: hidden}
+
+.title{
+    font-size: 5em;
+    position: absolute;
+    top : 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 body{
     background-color: black;
