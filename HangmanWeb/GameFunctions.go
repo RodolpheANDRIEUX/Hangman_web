@@ -100,4 +100,5 @@ func (ptrData *WebData) UpdateScore() {
 		ptrData.User.Score--
 	}
 	UpdateDatabase(nil)
+	ptrData.GetScores()
 }

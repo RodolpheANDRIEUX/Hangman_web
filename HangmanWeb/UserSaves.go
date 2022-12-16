@@ -94,3 +94,11 @@ func UpdateDatabase(r *http.Request) {
 	UsersData[Data.User.Username] = &Data.User
 	MarshalUser(UsersData)
 }
+
+func (ptrData *WebData) GetScores() {
+	ptrData.Scores = make(map[string]int)
+	UnmarshalDataBase(UsersData)
+	for username, data := range UsersData {
+		ptrData.Scores[username] = data.Score
+	}
+}

@@ -1,20 +1,32 @@
 {
-	"caca": {
-		"user_id": "caca",
-		"password": "JDJhJDEwJHppaXp4NC5PZ0phTFBPWEpUc1JHYmV2VVFoZHgxMUxqNEtha1hEd3JOYkJJMDdyTmRCYzJl",
-		"locale": "fr",
-		"score": 0
-	},
-	"flo": {
-		"user_id": "flo",
-		"password": "JDJhJDEwJDViUVlvRlBsakdZVEhaMy9DdUtMQXV6U2ZaaXpFaGYxM0NPRmMvOGVUZGVLRTJDNnZGQlJp",
-		"locale": "fr",
-		"score": 0
-	},
 	"florian_a31": {
 		"user_id": "florian_a31",
-		"password": "JDJhJDEwJFFrR04xYzhVdnAxbDRQU2FQcXJXQ2U4bUFlYWcyT2F0Mm54NEJ6RkFZNG5CTzROMTNqSnNT",
+		"password": "JDJhJDEwJDJ0VnFmS2pvNHVXWFVXam0uc1Y5Ny5pYUhXc1lCbWoyVmVxaDJzdjhuT1BFYkpNak5XV2tl",
 		"locale": "fr",
 		"score": 0
+	},
+	"test0": {
+		"user_id": "test0",
+		"password": "JDJhJDEwJFpmVkczaWFMZnczUnk4aVYwYmZ3UGVCMTE4Ulkub3lheTBEbzNUZ2FrVE8zTVYyRUVFOFZ1",
+		"locale": "fr",
+		"score": 3
+	},
+	"test1": {
+		"user_id": "test1",
+		"password": "JDJhJDEwJEQuTS83VENySGsxWXVUVWVSdnlsSk9tQWRUS1ZpUjRKeWExckxzTkEuOEhCaTZRQ0RxRHk2",
+		"locale": "fr",
+		"score": 2
+	},
+	"test2": {
+		"user_id": "test2",
+		"password": "JDJhJDEwJGVzSUwwLkFDaXJDcG9iQVBoMEtOZmVIZ3FmL0NuUWJJbHIwd2NLc0V2SzVXbXdQdUpXMXV5",
+		"locale": "fr",
+		"score": 2
+	},
+	"test3": {
+		"user_id": "test3",
+		"password": "JDJhJDEwJEVBcnVhdHpId1hPa0hFS0lTZlQvcmVBa1ZjQ1FaVVlXNVlIS2N0YmguVFZlTDVQTktMY01t",
+		"locale": "fr",
+		"score": 1
 	}
 }

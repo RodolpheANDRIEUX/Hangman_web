@@ -20,6 +20,7 @@ type WebData struct {
 	Error      bool
 	Message    string
 	Difficulty string
+	Scores     map[string]int
 }
 
 var Data WebData
@@ -60,6 +61,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	case "/gameMenu": // TODO: win and lose screen
+		//Data.GetScores(Data.User.Username, Data.User.Score)
 		Data.gameMenu(w, r)
 
 	default: // redirect to the login page instead of error (currently mainMenu tho)

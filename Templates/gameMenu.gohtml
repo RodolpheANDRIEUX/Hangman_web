@@ -10,10 +10,24 @@
     <title>Hangman</title>
 </head>
 <body>
-<div class="HangmanTitle">YOU {{.State}}</div>
+<H2 class="HangmanTitle">YOU {{.State}}</H2>
+
+<div calass="score_board" style="color: red">
+    <ol>
+    {{range .Scores}}
+        <div class="score-line">
+            <p class="name">{{.}}</p>
+        </div>
+    {{end}}
+    </ol>
+</div>
 
 <form id="PlayAgainForm" method="post" action="/mainMenu-Play">
     <input class="MenuPlay" type="submit" name="PlayAgain" value="PLAY AGAIN">
+</form>
+
+<form id="Logut" method="post" action="/login">
+    <input class="MenuPlay" type="submit" name="logout" value="Logout">
 </form>
 
 
