@@ -98,6 +98,7 @@ func UpdateDatabase(r *http.Request) {
 
 // GetScores : This method helps us to store the username and the score of all players
 func (ptrData *WebData) GetScores() {
+	ptrData.Scores = nil
 	UnmarshalDataBase(UsersData)
 	for username := range UsersData {
 		ptrData.Scores = append(ptrData.Scores, []string{username, strconv.Itoa(UsersData[username].Score)})
@@ -120,4 +121,10 @@ func SortTable(table [][]string) {
 			i++
 		}
 	}
+}
+
+func (ptrData *WebData) Logout(r *http.Request) {
+	ptrData.User.Username = ""
+	ptrData.User.Password = []byte("")
+	ptrData.User.Score = 0
 }

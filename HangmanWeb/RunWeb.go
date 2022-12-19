@@ -1,6 +1,7 @@
 package HangmanWeb
 
 import (
+	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
@@ -61,8 +62,12 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	case "/gameMenu": // TODO: win and lose screen
-		//Data.GetScores(Data.User.Username, Data.User.Score)
 		Data.gameMenu(w, r)
+		if r.FormValue("Logout") != "" {
+			Data.Logout(r)
+			fmt.Println(Data.User)
+			http.Redirect(w, r, "login", http.StatusFound)
+		}
 
 	default: // redirect to the login page instead of error (currently mainMenu tho)
 		http.Redirect(w, r, "login", http.StatusFound)
