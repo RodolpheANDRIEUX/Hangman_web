@@ -1,0 +1,31 @@
+.score_board{
+    background: white;
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 50%;
+    max-width: 700px;
+}
+
+.score_board ol{
+    padding: 0;
+    margin: 0;
+}
+
+.score_board h4{
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #191919;
+}
+
+.score_line{
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content{
+    display: grid;
+    place-items: center;
+    width: 100%;
+}

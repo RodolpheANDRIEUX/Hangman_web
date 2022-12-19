@@ -10,25 +10,33 @@
     <title>Hangman</title>
 </head>
 <body>
-<H2 class="HangmanTitle">YOU {{.State}}</H2>
+<section id="gameMenu">
+    <div class="container">
+        <H2 class="HangmanTitle">YOU {{.State}}</H2>
 
-<div calass="score_board" style="color: red">
-    <ol>
-    {{range .Scores}}
-        <div class="score-line">
-            <p class="name">{{.}}</p>
+        <div class="content">
+            <div class="score_board">
+                <h4>Hangman web - Leaderboard</h4>
+                <ol>
+                    {{range .Scores}}
+                        <div class="score_line">
+                            <p class="name">{{index . 0}}</p>
+                            <p class="score">{{index . 1}}</p>
+                        </div>
+                    {{end}}
+                </ol>
+            </div>
         </div>
-    {{end}}
-    </ol>
-</div>
 
-<form id="PlayAgainForm" method="post" action="/mainMenu-Play">
-    <input class="MenuPlay" type="submit" name="PlayAgain" value="PLAY AGAIN">
-</form>
+        <form id="PlayAgainForm" method="post" action="/mainMenu-Play">
+            <input class="MenuPlay" type="submit" name="PlayAgain" value="PLAY AGAIN">
+        </form>
 
-<form id="Logut" method="post" action="/login">
-    <input class="MenuPlay" type="submit" name="logout" value="Logout">
-</form>
+        <form id="Logut" method="post" action="/login">
+            <input class="MenuPlay" type="submit" name="logout" value="Logout">
+        </form>
+    </div>
+</section>
 
 
 </body>
