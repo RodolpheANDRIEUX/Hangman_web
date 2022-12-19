@@ -7,10 +7,11 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
-var UsersData = make(map[string]*UserData)
+var UsersData = make(map[string]UserData)
 
 // CheckUsernameAvailability : All username must be unique or non nil. This function make sure of this
 func CheckUsernameAvailability(r *http.Request) bool {
@@ -47,7 +48,7 @@ func (ptrData *WebData) HandleUser(r *http.Request) {
 }
 
 // MarshalUser : We save the User information into the database.
-func MarshalUser(UsersData map[string]*UserData) {
+func MarshalUser(UsersData map[string]UserData) {
 	encoded, err := json.MarshalIndent(UsersData, "", "\t")
 	if err == nil {
 		ioutil.WriteFile("Saves/users.json", encoded, 0777)
@@ -57,7 +58,7 @@ func MarshalUser(UsersData map[string]*UserData) {
 }
 
 // UnmarshalDataBase : We load the database.
-func UnmarshalDataBase(UsersData map[string]*UserData) {
+func UnmarshalDataBase(UsersData map[string]UserData) {
 	data, _ := ioutil.ReadFile("Saves/users.json")
 	dele := json.Unmarshal(data, &UsersData)
 	if dele != nil {
@@ -82,7 +83,7 @@ func SuccessfulLogin(r *http.Request) bool {
 // LoadUser : We update the user infos after log in
 func (ptrData *WebData) LoadUser(user string) {
 	UnmarshalDataBase(UsersData)
-	ptrData.User = *UsersData[user]
+	ptrData.User = UsersData[user]
 }
 
 // UpdateDatabase : We simply update the database with de Data we have
@@ -91,14 +92,14 @@ func UpdateDatabase(r *http.Request) {
 	if r != nil {
 		Data.HandleUser(r)
 	}
-	UsersData[Data.User.Username] = &Data.User
+	UsersData[Data.User.Username] = Data.User
 	MarshalUser(UsersData)
 }
 
+// GetScores : This method helps us to store the username and the score of all players
 func (ptrData *WebData) GetScores() {
-	ptrData.Scores = make(map[string]int)
 	UnmarshalDataBase(UsersData)
-	for username, data := range UsersData {
-		ptrData.Scores[username] = data.Score
+	for username := range UsersData {
+		ptrData.Scores = append(ptrData.Scores, []string{username, strconv.Itoa(UsersData[username].Score)})
 	}
 }

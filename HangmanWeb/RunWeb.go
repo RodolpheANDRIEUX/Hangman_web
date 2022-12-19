@@ -20,7 +20,7 @@ type WebData struct {
 	Error      bool
 	Message    string
 	Difficulty string
-	Scores     map[string]int
+	Scores     [][]string
 }
 
 var Data WebData
