@@ -102,4 +102,22 @@ func (ptrData *WebData) GetScores() {
 	for username := range UsersData {
 		ptrData.Scores = append(ptrData.Scores, []string{username, strconv.Itoa(UsersData[username].Score)})
 	}
+	SortTable(ptrData.Scores)
+}
+
+// SortTable : Sort a [][]string
+func SortTable(table [][]string) {
+	i := 1
+	for i < len(table) {
+		a, _ := strconv.Atoi(table[i-1][1])
+		b, _ := strconv.Atoi(table[i][1])
+		if a < b {
+			temp := table[i]
+			table[i] = table[i-1]
+			table[i-1] = temp
+			i = 1
+		} else {
+			i++
+		}
+	}
 }

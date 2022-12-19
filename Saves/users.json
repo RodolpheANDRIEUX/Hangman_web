@@ -9,6 +9,12 @@
 		"user_id": "test1",
 		"password": "JDJhJDEwJG8uLkwvZVdSRzdXcWRzWllCSUJGYmVXM2tRWk9kN0VnOW5KeG8xWXlQdFhDNDJIQTRub1Rh",
 		"locale": "fr",
-		"score": 7
+		"score": 19
+	},
+	"test2": {
+		"user_id": "test2",
+		"password": "JDJhJDEwJE9vNWVIeHBPVmEvTkYwcVJTdks4UC5uRWhjUzZEN0w4SDkwazluTUlrNTRIUTh2cWxmVmJt",
+		"locale": "fr",
+		"score": 4
 	}
 }
