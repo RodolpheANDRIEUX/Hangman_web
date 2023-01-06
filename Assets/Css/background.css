@@ -1,0 +1,95 @@
+.Background > * {
+    position: fixed;
+    height: 100vh;
+    width: auto;
+    top: 0;
+    left: 0;
+    transition: 2s;
+    animation: defile linear infinite;
+}
+
+.BackgroundR > * {
+    display: revert;
+    transform: translate(100%);
+    border: green 3px solid;
+    animation-duration: 2s;
+    animation-delay: 1s;
+}
+
+.HangmanTitle {
+    z-index: 35;
+    text-align: center;
+    font-family: 'Nosifer', fantasy;
+    color: #aa0000;
+    left: 50%;
+    width: 100%;
+    font-size: 20vh;
+    transform: translate(-50%, 0);
+    margin-bottom: 0;
+    animation: appear 6s ease-out;
+}
+
+@keyframes appear {
+    0% {transform: translate(-50%, 60vh)}
+    40% {transform: translate(-50%, 60vh)}
+    100% {transform: translate(-50%, 0)}
+}
+
+.moon{
+    height: 80px;
+    width: 80px;
+    background: #aaaaaa;
+    border-radius: 50%;
+    top: 40px;
+    left: 300px;
+}
+
+.moonHalo2{
+    height: 100px;
+    width: 100px;
+    background: white;
+    border-radius: 50%;
+    top: 30px;
+    left: 290px;
+    filter: blur(150px);
+}
+
+.moonHalo{
+    height: 100px;
+    width: 100px;
+    background: white;
+    border-radius: 50%;
+    top: 30px;
+    left: 290px;
+    filter: blur(300px);
+}
+
+.FP{
+    z-index: 50;
+}
+
+
+.Forest4{
+    z-index: 40;
+}
+
+.Forest3{
+    z-index: 30;
+}
+
+.Forest2{
+    z-index: 20;
+}
+
+.Forest1{
+    z-index: 10;
+}
+
+.BP {
+    z-index: 5;
+}
+
+@keyframes defile {
+    0%   {    transform: translate(100%);}
+    100% {    transform: translate(-100%);}
+}
