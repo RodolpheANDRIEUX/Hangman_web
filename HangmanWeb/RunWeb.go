@@ -1,10 +1,12 @@
 package HangmanWeb
 
 import (
+	"bytes"
 	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
+	"path/filepath"
 )
 
 type UserData struct {
@@ -75,12 +77,45 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // RenderTemplate : helps to render the html templates
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
+func RenderTemplate(w http.ResponseWriter, tmplName string) {
+	templateCache, err := CreateTemplateCache()
 
-	t, err := template.ParseFiles("./Templates/" + tmpl + ".gohtml")
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		panic(err)
+	}
+
+	tmpl, ok := templateCache[tmplName+".gohtml"]
+
+	if !ok {
+		http.Error(w, "The template do not exist", http.StatusInternalServerError)
 		return
 	}
-	err = t.Execute(w, Data)
+
+	buffer := new(bytes.Buffer)
+	tmpl.Execute(buffer, nil)
+	buffer.WriteTo(w)
+}
+
+func CreateTemplateCache() (map[string]*template.Template, error) {
+	cache := map[string]*template.Template{}
+	pages, err := filepath.Glob("./Templates/*.gohtml")
+	if err != nil {
+		return cache, err
+	}
+
+	for _, page := range pages {
+		name := filepath.Base(page)
+		tmpl := template.Must(template.ParseFiles(page))
+
+		layout, err := filepath.Glob("./Templates/layouts/*.layout.gohtml")
+
+		if err != nil {
+			return cache, err
+		}
+		if len(layout) > 0 {
+			tmpl.ParseGlob("./Templates/layouts/*.layout.gohtml")
+		}
+		cache[name] = tmpl
+	}
+	return cache, nil
 }
