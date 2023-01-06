@@ -21,7 +21,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 body{
-    background: black url(/Assets/Foret1.png);
+    background: #050101;
     color : white;
     font-family: "druktextwide-med";
 }
@@ -32,6 +32,10 @@ body{
     height: 100vh;
     justify-content: center;
     align-items:flex-end ;
+}
+
+.z-index-1000{
+    z-index: 1000;
 }
 
 .content {
