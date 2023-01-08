@@ -36,7 +36,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 body{
-    background: #050101;
+    background: #555555;
     color : white;
     font-family: "druktextwide-med";
 }
@@ -50,8 +50,8 @@ body{
 }
 
 
-.z-index-1000{
-    z-index: 1000;
+.z-index-up{
+    z-index: 1;
 }
 
 .content {
@@ -118,17 +118,6 @@ input[type=submit]:hover{
 .signup_form input{
     display: flex;
     margin: 10px;
-}
-
-.moon {
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    width: 8vh;
-    height: 8vh;
-    border-radius: 50%;
-    background-color: #ffecb4;
-    box-shadow: 0 0 50px 0px #ffecb4;
 }
 
 /*------- Pop Up login form ----------*/
