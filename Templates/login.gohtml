@@ -14,8 +14,8 @@
 <section id="login_page">
 
     <div class="container">
-        <div class="title" >
-            <h1 class="HangmanTitle" onclick="closeAll()">HANGMAN</h1>
+        <div class="hangmanTitle" >
+            <h1 onclick="closeAll()">HANGMAN</h1>
             {{ if eq .Message "Wrong username of password"}}
                 <p>{{.Message}}</p>
             {{end}}
