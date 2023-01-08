@@ -16,7 +16,7 @@
     <div class="container">
         <div class="hangmanTitle" >
             <h1 onclick="closeAll()">HANGMAN</h1>
-            {{ if eq .Message "Wrong username of password"}}
+            {{ if eq .Message "Wrong username or password"}}
                 <p>{{.Message}}</p>
             {{end}}
             {{ if eq .Message "This username is already taken"}}
@@ -25,19 +25,12 @@
         </div>
         <div class="content  z-index-1000">
 
-            <div onclick="showSignupForm()" id="container-play-form" class="button_user">
+            <div class="button_user">
                 <p>Play Now</p>
-                <div id="sinup-form" class="signup_form">
-                    <form action="/sign-up">
-                        <label for="name">Username: </label>
-                        <input type="text" name="username" id="username" required>
-                        <label for="password">Password: </label>
-                        <input type="password" name="password" id="email" required minlength="6">
-                        <input type="submit" value="Sign-Up">
-                    </form>
-                </div>
+                <form action="/play-now">
+                    <input type="submit" value="PlayNow">
+                </form>
             </div>
-
 
             <div onclick="showLoginForm()" id="container-login-form" class="button_user">
                 <p>Login</p>
@@ -51,6 +44,42 @@
                     </form>
                 </div>
             </div>
+
+            <div onclick="showSignupForm()" id="container-play-form" class="button_user">
+                <p>Sign Up</p>
+                <div id="sinup-form" class="signup_form">
+                    <form action="/sign-up">
+                        <label for="name">Username: </label>
+                        <input type="text" name="username" id="username" required>
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" id="email" required minlength="6">
+                        <input type="submit" value="Sign-Up">
+                    </form>
+                    <div>
+                        <p>Do you have an account ? <br> Click here to login : </p>
+                            <button class="pop-up-btn" type="submit" onclick="handlePopup(true)">
+                                Abrir Popup
+                            </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup" class="popup">
+
+                <p>Login</p>
+                <div id="login-form" class="login_form">
+                    <form action="/log-in">
+                        <label for="name">Username: </label>
+                        <input type="text" name="username" id="username" required>
+                        <label for="email">Password: </label>
+                        <input type="password" name="password" id="email" required minlength="6">
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+
+                <button class="close-popup-button" onclick="handlePopup(false)"> Close </button>
+            </div>
+
         </div>
     </div>
 

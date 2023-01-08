@@ -23,3 +23,13 @@ const closeAll = () => {
     container_login_form.style.width = "10em"
     container_play_form.style.width = "10em"
 }
+
+const popup = document.getElementById("popup");
+
+function handlePopup(open){
+    if(open){
+        popup.classList.add('opened');
+    }else{
+        popup.classList.remove('opened');
+    }
+}
