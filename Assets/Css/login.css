@@ -3,6 +3,12 @@
     src: url("https://cdn.shopify.com/s/files/1/0502/2331/7176/files/Druk-Wide-Medium.woff?v=1623343764") format("woff");
 }
 
+@font-face {
+    font-family: 'zombie-holocaust';
+    src: url("/Assets/Zombie_Holocaust.ttf") format("truetype");
+}
+
+
 
 html, body {margin: 0; height: 100%; overflow: hidden}
 
@@ -17,7 +23,8 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 
 .hangmanTitle h1 {
     font-size: 8em;
-    font-family: MB-ThinkTwice;
+    letter-spacing: 1rem;
+    font-family: zombie-holocaust;
     margin: 0;
     animation: appear 3s ease-out;
     color: #aa0000;
