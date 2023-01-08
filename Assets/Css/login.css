@@ -67,9 +67,17 @@ body{
     font-size: 18px;
     margin: 10px;
     padding: 30px;
+    width: 10em;
     background-color: rgba(250, 234, 214, 0.2);
     border-radius: 10%;
     cursor:pointer;
+    font-family: "druktextwide-med";
+}
+
+.button_user span{
+    display: block;
+    font-size: 14px;
+    text-align: center;
 }
 
 input[type=submit]{
@@ -89,17 +97,11 @@ input[type=submit]:hover{
     width: 10em;
 }
 
-#container-login-form {
-    width: 10em;
-}
-
 .button_user:hover{
     background-color: rgba(250, 234, 214, 0.4);
 }
 
-.login_form, .signup_form{
-    transition: ease, 500ms;
-/*    display: none;*/
+.signup_form{
     place-items: center;
 }
 
@@ -131,7 +133,7 @@ input[type=submit]:hover{
 
 /*------- Pop Up login form ----------*/
 
-.popup{
+.login-popup{
     position: absolute;
     background-color: #333;
     padding: 20px;
@@ -145,7 +147,7 @@ input[type=submit]:hover{
     transform: scale(0.4)
 }
 
-.popup.opened{
+.login-popup.opened{
     transform: scale(1);
     z-index: 999;
     opacity: 1;

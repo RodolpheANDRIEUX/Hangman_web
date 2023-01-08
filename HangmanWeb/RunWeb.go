@@ -38,7 +38,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/login": // TODO: make a login page here
 		Data.Login(w, r)
 
-	case "/sign-up": //
+	case "/log-in": //
 		if CheckUsernameAvailability(r) {
 			UpdateDatabase(r)
 			http.Redirect(w, r, "mainMenu", http.StatusFound)
@@ -46,8 +46,8 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
-	case "/log-in": //
-		if SuccessfulLogin(r) {
+	case "/sign-up": //
+		if SuccessfulSingUp(r) {
 			Data.LoadUser(r.FormValue("username"))
 			http.Redirect(w, r, "mainMenu", http.StatusFound)
 		} else {

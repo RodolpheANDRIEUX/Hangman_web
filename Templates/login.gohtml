@@ -14,7 +14,7 @@
 <section id="login_page">
 
     <div class="container">
-        <div class="hangmanTitle" >
+        <div class="hangmanTitle">
             <h1 onclick="closeAll()">HANGMAN</h1>
             {{ if eq .Message "Wrong username or password"}}
                 <p>{{.Message}}</p>
@@ -25,24 +25,8 @@
         </div>
         <div class="content  z-index-1000">
 
-            <div class="button_user">
+            <div class="button_user" onclick="window.location.href='/mainMenu';">
                 <p>Play Now</p>
-                <form action="/play-now">
-                    <input type="submit" value="PlayNow">
-                </form>
-            </div>
-
-            <div onclick="showLoginForm()" id="container-login-form" class="button_user">
-                <p>Login</p>
-                <div id="login-form" class="login_form">
-                    <form action="/log-in">
-                        <label for="name">Username: </label>
-                        <input type="text" name="username" id="username" required>
-                        <label for="email">Password: </label>
-                        <input type="password" name="password" id="email" required minlength="6">
-                        <input type="submit" value="Login">
-                    </form>
-                </div>
             </div>
 
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
@@ -56,15 +40,13 @@
                         <input type="submit" value="Sign-Up">
                     </form>
                     <div>
-                        <p>Do you have an account ? <br> Click here to login : </p>
-                            <button class="pop-up-btn" type="submit" onclick="handlePopup(true)">
-                                Abrir Popup
-                            </button>
+                        <span>Do you have an account ? <br> Click here to login : </span>
+                        <button class="pop-up-btn" type="submit" onclick="handlePopup(true)">Login</button>
                     </div>
                 </div>
             </div>
 
-            <div id="popup" class="popup">
+            <div id="login-popup" class="login-popup">
 
                 <p>Login</p>
                 <div id="login-form" class="login_form">
@@ -77,7 +59,7 @@
                     </form>
                 </div>
 
-                <button class="close-popup-button" onclick="handlePopup(false)"> Close </button>
+                <button class="close-popup-button" onclick="handlePopup(false)"> Close</button>
             </div>
 
         </div>

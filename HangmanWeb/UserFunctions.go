@@ -66,8 +66,8 @@ func UnmarshalDataBase(UsersData map[string]UserData) {
 	}
 }
 
-// SuccessfulLogin : Check if the combination login-password is good
-func SuccessfulLogin(r *http.Request) bool {
+// SuccessfulSingUp : Check if the combination login-password is good
+func SuccessfulSingUp(r *http.Request) bool {
 	UnmarshalDataBase(UsersData)
 	for key, _ := range UsersData {
 		if r.FormValue("username") == key {
