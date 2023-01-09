@@ -41,7 +41,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/log-in": //
 		if CheckUsernameAvailability(r) {
 			UpdateDatabase(r)
-			http.Redirect(w, r, "mainMenu", http.StatusFound)
+			http.Redirect(w, r, "difficulty", http.StatusFound)
 		} else {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
@@ -49,15 +49,15 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/sign-up": //
 		if SuccessfulSingUp(r) {
 			Data.LoadUser(r.FormValue("username"))
-			http.Redirect(w, r, "mainMenu", http.StatusFound)
+			http.Redirect(w, r, "difficulty", http.StatusFound)
 		} else {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
-	case "/mainMenu": // TODO: make the main menu page here
-		Data.MainMenu(w, r)
+	case "/difficulty": // TODO: make the main menu page here
+		Data.DifficultyMenu(w, r)
 
-	case "/mainMenu-Play":
+	case "/difficulty-Play":
 		Data.menuPlay(w, r)
 		Data.Reset()
 		HangmanClassic.NewGame(Data.GetWordDifficulty(), &Data.Game)

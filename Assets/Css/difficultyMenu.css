@@ -1,4 +1,4 @@
-body {
+/*body {
     background: #555555;
     margin: 0;
 }
@@ -39,7 +39,12 @@ body {
     position: fixed;
     pointer-events: none;
     transition: .2s ease-out;
+}*/
+
+#difficulty_title{
+    font-size: 5rem;
 }
+
 #difficultyForm {
     z-index: 100;
     text-align: center;
@@ -47,9 +52,7 @@ body {
     top: 60vh;
 }
 #difficultySelectors {
-    background-color: #50505080;
     width: 100vw;
-    backdrop-filter: blur(8px);
     color: lightgray;
     display: flex;
     justify-content: center;
@@ -71,20 +74,4 @@ body {
 }
 .HitboxCircle{
     display: none;
-}
-.MenuPlay:hover {
-    background-color: #20202040;
-    scale: 1.1;
-}
-.MenuPlay{
-    padding: 15px 40px 15px 40px;
-    background-color: #50505040;
-    backdrop-filter: blur(4px);
-    color: white;
-    border-radius: 30px;
-    font-size: 30px;
-    margin: 20px auto auto;
-    cursor: pointer;
-    transition: .5s;
-    display: flex;
 }

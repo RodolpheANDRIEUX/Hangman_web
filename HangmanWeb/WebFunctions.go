@@ -5,17 +5,18 @@ import (
 	"strings"
 )
 
-// MainMenu : We render the Menu template
-func (ptrData *WebData) MainMenu(w http.ResponseWriter, r *http.Request) {
-	RenderTemplate(w, "MainMenu")
+// DifficultyMenu : We render the DifficultyMenu template
+func (ptrData *WebData) DifficultyMenu(w http.ResponseWriter, r *http.Request) {
+	RenderTemplate(w, "difficultyMenu")
 }
 
+// Login : We render the Login template
 func (ptrData *WebData) Login(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "login")
 }
 
+// menuPlay : Method to handle difficulty files
 func (ptrData *WebData) menuPlay(w http.ResponseWriter, r *http.Request) {
-
 	difficulty := r.FormValue("difficulty")
 	if difficulty != "" {
 		ptrData.Difficulty = difficulty
@@ -38,7 +39,7 @@ func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "game")
 }
 
-// gameMenu : We render the Game Menu template with difficulty
+// gameMenu : We render the loose / Win menu
 func (ptrData *WebData) gameMenu(w http.ResponseWriter, r *http.Request) {
 	RenderTemplate(w, "gameMenu")
 }

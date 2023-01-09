@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'druktextwide-med';
+    src: url("https://cdn.shopify.com/s/files/1/0502/2331/7176/files/Druk-Wide-Medium.woff?v=1623343764") format("woff");
+}
+
+@font-face {
+    font-family: 'zombie-holocaust';
+    src: url("https://cdn.shopify.com/s/files/1/0647/5815/3451/files/Zombie_Holocaust.ttf?v=1673207366") format("truetype");
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+.hangmanTitle{
+    z-index: 0;
+    text-align: center;
+    position: absolute;
+    top : 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hangmanTitle h1 {
+    font-size: 8em;
+    letter-spacing: 1rem;
+    font-family: zombie-holocaust;
+    margin: 0;
+    animation: appear 3s ease-out;
+    color: #aa0000;
+}
+
+@keyframes appear {
+    0% {transform: translate(0, -30vh)}
+    100% {transform: translate(0, 0)}
+}
+
+body{
+    background: #555555;
+    color : white;
+    font-family: "druktextwide-med";
+}
+
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items:flex-end ;
+}
+
+
+.z-index-up{
+    z-index: 1;
+}
+
+.button_user{
+    text-align: center;
+    transition: ease, 500ms;
+    color: white;
+    font-size: 18px;
+    margin: 10px;
+    padding: 30px;
+    width: 10em;
+    background-color: rgba(250, 234, 214, 0.2);
+    border-radius: 10%;
+    cursor:pointer;
+    font-family: "druktextwide-med";
+    border: 0;
+}
+
+.button_user:hover{
+    background-color: rgba(250, 234, 214, 0.4);
+}
+
+#Light {
+    z-index: 1002;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    translate: -50% -50%;
+    filter: blur(100px);
+    position: fixed;
+    pointer-events: none;
+    transition: .2s ease-out;
+}
