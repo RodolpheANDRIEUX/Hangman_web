@@ -38,7 +38,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/login": // TODO: make a login page here
 		Data.Login(w, r)
 
-	case "/log-in": //
+	case "/sign-up": //
 		if CheckUsernameAvailability(r) {
 			UpdateDatabase(r)
 			http.Redirect(w, r, "difficulty", http.StatusFound)
@@ -46,8 +46,8 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
-	case "/sign-up": //
-		if SuccessfulSingUp(r) {
+	case "/log-in": //
+		if SuccessfullLogin(r) {
 			Data.LoadUser(r.FormValue("username"))
 			http.Redirect(w, r, "difficulty", http.StatusFound)
 		} else {
@@ -57,10 +57,11 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/difficulty": // TODO: make the main menu page here
 		Data.DifficultyMenu(w, r)
 
-	case "/difficulty-Play":
+	case "/difficulty-play":
 		Data.menuPlay(w, r)
 		Data.Reset()
 		HangmanClassic.NewGame(Data.GetWordDifficulty(), &Data.Game)
+		fmt.Println(Data)
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	case "/gameMenu": // TODO: win and lose screen
@@ -92,7 +93,7 @@ func RenderTemplate(w http.ResponseWriter, tmplName string) {
 	}
 
 	buffer := new(bytes.Buffer)
-	tmpl.Execute(buffer, nil)
+	tmpl.Execute(buffer, Data)
 	buffer.WriteTo(w)
 }
 

@@ -10,6 +10,12 @@
 
 html, body {margin: 0; height: 100%; overflow: hidden}
 
+body{
+    background: #555555;
+    color : white;
+    font-family: "druktextwide-med";
+}
+
 .hangmanTitle{
     z-index: 0;
     text-align: center;
@@ -20,7 +26,7 @@ html, body {margin: 0; height: 100%; overflow: hidden}
 }
 
 .hangmanTitle h1 {
-    font-size: 8em;
+    font-size: 8rem;
     letter-spacing: 1rem;
     font-family: zombie-holocaust;
     margin: 0;
@@ -28,15 +34,13 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     color: #aa0000;
 }
 
+.littleTitle{
+    font-size: 5rem !important;
+}
+
 @keyframes appear {
     0% {transform: translate(0, -30vh)}
     100% {transform: translate(0, 0)}
-}
-
-body{
-    background: #555555;
-    color : white;
-    font-family: "druktextwide-med";
 }
 
 .container{

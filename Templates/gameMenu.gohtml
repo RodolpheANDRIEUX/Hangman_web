@@ -1,20 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/Assets/Css/mainMenu-v1.css">
-    <link rel="stylesheet" href="/Assets/Css/gameMenu.css">
-    <title>Hangman</title>
-</head>
-<body>
-<section id="gameMenu">
-    <div class="container">
-        <H2 class="HangmanTitle">YOU {{.State}}</H2>
+{{template "base"}}
 
-        <div class="content">
+<link rel="stylesheet" href="/Assets/Css/gameMenu.css">
+
+<section id="gameMenu_page">
+    <div class="container">
+
+        <div class="hangmanTitle">
+            <h1 class="littleTitle">YOU {{.State}}</h1>
+        </div>
+
+        <div class="content_grid">
+
             <div class="score_board">
                 <h4>Hangman web - Leaderboard</h4>
                 <ol>
@@ -26,17 +22,18 @@
                     {{end}}
                 </ol>
             </div>
+
+            <div class="button_play" onclick="window.location.href='/difficulty';">
+                <p>PLAY AGAIN</p>
+            </div>
+
+            <form id="Logout" method="post" action="/">
+                <input class="MenuPlay" type="submit" name="Logout" value="Logout">
+            </form>
+
         </div>
-
-        <form id="PlayAgainForm" method="post" action="/mainMenu-Play">
-            <input class="MenuPlay" type="submit" name="PlayAgain" value="PLAY AGAIN">
-        </form>
-
-        <form id="Logut" method="post" action="/">
-            <input class="MenuPlay" type="submit" name="Logout" value="Logout">
-        </form>
     </div>
+
+    {{ template "background"}}
+
 </section>
-
-
-</body>

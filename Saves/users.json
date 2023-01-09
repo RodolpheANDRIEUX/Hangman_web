@@ -1,31 +1,13 @@
 {
 	"test0": {
 		"user_id": "test0",
-		"password": "JDJhJDEwJHEyUEcuVU9Ea0Z1Vk1ONkpqWWRSYmU4MEE5dG1rVnM1aE85VHVCZ2lRcWJlM1ZjSW9mVVJ1",
-		"locale": "fr",
-		"score": 1
-	},
-	"test1": {
-		"user_id": "test1",
-		"password": "JDJhJDEwJG8uLkwvZVdSRzdXcWRzWllCSUJGYmVXM2tRWk9kN0VnOW5KeG8xWXlQdFhDNDJIQTRub1Rh",
-		"locale": "fr",
-		"score": 33
-	},
-	"test2": {
-		"user_id": "test2",
-		"password": "JDJhJDEwJE9vNWVIeHBPVmEvTkYwcVJTdks4UC5uRWhjUzZEN0w4SDkwazluTUlrNTRIUTh2cWxmVmJt",
+		"password": "JDJhJDEwJFQzNHg2VWNxS1c2NDF4VzF6VFprZ09QbC4wTnpFbm5CcmtFZ3N6LmF2bXZweTI5Wkh1OVQ2",
 		"locale": "fr",
 		"score": 4
 	},
-	"test4": {
-		"user_id": "test4",
-		"password": "JDJhJDEwJDlqTUQ0SXc3c0xqL011aEd1ZUsvWmVrSURyMHlqLzNxRFVmT1EuYmROZ2lGN1dYekpRbUJ5",
-		"locale": "fr",
-		"score": 1
-	},
-	"test5": {
-		"user_id": "test5",
-		"password": "JDJhJDEwJC9WWE5uVVI5OVVZcDBtMVNyWGEvTy5JLzMubEZ3T1dpaVV0ek5aWDh1SndQdFFyMWtvWXlH",
+	"test1": {
+		"user_id": "test1",
+		"password": "JDJhJDEwJEkyUFloSjN1amo3d21rekJDQmxpYk9RVGhzYk0yRlpVWFV4ZW1RRlF2MlI1VGVmU2JVL1hD",
 		"locale": "fr",
 		"score": 2
 	}

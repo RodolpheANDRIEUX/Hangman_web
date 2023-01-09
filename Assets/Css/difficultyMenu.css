@@ -41,10 +41,6 @@
     transition: .2s ease-out;
 }*/
 
-#difficulty_title{
-    font-size: 5rem;
-}
-
 #difficultyForm {
     z-index: 100;
     text-align: center;
