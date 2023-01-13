@@ -8,7 +8,7 @@
 
     <div class="container">
         <div class="hangmanTitle">
-            <h1 onclick="closeAll()">HANGMAN</h1>
+            <h1>HANGMAN</h1>
             {{ if eq .Message "Wrong username or password"}}
                 <p>{{.Message}}</p>
             {{end}}
@@ -53,8 +53,10 @@
 
                 <button class="close-popup-button" onclick="handlePopup(false)"> Close</button>
             </div>
-
         </div>
+
+        <div class="bg-overlay" id="bg-overlay" onclick="closeAll()" ></div>
+
     </div>
 
     {{template "background"}}
