@@ -10,16 +10,6 @@
     text-align: center;
 }
 
-input[type=submit]{
-    text-align: center;
-    color: white;
-    background: #303030;
-    padding: 10px 20px;
-    font-family: "druktextwide-med";
-    border-radius: 5%;
-    justify-content: center;
-}
-
 .pop-up-btn{
     margin-top: 1em;
     text-align: center;
@@ -39,16 +29,6 @@ input[type="text"], input[type="password"] {
     border: 0;
     border-radius: 2px;
     height: 20px;
-}
-
-.large{
-    width: 60%;
-}
-
-.grid-center{
-    display: grid;
-    align-items: center;
-    text-align: center;
 }
 
 #container-play-form {
@@ -87,6 +67,11 @@ input[type="text"], input[type="password"] {
     transform: scale(0.4);
     display : grid;
     place-items: center;
+    align-content: space-evenly;
+}
+
+.login-popup p{
+    font-size: 18px;
 }
 
 .login-popup.opened{
@@ -95,6 +80,21 @@ input[type="text"], input[type="password"] {
     opacity: 1;
 }
 
+.close-popup-button{
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-family: druktextwide-med;
+    background: none;
+    border: 0;
+    font-size: 18px;
+    color: white;
+    transition: ease 500ms;
+}
+
+.close-popup-button:hover{
+    transform: scale(1.2);
+}
 /* ------ bg oerlay ------ */
 
 .bg-overlay {

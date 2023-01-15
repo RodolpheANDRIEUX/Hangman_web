@@ -16,6 +16,27 @@ body{
     font-family: "druktextwide-med";
 }
 
+input[type=submit]{
+    text-align: center;
+    color: white;
+    background: #303030;
+    padding: 10px 20px;
+    font-family: "druktextwide-med";
+    border-radius: 5%;
+    justify-content: center;
+}
+
+.large{
+    width: 60%;
+}
+
+.grid-center{
+    display: grid;
+    place-items: center;
+    align-items: center;
+    text-align: center;
+}
+
 .hangmanTitle{
     z-index: 0;
     text-align: center;
