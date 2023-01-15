@@ -99,6 +99,8 @@ func (ptrData *WebData) UpdateScore() {
 	if ptrData.State == "LOST" {
 		ptrData.User.Score--
 	}
-	UpdateDatabase(nil)
+	if Data.User.Username != "" {
+		UpdateDatabase(nil)
+	}
 	ptrData.GetScores()
 }

@@ -1,10 +1,4 @@
 {
-	"": {
-		"user_id": "",
-		"password": null,
-		"locale": "",
-		"score": 3
-	},
 	"flo": {
 		"user_id": "flo",
 		"password": "JDJhJDEwJEFLQnVBTC94SmRvVVNKdzhJVnNiV3U0RTFJWm9aQVMyODJJSDFPVkJFNjQ2YWdFVU1ZeC55",
@@ -15,7 +9,7 @@
 		"user_id": "test0",
 		"password": "JDJhJDEwJFQzNHg2VWNxS1c2NDF4VzF6VFprZ09QbC4wTnpFbm5CcmtFZ3N6LmF2bXZweTI5Wkh1OVQ2",
 		"locale": "fr",
-		"score": 4
+		"score": 6
 	},
 	"test1": {
 		"user_id": "test1",

@@ -35,10 +35,10 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/hangman":
 		Data.LaunchGame(w, r)
 
-	case "/login": // TODO: make a login page here
+	case "/login":
 		Data.Login(w, r)
 
-	case "/sign-up": //
+	case "/sign-up":
 		if CheckUsernameAvailability(r) {
 			UpdateDatabase(r)
 			http.Redirect(w, r, "difficulty", http.StatusFound)
@@ -46,7 +46,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
-	case "/log-in": //
+	case "/log-in":
 		if SuccessfullLogin(r) {
 			Data.LoadUser(r.FormValue("username"))
 			http.Redirect(w, r, "difficulty", http.StatusFound)
@@ -54,7 +54,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
-	case "/difficulty": // TODO: make the main menu page here
+	case "/difficulty":
 		Data.DifficultyMenu(w, r)
 
 	case "/difficulty-play":
@@ -64,11 +64,11 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(Data)
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
-	case "/gameMenu": // TODO: win and lose screen
+	case "/gameMenu":
 		Data.gameMenu(w, r)
+
 		if r.FormValue("Logout") != "" {
 			Data.Logout(r)
-			fmt.Println(Data.User)
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
