@@ -30,9 +30,11 @@ func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 		guess = strings.ToUpper(guess)
 		if !ptrData.ErrorInLetter(&guess) {
 			ptrData.HandleLetter(&guess)
-			if ptrData.State == "WIN" || ptrData.State == "LOST" {
+			if ptrData.State == "LOST" {
 				ptrData.UpdateScore()
 				http.Redirect(w, r, "gameMenu", http.StatusFound)
+			} else if ptrData.State == "WIN" {
+				ptrData.UpdateScore()
 			}
 		}
 	}

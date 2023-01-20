@@ -10,10 +10,11 @@ import (
 )
 
 type UserData struct {
-	Username string `json:"user_id"`
-	Password []byte `json:"password"`
-	Language string `json:"locale"`
-	Score    int    `json:"score"`
+	Username  string `json:"user_id"`
+	Password  []byte `json:"password"`
+	Language  string `json:"locale"`
+	BestScore int    `json:"best_score"`
+	Score     int    `json:"score"`
 }
 
 type WebData struct {

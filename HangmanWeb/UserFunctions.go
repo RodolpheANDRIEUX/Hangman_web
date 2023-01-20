@@ -101,7 +101,7 @@ func (ptrData *WebData) GetScores() {
 	ptrData.Scores = nil
 	UnmarshalDataBase(UsersData)
 	for username := range UsersData {
-		ptrData.Scores = append(ptrData.Scores, []string{username, strconv.Itoa(UsersData[username].Score)})
+		ptrData.Scores = append(ptrData.Scores, []string{username, strconv.Itoa(UsersData[username].BestScore)})
 	}
 	SortTable(ptrData.Scores)
 }
