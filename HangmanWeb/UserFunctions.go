@@ -84,6 +84,7 @@ func SuccessfullLogin(r *http.Request) bool {
 func (ptrData *WebData) LoadUser(user string) {
 	UnmarshalDataBase(UsersData)
 	ptrData.User = UsersData[user]
+	ptrData.User.Score = 0
 }
 
 // UpdateDatabase : We simply update the database with de Data we have
