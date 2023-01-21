@@ -27,6 +27,7 @@ func (ptrData *WebData) menuPlay(w http.ResponseWriter, r *http.Request) {
 func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 	guess := r.FormValue("Letter")
 	if guess != "" {
+		println("letter", guess, " received")
 		guess = strings.ToUpper(guess)
 		if !ptrData.ErrorInLetter(&guess) {
 			ptrData.HandleLetter(&guess)

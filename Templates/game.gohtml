@@ -1,4 +1,5 @@
 {{template "base"}}
+{{template "background"}}
 
 <script src="/Assets/Script/login.js" defer></script>
 <link rel="stylesheet" href="/Assets/Css/game.css">
@@ -7,7 +8,7 @@
 
     {{.}}
 
-<div class="container z-index-up">
+<div class="container z-index-up" id="FirstPlan">
     <div class="column" id="word">
         <h1>Hangman Game</h1>
         <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
@@ -24,21 +25,22 @@
         {{ if eq .Error true}}
         <h4 id="error_text">{{.Message}}</h4>
         {{end}}
-        <form action="/hangman" onclick="UpdateWord" method="POST" class="form-hangman">
+        <form  class="form-hangman" onsubmit="UpdateWord(); event.preventDefault();" >
         {{ if eq .State "lost" "won" }}
             <input type="submit" name="Replay" value="Play Again ?" />
             {{ else }}
+            <label for="letter-input"></label>
             <input class="form-hangman-input" id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
-            <input type="submit" name="Submit"  onclick="UpdateWord()" value="Validate 👌" />
+            <input type="submit" name="Submit" value="Validate 👌" />
             {{ end }}
         </form>
     </div>
 
     <div class="column hangman_state">
-        <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
+        {{ if ne .Game.Tries 0 }}
+            <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
+        {{ end }}
     </div>
 </div>
-
-    {{template "background"}}
 
 </section>
