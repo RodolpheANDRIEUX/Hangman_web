@@ -1,4 +1,5 @@
 {{template "base"}}
+{{template "background"}}
 
 <script src="/Assets/Script/login.js" defer></script>
 <link rel="stylesheet" href="/Assets/Css/game.css">
@@ -36,10 +37,11 @@
     </div>
 
     <div class="column hangman_state">
-        <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
+        <div> {{ .Game.Tries }} </div>
+        {{ if ne .Game.Tries 0 }}
+            <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
+        {{ end }}
     </div>
 </div>
-
-    {{template "background"}}
 
 </section>
