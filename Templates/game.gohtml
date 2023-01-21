@@ -6,13 +6,13 @@
 
 <section id="game_page">
 
-    {{.}}
 
 <div class="container z-index-up" id="FirstPlan">
+    {{.}}
     <div class="column" id="word">
         <h1>Hangman Game</h1>
         <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
-        {{ if eq .State "won" "goodGuess" }}
+        {{ if eq .State "WIN" }}
         <h4 id="success_text">{{.Message}}</h4>
         {{ end }}
     </div>
@@ -26,8 +26,9 @@
         <h4 id="error_text">{{.Message}}</h4>
         {{end}}
         <form  class="form-hangman" onsubmit="UpdateWord(); event.preventDefault();" >
-        {{ if eq .State "lost" "won" }}
-            <input type="submit" name="Replay" value="Play Again ?" />
+            {{ if eq .State "WIN" }}
+                <button class="button_play_again" onclick="window.location.href='/hangman-replay';">Play Again</button>
+                <button class="button_play_again" onclick="window.location.href='/hangman-stop';">Exit Game</button>
             {{ else }}
             <label for="letter-input"></label>
             <input class="form-hangman-input" id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">

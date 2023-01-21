@@ -33,9 +33,9 @@ function UpdateWord() {
     xhr.onload = function(event){
         const parser = new DOMParser();
         const doc = parser.parseFromString(event.target.response, "text/html");
-        const word = doc.getElementById("word");
+
         const FirstPlan = doc.getElementById("FirstPlan");
-        document.getElementById("word").innerHTML = word.innerHTML;
+
         document.getElementById("FirstPlan").innerHTML = FirstPlan.innerHTML;
         console.log(FirstPlan)
     };
