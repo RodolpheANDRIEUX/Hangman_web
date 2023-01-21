@@ -9,11 +9,15 @@
     animation: defile linear infinite;
 }
 
+.BackgroundReversed > * {
+    display: revert;
+}
+
 .moon{
     height: 80px;
     width: 80px;
-    background: #aaaaaa;
-    box-shadow: 0 0 50px 0px #ffecb4;
+    background: #dddddd;
+    box-shadow: 0 0 50px 0 #dddddd;
     border-radius: 50%;
     top: 40px;
     left: 300px;
@@ -39,29 +43,45 @@
     filter: blur(300px);
 }
 
-.FP{
-    z-index: -1;
+.Background .Rev{
+    transform: rotateY(60deg);
+    animation-delay: 0s;
 }
 
+.FP{
+    z-index: -10;
+    animation-duration: 40s;
+    animation-delay: -20s;
+}
 
 .Forest4{
-    z-index: -2;
+    z-index: -20;
+    animation-duration: 110s;
+    animation-delay: -55s;
 }
 
 .Forest3{
-    z-index: -3;
+    z-index: -30;
+    animation-duration: 130s;
+    animation-delay: -65s;
 }
 
 .Forest2{
-    z-index: -4;
+    z-index: -40;
+    animation-duration: 150s;
+    animation-delay: -75s;
 }
 
 .Forest1{
-    z-index: -5;
+    z-index: -50;
+    animation-duration: 170s;
+    animation-delay: -85s;
 }
 
 .BP {
-    z-index: -6;
+    z-index: -60;
+    animation-duration: 800s;
+    animation-delay: -400s;
 }
 
 @keyframes defile {

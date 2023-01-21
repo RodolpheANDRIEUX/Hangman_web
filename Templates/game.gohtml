@@ -37,7 +37,6 @@
     </div>
 
     <div class="column hangman_state">
-        <div> {{ .Game.Tries }} </div>
         {{ if ne .Game.Tries 0 }}
             <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
         {{ end }}
