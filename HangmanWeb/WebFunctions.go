@@ -27,9 +27,11 @@ func (ptrData *WebData) menuPlay(w http.ResponseWriter, r *http.Request) {
 func (ptrData *WebData) LaunchGame(w http.ResponseWriter, r *http.Request) {
 	guess := r.FormValue("Letter")
 	if guess != "" {
+		println("letter", guess, " received")
 		guess = strings.ToUpper(guess)
 		if !ptrData.ErrorInLetter(&guess) {
 			ptrData.HandleLetter(&guess)
+			println("state: ", ptrData.State)
 			if ptrData.State == "WIN" || ptrData.State == "LOST" {
 				ptrData.UpdateScore()
 				http.Redirect(w, r, "gameMenu", http.StatusFound)

@@ -31,16 +31,19 @@ function UpdateWord() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "/hangman");
     xhr.onload = function(event){
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(event.target.response, "text/html");
-        var word = doc.getElementById("word");
-        var content_hangman = doc.getElementById("content-hangman");
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(event.target.response, "text/html");
+        const word = doc.getElementById("word");
+        const FirstPlan = doc.getElementById("FirstPlan");
         document.getElementById("word").innerHTML = word.innerHTML;
-        document.getElementById("content-hangman").innerHTML = content_hangman.innerHTML;
-        console.log(content_hangman)
+        document.getElementById("FirstPlan").innerHTML = FirstPlan.innerHTML;
+        console.log(FirstPlan)
     };
     const formData = new FormData();
     const input_form = document.getElementById("letter-input")
     formData.append('Letter', input_form.value);
     xhr.send(formData);
+    setTimeout(() => {
+        document.getElementById("letter-input").focus();
+    }, 100);
 }
