@@ -1,5 +1,6 @@
 {{template "base"}}
 
+<script src="/Assets/Script/login.js" defer></script>
 <link rel="stylesheet" href="/Assets/Css/game.css">
 
 <section id="game_page">
@@ -7,14 +8,14 @@
     {{.}}
 
 <div class="container z-index-up">
-    <div class="column">
+    <div class="column" id="word">
         <h1>Hangman Game</h1>
         <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
         {{ if eq .State "won" "goodGuess" }}
         <h4 id="success_text">{{.Message}}</h4>
         {{ end }}
     </div>
-    <div class="column">
+    <div class="column" id="content-hangman">
         <p>Letters suggested :
             {{range .Game.BadGuess}}
             {{.}}
@@ -23,12 +24,12 @@
         {{ if eq .Error true}}
         <h4 id="error_text">{{.Message}}</h4>
         {{end}}
-        <form action="/hangman" method="POST" class="form-hangman">
-            {{ if eq .State "lost" "won" }}
+        <form action="/hangman" onclick="UpdateWord" method="POST" class="form-hangman">
+        {{ if eq .State "lost" "won" }}
             <input type="submit" name="Replay" value="Play Again ?" />
             {{ else }}
-            <input class="form-hangman-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
-            <input type="submit" name="Submit" value="Validate 👌" />
+            <input class="form-hangman-input" id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+            <input type="submit" name="Submit"  onclick="UpdateWord()" value="Validate 👌" />
             {{ end }}
         </form>
     </div>
