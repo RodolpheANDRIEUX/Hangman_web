@@ -127,4 +127,5 @@ func (ptrData *WebData) Logout(r *http.Request) {
 	ptrData.User.Username = ""
 	ptrData.User.Password = []byte("")
 	ptrData.User.Score = 0
+	fmt.Println("user logout")
 }

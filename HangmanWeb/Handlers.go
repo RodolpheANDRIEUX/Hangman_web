@@ -2,7 +2,6 @@ package HangmanWeb
 
 import (
 	"bytes"
-	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
@@ -36,6 +35,16 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 	case "/hangman":
 		Data.LaunchGame(w, r)
 
+	case "/hangman-replay":
+		Data.Reset()
+		HangmanClassic.NewGame(Data.GetWordDifficulty(), &Data.Game)
+		http.Redirect(w, r, "hangman", http.StatusFound)
+
+	case "/hangman-stop":
+		Data.State = "LOST"
+		Data.UpdateScore()
+		http.Redirect(w, r, "gameMenu", http.StatusFound)
+
 	case "/login":
 		Data.Login(w, r)
 
@@ -62,7 +71,6 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		Data.menuPlay(w, r)
 		Data.Reset()
 		HangmanClassic.NewGame(Data.GetWordDifficulty(), &Data.Game)
-		fmt.Println(Data)
 		http.Redirect(w, r, "hangman", http.StatusFound)
 
 	case "/gameMenu":
