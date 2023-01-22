@@ -9,7 +9,8 @@
 }
 
 #hangman_word{
-    letter-spacing: 10px;
+    letter-spacing: 4rem;
+    translate: 2rem;
 }
 
 #success_text{
@@ -18,12 +19,14 @@
 
 .column{
     position: fixed;
-    border: green dashed;
+    /*border: green dashed;*/
     text-align: center;
 }
 
 .SubColumn{
-    border: blue dashed;
+    /*border: blue dashed;*/
+    justify-content: center;
+    text-align: center;
 }
 
 #word{
@@ -40,13 +43,13 @@
 
 #LettersSuggested{
     display: flex;
-    justify-content: center;
-    margin: 50px 0 0 0;
+    margin: 65px 0 0 0;
 }
 
 .wrongLetter{
-    border: red dashed;
+    /*border: red dashed;*/
     color: red;
+    font-size: 1.5rem;
     margin: 0 10px 0 10px;
     animation: fadeIn 3s;
     text-align: center;
@@ -76,6 +79,8 @@
 
 .form-hangman{
     display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 .form-hangman > * {
@@ -89,9 +94,11 @@
 
 #error_text{
     padding: 0;
+    width: 100%;
+    left: 0;
     margin: 0;
+    /*border: pink dashed;*/
     position: absolute;
-    text-align: center;
     font-size: .8rem;
     animation: fadeIn 3s;
 }
