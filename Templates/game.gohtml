@@ -6,42 +6,54 @@
 
 <section id="game_page">
 
+<div id="FirstPlan">
 
-<div class="container z-index-up" id="FirstPlan">
-    {{.}}
-    <div class="column" id="word">
-        <h1>Hangman Game</h1>
-        <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
+    <div id = debug>Data: {{.}}</div>
+
+
+    <div class="column" id="Inputs">
+
+        <div class="SubColumn" id="word">
+            <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
+        </div>
+
         {{ if eq .State "WIN" }}
-        <h4 id="success_text">{{.Message}}</h4>
+            <form  class="form-hangman SubColumn" onsubmit="UpdateWord(); event.preventDefault();" >
+                <button class="button_user" onclick="window.location.href='/hangman-replay';">Play Again</button>
+                <button class="button_user" onclick="window.location.href='/hangman-stop';">Exit Game</button>
+            </form>
+        {{ else }}
+
+            <div class="subColumn">
+                <form  class="form-hangman" onsubmit="UpdateWord(); event.preventDefault();" >
+                    <label for="letter-input"></label>
+                    <input class="form-hangman-input" id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+                    <input type="submit" name="Submit" value="↵">
+                </form>
+                {{ if eq .Error true}}
+                    <h4 id="error_text">{{.Message}}</h4>
+                {{end}}
+
+            </div>
+
+            <div class="SubColumn" id="LettersSuggested">
+                {{range .Game.BadGuess}}
+                    <div class="wrongLetter">{{.}}</div>
+                {{end}}
+            </div>
+
         {{ end }}
-    </div>
-    <div class="column" id="content-hangman">
-        <p>Letters suggested :
-            {{range .Game.BadGuess}}
-            {{.}}
-            {{end}}
-        </p>
-        {{ if eq .Error true}}
-        <h4 id="error_text">{{.Message}}</h4>
-        {{end}}
-        <form  class="form-hangman" onsubmit="UpdateWord(); event.preventDefault();" >
-            {{ if eq .State "WIN" }}
-                <button class="button_play_again" onclick="window.location.href='/hangman-replay';">Play Again</button>
-                <button class="button_play_again" onclick="window.location.href='/hangman-stop';">Exit Game</button>
-            {{ else }}
-            <label for="letter-input"></label>
-            <input class="form-hangman-input" id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
-            <input type="submit" name="Submit" value="Validate 👌" />
-            {{ end }}
-        </form>
+
+
     </div>
 
-    <div class="column hangman_state">
+
+    <div class="column" id="hangmanState">
         {{ if ne .Game.Tries 0 }}
             <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
         {{ end }}
     </div>
+
 </div>
 
 </section>

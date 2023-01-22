@@ -1,3 +1,8 @@
+#debug{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 
 #error_text{
     color: red;
@@ -11,31 +16,94 @@
     color: green;
 }
 
-.container{
-    height: 100vh;
-    display: flex;
-    max-width: 1000px;
-    align-items: center;
-    margin: auto;
-}
-
 .column{
-    width: 33%;
-    margin: 0 20px;
-    background: darkgray;
+    position: fixed;
+    border: green dashed;
     text-align: center;
-    padding: 10px;
 }
 
-.hangman_state img{
+.SubColumn{
+    border: blue dashed;
+}
+
+#word{
+    font-size: 2rem;
+    transition: .5s;
+}
+
+#Inputs{
+    left: 50%;
+    top: 55%;
+    translate: -50%;
+    transition: .5s;
+}
+
+#LettersSuggested{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 0 0;
+}
+
+.wrongLetter{
+    border: red dashed;
+    color: red;
+    margin: 0 10px 0 10px;
+    animation: fadeIn 3s;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from{opacity: 0}
+    to{opacity: 1}
+}
+
+#letter-input{
+    width: 250px;
+    padding: 0 0 0 30px;
+}
+
+.form-hangman input[type="submit"] {
+    background: #ff0000;
+    color: #fff;
+    cursor: pointer;
+    transition: all .2s;
+    width: 50px;
+}
+
+.form-hangman input[type="submit"]:hover {
+    background: #aa0000;
+}
+
+.form-hangman{
+    display: flex;
+}
+
+.form-hangman > * {
+    border: 0;
+    background: #ffffff40;
+    line-height: 50px;
+    font-size: 1rem;
+    border-radius: 0;
+    outline: 0;
+}
+
+#error_text{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    font-size: .8rem;
+    animation: fadeIn 3s;
+}
+
+#hangmanState img{
     height: 100%;
     vertical-align: center;
 }
 
-.hangman_state {
-    display: flex;
-    background: darkgray;
-    height: 25%;
+#hangmanState {
+    height: 30%;
+    top: 20%;
 }
 
 .button_play_again{
@@ -43,7 +111,7 @@
     color: white;
     background: #303030;
     padding: 10px 20px;
-    font-family: "druktextwide-med";
+    font-family: "druktextwide-med", fantasy;
     border-radius: 5%;
     justify-content: center;
     cursor: pointer;
