@@ -12,5 +12,12 @@
 		"locale": "en",
 		"best_score": 2,
 		"score": 0
+	},
+	"Rodolphe": {
+		"user_id": "Rodolphe",
+		"password": "OuiLePasswordOui",
+		"locale": "en",
+		"best_score": 42,
+		"score": 0
 	}
 }
