@@ -70,9 +70,9 @@ body{
     text-align: center;
     transition: ease, 500ms;
     color: white;
-    font-size: 18px;
-    margin: 10px;
-    padding: 30px;
+    font-size: 1.25rem;
+    margin: 0.8rem;
+    padding: 2rem 0;
     width: 10em;
     background-color: rgba(250, 234, 214, 0.2);
     border-radius: 10%;
@@ -81,7 +81,32 @@ body{
     border: 0;
 }
 
+.button_user .click_label{
+    cursor: pointer;
+    padding: 2rem 2rem;
+}
+
+.button_user p{
+    margin: 0;
+    padding: 0;
+}
+
 .button_user:hover{
+    background-color: rgba(250, 234, 214, 0.4);
+}
+
+.submit_btn{
+    margin-top: 1em;
+    text-align: center;
+    color: white;
+    background: #303030;
+    padding: 10px 20px;
+    font-family: "druktextwide-med";
+    border-radius: 5%;
+    justify-content: center;
+}
+
+.submit_btn:hover{
     background-color: rgba(250, 234, 214, 0.4);
 }
 

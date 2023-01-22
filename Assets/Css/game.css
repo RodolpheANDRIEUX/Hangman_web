@@ -21,12 +21,18 @@
     position: fixed;
     /*border: green dashed;*/
     text-align: center;
+    display: grid;
+    justify-items: center;
 }
 
-.SubColumn{
+.sub_column{
     /*border: blue dashed;*/
-    justify-content: center;
     text-align: center;
+}
+
+.inline_element{
+    display: flex;
+    justify-content: center;
 }
 
 #word{
@@ -117,10 +123,18 @@
     text-align: center;
     color: white;
     background: #303030;
-    padding: 10px 20px;
+    padding: 0.8rem 0;
     font-family: "druktextwide-med", fantasy;
     border-radius: 5%;
     justify-content: center;
-    cursor: pointer;
+    margin: 0 0.5rem;
 }
 
+.button_play_again:hover{
+    background-color: rgba(250, 234, 214, 0.4);
+}
+
+.button_play_again label{
+    padding: 0.8rem 1.8rem;
+    cursor: pointer;
+}

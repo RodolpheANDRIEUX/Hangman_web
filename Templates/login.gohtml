@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/Assets/Css/login.css">
 
 
-
     <div class="container">
         <div class="hangmanTitle">
             <h1>HANGMAN</h1>
@@ -20,9 +19,9 @@
         </div>
         <div class="content  z-index-up">
 
-            <form  class="FormType" onsubmit="UpdateFirstPlan('/login' , 'PlayNow', 'PlayNow'); event.preventDefault();">
-                <label class="button_user" for="PlayNow">Play Now</label>
-                <input type="submit" name="PlayNow" id="PlayNow" value="Play" style="display: none">
+            <form class="button_user" onsubmit="UpdateFirstPlan('/login' , 'PlayNow', 'PlayNow'); event.preventDefault();">
+                <label class="click_label" for="PlayNow">Play Now</label>
+                <input style="display: none" type="submit" name="PlayNow" id="PlayNow" value="Play">
             </form>
 
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
@@ -33,11 +32,11 @@
                         <input type="text" name="username" id="username" required>
                         <label for="password">Password: </label>
                         <input type="password" name="password" id="email" required minlength="6">
-                        <input type="submit" value="Sign-Up">
+                        <input class="submit_btn" type="submit" value="Sign-Up">
                     </form>
-                    <div>
+                    <div class="login_zone">
                         <span>Do you have an account ? <br> Click here to login : </span>
-                        <button class="pop-up-btn" type="submit" onclick="handlePopup(true)">Login</button>
+                        <button class="submit_btn" type="submit" onclick="handlePopup(true)">Login</button>
                     </div>
                 </div>
             </div>
@@ -51,7 +50,7 @@
                         <input type="text" name="username" id="username" required>
                         <label for="email">Password: </label>
                         <input type="password" name="password" id="email" required minlength="6">
-                        <input type="submit" value="Login">
+                        <input class="submit_btn" type="submit" value="Login">
                     </form>
                 </div>
 
@@ -59,7 +58,7 @@
             </div>
         </div>
 
-        <div class="bg-overlay" id="bg-overlay" onclick="closeAll()" ></div>
+        <div class="bg-overlay" id="bg-overlay" onclick="closeAll()"></div>
 
     </div>
 

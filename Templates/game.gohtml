@@ -11,24 +11,24 @@
 
     <div class="column" id="Inputs">
 
-        <div class="SubColumn" id="word">
+        <div class="sub_column" id="word">
             <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
         </div>
 
         {{ if eq .State "WIN" }}
-        <div class="SubColumn">
-            <form   class="FormType" onsubmit="UpdateFirstPlan('/hangman-replay','PlayAgain', 'PlayAgain'); event.preventDefault(); FocusLetter()">
-                <label for="PlayAgain" class="button_user">Play Again</label>
+        <div class="sub_column inline_element">
+            <form class="button_play_again" onsubmit="UpdateFirstPlan('/hangman-replay','PlayAgain', 'PlayAgain'); event.preventDefault(); FocusLetter()">
+                <label class="click_label" for="PlayAgain">Play Again</label>
                 <input type="submit" name="PlayAgain" id="PlayAgain" value="PlayAgain" style="display: none">
             </form>
-            <form   class="FormType" onsubmit="UpdateFirstPlan('/hangman-stop','ExitGame','ExitGame'); event.preventDefault();">
-                <label for="ExitGame" class="button_user">Exit Game</label>
+            <form   class="button_play_again" onsubmit="UpdateFirstPlan('/hangman-stop','ExitGame','ExitGame'); event.preventDefault();">
+                <label class="click_label" for="ExitGame" >Exit Game</label>
                 <input type="submit" name="ExitGame" id="ExitGame" value="ExitGame" style="display: none">
             </form>
         </div>
         {{ else }}
 
-            <div class="SubColumn">
+            <div class="sub_column">
                 <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letter-input'); event.preventDefault(); FocusLetter()" >
                     <label for="letter-input"></label>
                     <input id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
@@ -40,7 +40,7 @@
 
             </div>
 
-            <div class="SubColumn" id="LettersSuggested">
+            <div class="sub_column" id="LettersSuggested">
                 {{range .Game.BadGuess}}
                     <div class="wrongLetter">{{.}}</div>
                 {{end}}

@@ -4,23 +4,6 @@
     place-items: center;
 }
 
-.button_user span{
-    display: block;
-    font-size: 14px;
-    text-align: center;
-}
-
-.pop-up-btn{
-    margin-top: 1em;
-    text-align: center;
-    color: white;
-    background: #303030;
-    padding: 10px 20px;
-    font-family: "druktextwide-med";
-    border-radius: 5%;
-    justify-content: center;
-}
-
 input[type="submit"]:hover{
     background: #000000;
 }
@@ -43,6 +26,8 @@ input[type="text"], input[type="password"] {
 .signup_form{
     display: none;
     place-items: center;
+    font-size: 1rem;
+    margin: 1rem;
 }
 
 .signup_form input{
@@ -77,7 +62,7 @@ input[type="text"], input[type="password"] {
 .login-popup.opened{
     transform: scale(1);
     z-index: 999;
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .close-popup-button{
@@ -95,7 +80,7 @@ input[type="text"], input[type="password"] {
 .close-popup-button:hover{
     transform: scale(1.2);
 }
-/* ------ bg oerlay ------ */
+/* ------ bg overlay ------ */
 
 .bg-overlay {
     background: rgba(0, 0, 0, 0.6);
@@ -112,4 +97,11 @@ input[type="text"], input[type="password"] {
     -webkit-transition: background 0.15s linear;
     -o-transition: background 0.15s linear;
     transition: background 0.15s linear;
+}
+
+/*------- end -------*/
+
+.login_zone{
+    display: grid;
+    justify-items: center;
 }
