@@ -1,15 +1,14 @@
-{{template "base"}}
-{{template "background"}}
+<section id="FirstPlan">
 
-<link rel="stylesheet" href="/Assets/Css/difficultyMenu.css">
+    <link rel="stylesheet" href="/Assets/Css/difficultyMenu.css">
 
-<section id="difficulty_page">
+
 
     <div class="hangmanTitle">
         <h1 class="littleTitle">CHOOSE YOUR DIFFICULTY</h1>
     </div>
 
-<form id="difficultyForm" action="/difficulty-play" method="post">
+<form id="difficultyForm" onsubmit="SendDifficulty('/difficulty-play', 'difficulty', difficulty); event.preventDefault();">
     <div id="difficultySelectors">
     <label class="CustomButton" for="easy">
         <input class="HitboxCircle" type="radio" id="easy" name="difficulty" value="easy" checked>
@@ -29,5 +28,7 @@
 
     <input class="button_user" type="submit" value="PLAY">
 </form>
+
+
 
 </section>

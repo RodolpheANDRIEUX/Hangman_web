@@ -12,6 +12,12 @@ func (ptrData *WebData) DifficultyMenu(w http.ResponseWriter, r *http.Request) {
 
 // Login : We render the Login template
 func (ptrData *WebData) Login(w http.ResponseWriter, r *http.Request) {
+	PlayNow := r.FormValue("PlayNow")
+	if PlayNow != "" {
+		println("received")
+		http.Redirect(w, r, "difficulty", http.StatusFound)
+	}
+
 	RenderTemplate(w, "login")
 }
 

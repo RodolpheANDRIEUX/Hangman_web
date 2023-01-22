@@ -1,14 +1,12 @@
-{{template "base"}}
-{{template "background"}}
 
-<script src="/Assets/Script/login.js" defer></script>
-<link rel="stylesheet" href="/Assets/Css/game.css">
 
-<section id="game_page">
 
-<div id="FirstPlan">
+<section id="FirstPlan">
 
+
+    <link rel="stylesheet" href="/Assets/Css/game.css">
     <div id = debug>Data: {{.}}</div>
+
 
 
     <div class="column" id="Inputs">
@@ -18,16 +16,22 @@
         </div>
 
         {{ if eq .State "WIN" }}
-            <form  class="form-hangman SubColumn" onsubmit="UpdateWord(); event.preventDefault();" >
-                <button class="button_user" onclick="window.location.href='/hangman-replay';">Play Again</button>
-                <button class="button_user" onclick="window.location.href='/hangman-stop';">Exit Game</button>
+        <div class="SubColumn">
+            <form   class="FormType" onsubmit="UpdateFirstPlan('/hangman-replay','PlayAgain', 'PlayAgain'); event.preventDefault(); FocusLetter()">
+                <label for="PlayAgain" class="button_user">Play Again</label>
+                <input type="submit" name="PlayAgain" id="PlayAgain" value="PlayAgain" style="display: none">
             </form>
+            <form   class="FormType" onsubmit="UpdateFirstPlan('/hangman-stop','ExitGame','ExitGame'); event.preventDefault();">
+                <label for="ExitGame" class="button_user">Exit Game</label>
+                <input type="submit" name="ExitGame" id="ExitGame" value="ExitGame" style="display: none">
+            </form>
+        </div>
         {{ else }}
 
             <div class="SubColumn">
-                <form  class="form-hangman" onsubmit="UpdateWord(); event.preventDefault();" >
+                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letter-input'); event.preventDefault(); FocusLetter()" >
                     <label for="letter-input"></label>
-                    <input class="form-hangman-input" id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+                    <input id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
                     <input type="submit" name="Submit" value="↵">
                 </form>
                 {{ if eq .Error true}}
@@ -44,7 +48,6 @@
 
         {{ end }}
 
-
     </div>
 
 
@@ -53,7 +56,5 @@
             <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
         {{ end }}
     </div>
-
-</div>
 
 </section>

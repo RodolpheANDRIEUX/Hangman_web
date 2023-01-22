@@ -1,11 +1,12 @@
 {{template "base"}}
 {{template "background"}}
 
-<script src="/Assets/Script/login.js" defer></script>
-<link rel="stylesheet" href="/Assets/Css/login.css">
+<section id="FirstPlan">
+
+    <script src="/Assets/Script/login.js" defer></script>
+    <link rel="stylesheet" href="/Assets/Css/login.css">
 
 
-<section id="login_page">
 
     <div class="container">
         <div class="hangmanTitle">
@@ -18,14 +19,16 @@
             {{end}}
         </div>
         <div class="content  z-index-up">
-            <div class="button_user" onclick="window.location.href='/difficulty';">
-                <p>Play Now</p>
-            </div>
+
+            <form  class="FormType" onsubmit="UpdateFirstPlan('/login' , 'PlayNow', 'PlayNow'); event.preventDefault();">
+                <label class="button_user" for="PlayNow">Play Now</label>
+                <input type="submit" name="PlayNow" id="PlayNow" value="Play" style="display: none">
+            </form>
 
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
                 <p>Sign Up</p>
                 <div id="sinup-form" class="signup_form">
-                    <form action="/sign-up" autocomplete="off" class="large grid-center">
+                    <form id="FormLogin" autocomplete="off" class="large grid-center">
                         <label for="name">Username: </label>
                         <input type="text" name="username" id="username" required>
                         <label for="password">Password: </label>
@@ -43,7 +46,7 @@
 
                 <h3>Login</h3>
                 <div id="login-form" class="login_form">
-                    <form class="grid-center" action="/log-in" autocomplete="off">
+                    <form id="FormLogin" class="grid-center" action="/log-in" autocomplete="off">
                         <label for="name">Username: </label>
                         <input type="text" name="username" id="username" required>
                         <label for="email">Password: </label>
@@ -59,7 +62,6 @@
         <div class="bg-overlay" id="bg-overlay" onclick="closeAll()" ></div>
 
     </div>
-
 
 
 </section>

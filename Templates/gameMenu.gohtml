@@ -1,8 +1,9 @@
 
-<section id="gameMenu_page">
+<section id="FirstPlan">
+    <link rel="stylesheet" href="/Assets/Css/gameMenu.css">
 
-    <div class="container" id="FirstPlan">
-        <link rel="stylesheet" href="/Assets/Css/gameMenu.css">
+
+    <div class="container">
         <div class="hangmanTitle">
             <h1 class="littleTitle">YOU {{.State}}</h1>
         </div>
@@ -21,8 +22,9 @@
                 </ol>
             </div>
 
-            <div class="button_play" onclick="window.location.href='/difficulty';">
-                <p>PLAY AGAIN</p>
+
+            <div class="button_play" onclick="UpdateFirstPlan('/difficulty' , 'PlayAgain', 'PlayAgain')">
+                <span id="PlayAgain">PLAY AGAIN</span>
             </div>
 
             <form id="Logout" method="post" action="/">

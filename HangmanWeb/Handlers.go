@@ -30,6 +30,10 @@ var Data WebData
 
 // PathHandler : handle every path in a switch
 func PathHandler(w http.ResponseWriter, r *http.Request) {
+
+	println(r.URL.Path)
+	println(r.FormValue("PlayNow"))
+
 	switch r.URL.Path {
 
 	case "/hangman":

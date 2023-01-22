@@ -27,23 +27,3 @@ function handlePopup(open){
     }
 }
 
-function UpdateWord() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "/hangman");
-    xhr.onload = function(event){
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(event.target.response, "text/html");
-
-        const FirstPlan = doc.getElementById("FirstPlan");
-
-        document.getElementById("FirstPlan").innerHTML = FirstPlan.innerHTML;
-        console.log(FirstPlan)
-    };
-    const formData = new FormData();
-    const input_form = document.getElementById("letter-input")
-    formData.append('Letter', input_form.value);
-    xhr.send(formData);
-    setTimeout(() => {
-        document.getElementById("letter-input").focus();
-    }, 100);
-}
