@@ -11,9 +11,15 @@
 
     <div class="column" id="Inputs">
 
-        <div class="sub_column" id="word">
-            <h3 id="hangman_word">{{.Game.WordDisplayed}}</h3>
-        </div>
+        {{ if eq .Error true}}
+            <div class="sub_column" id="word">
+                <h3 class="hangman_word shake">{{.Game.WordDisplayed}}</h3>
+            </div>
+        {{ else }}
+            <div class="sub_column" id="word">
+                <h3 class="hangman_word">{{.Game.WordDisplayed}}</h3>
+            </div>
+        {{ end }}
 
         {{ if eq .State "WIN" }}
         <div class="sub_column inline_element">

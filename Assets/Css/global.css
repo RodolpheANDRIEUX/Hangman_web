@@ -45,6 +45,12 @@ body{
     color: #aa0000;
 }
 
+@media only screen and (max-width: 600px) {
+    .hangmanTitle h1{
+        font-size: 4rem;
+    }
+}
+
 .littleTitle{
     font-size: 5rem !important;
 }

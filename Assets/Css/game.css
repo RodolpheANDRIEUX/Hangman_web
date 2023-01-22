@@ -8,9 +8,20 @@
     color: red;
 }
 
-#hangman_word{
+.hangman_word{
     letter-spacing: 4rem;
-    translate: 2rem;
+}
+
+.shake{
+    animation: shake 500ms 2;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
 }
 
 #success_text{
@@ -112,6 +123,7 @@
 #hangmanState img{
     height: 100%;
     vertical-align: center;
+    overflow: auto;
 }
 
 #hangmanState {
@@ -137,4 +149,23 @@
 .button_play_again label{
     padding: 0.8rem 1.8rem;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .hangman_word{
+        letter-spacing: 1rem;
+        font-size: 1.5rem;
+    }
+    .CustomButton{
+        margin: 1rem;
+        font-size: 25px;
+    }
+
+    .button_play_again label{
+        padding: 2px;
+    }
+    .button_play_again{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
