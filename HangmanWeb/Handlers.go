@@ -2,7 +2,6 @@ package HangmanWeb
 
 import (
 	"bytes"
-	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
@@ -53,7 +52,6 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		Data.Login(w, r)
 
 	case "/sign-up":
-		fmt.Println("2")
 		if CheckUsernameAvailability(r) {
 			UpdateDatabase(r)
 			http.Redirect(w, r, "difficulty", http.StatusFound)
@@ -62,7 +60,6 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "/log-in":
-		fmt.Println("1")
 		if SuccessfullLogin(r) {
 			Data.LoadUser(r.FormValue("username"))
 			http.Redirect(w, r, "difficulty", http.StatusFound)
@@ -71,7 +68,6 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "/difficulty":
-		fmt.Println("salut")
 		Data.DifficultyMenu(w, r)
 
 	case "/difficulty-play":

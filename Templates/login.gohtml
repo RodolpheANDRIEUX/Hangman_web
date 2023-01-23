@@ -28,7 +28,7 @@
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
                 <p>Sign Up</p>
                 <div id="sinup-form" class="signup_form">
-                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();FocusForm();">
+                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();FocusForm(SignUp);">
                         <label for="username">Username: </label>
                         <input type="text" name="username" id="username" required>
                         <label for="password">Password: </label>
@@ -46,12 +46,12 @@
 
                 <h3>Login</h3>
                 <div id="login-form" class="login_form">
-                    <form class="grid-center" action="/log-in" autocomplete="off">
-                        <label for="name">Username: </label>
-                        <input type="text" name="username" id="username" required>
-                        <label for="email">Password: </label>
-                        <input type="password" name="password" id="email" required minlength="6">
-                        <input class="submit_btn" type="submit" value="Login">
+                    <form class="grid-center" autocomplete="off" onsubmit="SendPasswordAndLogin('/log-in' , 'log_username', 'log_username', 'log_password', 'log_password'); event.preventDefault();FocusForm(Login);">
+                        <label for="log_username">Username: </label>
+                        <input type="text" name="log_username" id="log_username" required>
+                        <label for="log_password">Password: </label>
+                        <input type="password" name="log_password" id="log_password" required minlength="6">
+                        <input class="submit_btn" type="submit" value="Log-in" name="Login" id="Login">
                     </form>
                 </div>
 

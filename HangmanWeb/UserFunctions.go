@@ -34,7 +34,7 @@ func CheckUsernameAvailability(r *http.Request) bool {
 func GetPasswordHash(password string) ([]byte, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), 0)
 	if err != nil {
-		return []byte(nil), err
+		return nil, err
 	}
 	return hash, nil
 }
@@ -70,8 +70,8 @@ func UnmarshalDataBase(UsersData map[string]UserData) {
 func SuccessfullLogin(r *http.Request) bool {
 	UnmarshalDataBase(UsersData)
 	for key, _ := range UsersData {
-		if r.FormValue("username") == key {
-			if bcrypt.CompareHashAndPassword(UsersData[key].Password, []byte(r.FormValue("password"))) == nil {
+		if r.FormValue("log_username") == key {
+			if bcrypt.CompareHashAndPassword(UsersData[key].Password, []byte(r.FormValue("log_password"))) == nil {
 				return true
 			}
 		}
@@ -126,7 +126,8 @@ func SortTable(table [][]string) {
 
 func (ptrData *WebData) Logout(r *http.Request) {
 	ptrData.User.Username = ""
-	ptrData.User.Password = []byte("")
+	ptrData.User.Password = nil
 	ptrData.User.Score = 0
+	ptrData.User.BestScore = 0
 	fmt.Println("user logout")
 }
