@@ -32,7 +32,8 @@ var Data WebData
 func PathHandler(w http.ResponseWriter, r *http.Request) {
 
 	println(r.URL.Path)
-	println(r.FormValue("PlayNow"))
+	println("play ", r.FormValue("PlayNow"))
+	println("SignUp ", r.FormValue("SignUp"))
 
 	switch r.URL.Path {
 
