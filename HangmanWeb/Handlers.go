@@ -33,8 +33,6 @@ var Data WebData
 func PathHandler(w http.ResponseWriter, r *http.Request) {
 
 	println(r.URL.Path)
-	println("play ", r.FormValue("PlayNow"))
-	println("SignUp ", r.FormValue("SignUp"))
 
 	switch r.URL.Path {
 
@@ -55,6 +53,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		Data.Login(w, r)
 
 	case "/sign-up":
+		fmt.Println("2")
 		if CheckUsernameAvailability(r) {
 			UpdateDatabase(r)
 			http.Redirect(w, r, "difficulty", http.StatusFound)
@@ -63,16 +62,16 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "/log-in":
-		fmt.Println("username = ", r.FormValue("username"))
-		fmt.Println("password = ", r.FormValue("password"))
+		fmt.Println("1")
 		if SuccessfullLogin(r) {
 			Data.LoadUser(r.FormValue("username"))
 			http.Redirect(w, r, "difficulty", http.StatusFound)
 		} else {
-			// http.Redirect(w, r, "login", http.StatusFound)
+			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
 	case "/difficulty":
+		fmt.Println("salut")
 		Data.DifficultyMenu(w, r)
 
 	case "/difficulty-play":
