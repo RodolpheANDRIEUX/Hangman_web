@@ -62,7 +62,7 @@ input[type="text"], input[type="password"] {
 .login-popup.opened{
     transform: scale(1);
     z-index: 999;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .close-popup-button{

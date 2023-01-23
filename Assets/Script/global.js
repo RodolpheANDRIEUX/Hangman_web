@@ -45,19 +45,13 @@ function SendPasswordAndLogin(route, login, loginId, password, passwordId) {
     loginRequest.send(Data);
 }
 
-function FocusLetter(){
-    setTimeout(() => {
-        document.getElementById("letter-input").focus();
-    }, 100);
-}
-
 function SendDifficulty(route, name, id){
     let difficulty = document.querySelector('input[name="difficulty"]:checked').value;
     UpdateFirstPlan(route, name, difficulty)
 }
 
-function FocusForm(){
+function FocusForm(elementId){
     setTimeout(() => {
-        document.getElementById("Sign-Up").focus();
+        document.getElementById(elementId).focus();
     }, 100);
 }

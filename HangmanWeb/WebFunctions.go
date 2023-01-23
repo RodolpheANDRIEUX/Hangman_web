@@ -17,16 +17,6 @@ func (ptrData *WebData) Login(w http.ResponseWriter, r *http.Request) {
 		println("play received = ", PlayNow)
 		http.Redirect(w, r, "difficulty", http.StatusFound)
 	}
-
-	UserLogs := []string{r.FormValue("username"), r.FormValue("password")}
-
-	if UserLogs != nil {
-		println("username received : ", UserLogs[0])
-		println("password received", UserLogs[1])
-
-		http.Redirect(w, r, "difficulty", http.StatusFound)
-	}
-
 	RenderTemplate(w, "login")
 }
 

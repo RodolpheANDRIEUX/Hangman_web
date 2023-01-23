@@ -2,6 +2,7 @@ package HangmanWeb
 
 import (
 	"bytes"
+	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
@@ -62,11 +63,13 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 	case "/log-in":
+		fmt.Println("username = ", r.FormValue("username"))
+		fmt.Println("password = ", r.FormValue("password"))
 		if SuccessfullLogin(r) {
 			Data.LoadUser(r.FormValue("username"))
 			http.Redirect(w, r, "difficulty", http.StatusFound)
 		} else {
-			http.Redirect(w, r, "login", http.StatusFound)
+			// http.Redirect(w, r, "login", http.StatusFound)
 		}
 
 	case "/difficulty":
