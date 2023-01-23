@@ -28,12 +28,12 @@
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
                 <p>Sign Up</p>
                 <div id="sinup-form" class="signup_form">
-                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();FocusForm(SignUp);">
+                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();FocusForm();">
                         <label for="username">Username: </label>
-                        <input type="text" name="username" required>
+                        <input type="text" name="username" id="username" required>
                         <label for="password">Password: </label>
-                        <input type="password" name="password" required minlength="6">
-                        <input class="submit_btn" type="submit" value="SignUp" name="SignUp" id="SignUp">
+                        <input type="password" name="password" id="password" required minlength="6">
+                        <input class="submit_btn" type="submit" value="Sign-Up" name="SignUp" id="SignUp">
                     </form>
                     <div class="login_zone">
                         <span>Do you have an account ? <br> Click here to login : </span>
@@ -46,12 +46,12 @@
 
                 <h3>Login</h3>
                 <div id="login-form" class="login_form">
-                    <form class="grid-center" action="/log-in" autocomplete="off" onsubmit="SendPasswordAndLogin('/log-in' , 'username', 'username', 'password', 'password'); event.preventDefault();FocusForm(Login);">
-                        <label for="username">Username: </label>
-                        <input type="text" name="username" required>
+                    <form class="grid-center" action="/log-in" autocomplete="off">
+                        <label for="name">Username: </label>
+                        <input type="text" name="username" id="username" required>
                         <label for="email">Password: </label>
-                        <input type="password" name="password" required minlength="6">
-                        <input class="submit_btn" type="submit" value="Login" name="Login" id="Login">
+                        <input type="password" name="password" id="email" required minlength="6">
+                        <input class="submit_btn" type="submit" value="Login">
                     </form>
                 </div>
 
@@ -65,4 +65,3 @@
 
 
 </section>
-

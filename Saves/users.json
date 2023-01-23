@@ -6,39 +6,18 @@
 		"best_score": 42,
 		"score": 0
 	},
-	"flo": {
-		"user_id": "flo",
-		"password": "JDJhJDEwJGoyQld3dS5DdWtzRWw1SHpvSGUvWWVtMkx4RGV5cDZPY2k3dFJVMGJIZ0VlaU9uV2tmS3Iu",
-		"locale": "en",
-		"best_score": 7,
-		"score": 0
-	},
-	"ghfhf": {
-		"user_id": "ghfhf",
-		"password": "JDJhJDEwJDVFRG80UUdCRmR2akhvcVNiMFpJSWVDemlIdHF1cFhJSC5taFliaHlyZ1h4a3R5U0dmWVQy",
+	"test": {
+		"user_id": "test",
+		"password": "JDJhJDEwJFM4a1BmTUNzQ0RMTU0udEhJQU04UC4uaFoyWVRNMi92aUN1em1iTGRuZks2ODR3LzQuNnVx",
 		"locale": "en",
 		"best_score": 1,
 		"score": 0
 	},
-	"testest": {
-		"user_id": "testest",
-		"password": "JDJhJDEwJFRsVDBiSmIwUGxyaEFna1ExMkhmZGV1dTgyOG9YQU05MWZYajY2QVIzV0RwaUR0Uzdka3pt",
+	"test1": {
+		"user_id": "test1",
+		"password": "JDJhJDEwJC9lREFtS3A2WnFnTS40SVF1Qmhray43WHZ2MW1yR1NWTHRWc04uZUw3YlAzTmxDVlpFV0Rx",
 		"locale": "en",
-		"best_score": 1,
-		"score": 0
-	},
-	"testing": {
-		"user_id": "testing",
-		"password": "JDJhJDEwJE8xVmdGSm94TUlTLk1Jcm9wdG90Mi5iLzllSFhQUFR4c0J6QzVtZEpmbzhLZ1B6YmNHdEph",
-		"locale": "en",
-		"best_score": 1,
-		"score": 0
-	},
-	"toto": {
-		"user_id": "toto",
-		"password": "JDJhJDEwJGp5UUdYdWNLS0lTVFVQUVhCVDU2bE9qaW83OWVRMmNtUVYxbTBhbnRuaUEvU1o3SlVQME5h",
-		"locale": "en",
-		"best_score": 2,
+		"best_score": 0,
 		"score": 0
 	}
 }
