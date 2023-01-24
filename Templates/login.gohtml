@@ -8,7 +8,7 @@
 
 
     <div class="container">
-        <div class="hangmanTitle">
+        <div id="hangmanMainTitle" class="hangmanTitle">
             <h1>HANGMAN</h1>
             {{ if eq .Message "Wrong username or password"}}
                 <p>{{.Message}}</p>

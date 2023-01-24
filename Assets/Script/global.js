@@ -38,3 +38,8 @@ function SendDifficulty(route, name, id){
     let difficulty = document.querySelector('input[name="difficulty"]:checked').value;
     UpdateFirstPlan(route, name, difficulty)
 }
+
+function hard(){
+    let moon = document.getElementsByClassName("moon")[0];
+    moon.classList.add("red");
+ }

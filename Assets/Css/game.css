@@ -8,8 +8,16 @@
     color: red;
 }
 
+/*#word{*/
+/*    font-size: 2rem;*/
+/*    !*transition: .5s;*!*/
+/*}*/
+
 .hangman_word{
     letter-spacing: 4rem;
+    translate: 2rem;
+    font-size: 2rem;
+    /*transition: .5s;*/
 }
 
 .shake{
@@ -46,16 +54,11 @@
     justify-content: center;
 }
 
-#word{
-    font-size: 2rem;
-    transition: .5s;
-}
-
 #Inputs{
     left: 50%;
     top: 55%;
     translate: -50%;
-    transition: .5s;
+    /*transition: .5s;*/
 }
 
 #LettersSuggested{
@@ -154,6 +157,7 @@
 @media only screen and (max-width: 600px) {
     .hangman_word{
         letter-spacing: 1rem;
+        /*translate: .5rem;*/
         font-size: 1.5rem;
     }
     .CustomButton{
