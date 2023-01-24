@@ -50,8 +50,8 @@ function SendDifficulty(route, name, id){
     UpdateFirstPlan(route, name, difficulty)
 }
 
-function FocusForm(elementId){
+function FocusLetter(){
     setTimeout(() => {
-        document.getElementById(elementId).focus();
+        document.getElementById("letter-input").focus();
     }, 100);
 }

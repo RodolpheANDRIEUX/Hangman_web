@@ -61,7 +61,7 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "/log-in":
 		if SuccessfullLogin(r) {
-			Data.LoadUser(r.FormValue("username"))
+			Data.LoadUser(r.FormValue("log_username"))
 			http.Redirect(w, r, "difficulty", http.StatusFound)
 		} else {
 			http.Redirect(w, r, "login", http.StatusFound)

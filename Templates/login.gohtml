@@ -1,12 +1,11 @@
 {{template "base"}}
 {{template "background"}}
 
+<script src="/Assets/Script/login.js" defer></script>
+
 <section id="FirstPlan">
 
-    <script src="/Assets/Script/login.js" defer></script>
     <link rel="stylesheet" href="/Assets/Css/login.css">
-
-    {{.}}
 
     <div class="container">
         <div class="hangmanTitle">
@@ -28,7 +27,7 @@
             <div onclick="showSignupForm()" id="container-play-form" class="button_user">
                 <p>Sign Up</p>
                 <div id="sinup-form" class="signup_form">
-                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();FocusForm(SignUp);">
+                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();">
                         <label for="username">Username: </label>
                         <input type="text" name="username" id="username" required>
                         <label for="password">Password: </label>
@@ -46,7 +45,7 @@
 
                 <h3>Login</h3>
                 <div id="login-form" class="login_form">
-                    <form class="grid-center" autocomplete="off" onsubmit="SendPasswordAndLogin('/log-in' , 'log_username', 'log_username', 'log_password', 'log_password'); event.preventDefault();FocusForm(Login);">
+                    <form class="grid-center" autocomplete="off" onsubmit="SendPasswordAndLogin('/log-in' , 'log_username', 'log_username', 'log_password', 'log_password'); event.preventDefault();">
                         <label for="log_username">Username: </label>
                         <input type="text" name="log_username" id="log_username" required>
                         <label for="log_password">Password: </label>

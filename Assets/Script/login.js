@@ -3,6 +3,7 @@ const container_play_form = document.getElementById('container-play-form')
 const bg_overlay = document.getElementById('bg-overlay')
 
 const showSignupForm = () => {
+    console.log("open")
     signup_form.style.display = "grid"
     container_play_form.style.width = "20em"
     bg_overlay.style.display = "grid"
