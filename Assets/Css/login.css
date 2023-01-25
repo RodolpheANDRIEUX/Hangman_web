@@ -15,7 +15,8 @@ input[type="text"], input[type="password"] {
 }
 
 #container-play-form {
-    width: 10em;
+    display: grid;
+    justify-items: center;
 }
 
 .login_form input, .signup_form input{
@@ -28,6 +29,14 @@ input[type="text"], input[type="password"] {
     place-items: center;
     font-size: 1rem;
     margin: 1rem;
+}
+
+.signup_opened{
+    display: grid;
+}
+
+.form_expend{
+    width : 20em;
 }
 
 .signup_form input{
@@ -82,7 +91,7 @@ input[type="text"], input[type="password"] {
 }
 /* ------ bg overlay ------ */
 
-.bg-overlay {
+.bg_overlay {
     background: rgba(0, 0, 0, 0.6);
     display: none;
     z-index: -1;
@@ -99,9 +108,70 @@ input[type="text"], input[type="password"] {
     transition: background 0.15s linear;
 }
 
+.showed{
+    display: grid;
+    z-index: 0;
+}
+
 /*------- end -------*/
 
 .login_zone{
     display: grid;
     justify-items: center;
+}
+
+/*----- encart ------*/
+
+
+.encart-header {
+    text-align: center;
+    transition: ease, 500ms;
+    color: white;
+    font-size: 1.25rem;
+    margin: 0.8rem;
+    padding: 2rem 0;
+    width: 10em;
+    background-color: rgba(250, 234, 214, 0.2);
+    border-radius: 10%;
+    cursor: pointer;
+    font-family: "druktextwide-med", fantasy;
+    border: 0;
+}
+
+.encart-content {
+    display: none;
+    padding: 10px;
+}
+
+.encart-header:hover {
+    background-color: #ddd;
+}
+
+.encart-header:active {
+    background-color: #ccc;
+}
+
+#encart-toggle:checked+.encart-header+.encart-content {
+    display: block;
+}
+
+.encart-content {
+    display: none;
+    padding: 10px;
+}
+
+.encart-header:hover {
+    background-color: #ddd;
+}
+
+.encart-header:active {
+    background-color: #ccc;
+}
+
+#encart-toggle{
+    visibility: hidden
+}
+
+#encart-toggle:checked+.encart-header+.encart-content {
+    display: block;
 }

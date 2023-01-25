@@ -1,3 +1,5 @@
+console.log("2")
+
 // custom cursor
 const Light = document.querySelector('#Light');
 const moveCursor = (e)=> {
@@ -54,4 +56,8 @@ function FocusLetter(){
     setTimeout(() => {
         document.getElementById("letter-input").focus();
     }, 100);
+}
+
+function refreshPage() {
+    window.location.reload();
 }

@@ -1,30 +1,39 @@
-const signup_form = document.getElementById('sinup-form');
+console.log("1")
+
+const signup_form = document.getElementById('signup_form');
 const container_play_form = document.getElementById('container-play-form')
 const bg_overlay = document.getElementById('bg-overlay')
 
-const showSignupForm = () => {
-    console.log("open")
-    signup_form.style.display = "grid"
-    container_play_form.style.width = "20em"
-    bg_overlay.style.display = "grid"
-    bg_overlay.style.zIndex = "0"
+function showSignupForm(open) {
+    if (open) {
+        signup_form.classList.add("signup_opened")
+        container_play_form.classList.add("form_expend")
+        bg_overlay.classList.add("showed")
+    } else {
+        signup_form.classList.remove("signup_opened")
+        container_play_form.classList.remove("form_expend")
+        bg_overlay.classList.remove("showed")
+    }
 }
 
-const closeAll = () => {
-    signup_form.style.display = "none"
-    container_play_form.style.width = "10em"
-    bg_overlay.style.display = "none"
-    bg_overlay.style.zIndex = "-1"
+function closeAll (){
+    signup_form.classList.remove("signup_opened")
+    container_play_form.classList.remove("form_expend")
+    bg_overlay.classList.remove("showed")
     popup.classList.remove('opened');
+    console.log("close all")
 }
 
 const popup = document.getElementById("login-popup");
 
-function handlePopup(open){
-    if(open){
+function handlePopup(open) {
+    if (open) {
         popup.classList.add('opened');
-    }else{
+    } else {
         popup.classList.remove('opened');
     }
 }
 
+function refreshPage() {
+    window.location.reload();
+}
