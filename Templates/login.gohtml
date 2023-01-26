@@ -19,77 +19,65 @@
         </div>
         <div class="content  z-index-up">
 
-            <form class="button_user" onsubmit="UpdateFirstPlan('/login' , 'PlayNow', 'PlayNow'); event.preventDefault();">
+            <form class="button_user"
+                  onsubmit="UpdateFirstPlan('/login' , 'PlayNow', 'PlayNow'); event.preventDefault();">
                 <label class="click_label" for="PlayNow">Play Now</label>
                 <input style="display: none" type="submit" name="PlayNow" id="PlayNow" value="Play">
             </form>
 
+            <input type="checkbox" id="encart-toggle">
+            <label for="encart-toggle" class="encart-header" class="button_user">Sign Up</label>
+            <div class="encart-content">
 
-{{/*            <div class="content_box">
-                <input type="checkbox" id="encart-toggle" class="button_user">
-                <label for="encart-toggle" class="encart-header" class="button_user">Sign Up</label>
-                <div class="encart-content">
 
-                    <div id="signup_form" class="signup_form ">
-                        <form autocomplete="off" class="large grid-center"
-                              onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();">
-                            <label for="username">Username: </label>
-                            <input type="text" name="username" id="username" required>
-                            <label for="password">Password: </label>
-                            <input type="password" name="password" id="password" required minlength="6">
-                            <input class="submit_btn" type="submit" value="Sign-Up" name="SignUp" id="SignUp">
-                        </form>
-                        <div class="login_zone">
-                            <span>Do you have an account ? <br> Click here to login : </span>
-                            <button class="submit_btn" type="submit" onclick="handlePopup(true)">Login</button>
+                <div class="switch_login_register">
+                    <input class="toggle_login" type="checkbox" id="login_register_switch"
+                           name="login_register_switch"/>
+                    <label for="login_register_switch"></label>
+
+                    <div class="switch_selector">
+                        <span class="switch_txt">Sign Up</span>
+                        <div class="background_switch" type="checkbox" id="login_register_switch"
+                             name="login_register_switch"></div>
+                        <span class="switch_txt">Log In</span>
+                    </div>
+
+                    <div class="card-3d-wrap">
+                        <div class="card-3d-wrapper">
+                            <div class="card-front">
+                                <div id="signup_form" class="login_form">
+                                    <h3>Create an account</h3>
+                                    <form class="grid-center" autocomplete="off"
+                                          onsubmit="event.preventDefault(); SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password')">
+                                        <label for="username">Username: </label>
+                                        <input type="text" name="username" id="username" required>
+                                        <label for="password">Password: </label>
+                                        <input type="password" name="log_password" id="password" required minlength="5">
+                                        <input class="submit_btn" type="submit" value="Sign-Up" name="SignUp" id="SignUp">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div id="login-form" class="login_form">
+                                    <h3>Charge your game</h3>
+                                    <form class="grid-center" autocomplete="off"
+                                          onsubmit="event.preventDefault();SendPasswordAndLogin('/log-in' , 'log_username', 'log_username', 'log_password', 'log_password')">
+                                        <label for="log_username">Username: </label>
+                                        <input type="text" name="log_username" id="log_username" required>
+                                        <label for="log_password">Password: </label>
+                                        <input type="password" name="log_password" id="log_password" required
+                                               minlength="6">
+                                        <input class="submit_btn" type="submit" value="Log-in" name="Login" id="Login">
+                                    </form>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>*/}}
-
-            <div onclick="showSignupForm(true)" id="container-play-form" class="button_user form_container">
-                <p>Sign Up</p>
-                <div id="signup_form" class="signup_form">
-                    <form autocomplete="off" class="large grid-center" onsubmit="SendPasswordAndLogin('/sign-up' , 'username', 'username', 'password', 'password'); event.preventDefault();">
-                        <label for="username">Username: </label>
-                        <input type="text" name="username" id="username" required>
-                        <label for="password">Password: </label>
-                        <input type="password" name="password" id="password" required minlength="6">
-                        <input class="submit_btn" type="submit" value="Sign-Up" name="SignUp" id="SignUp">
-                    </form>
-                    <div class="login_zone">
-                        <span>Do you have an account ? <br> Click here to login : </span>
-                        <button class="submit_btn" type="submit" onclick="handlePopup(true)">Login</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="login-popup" class="login-popup">
-
-                <h3>Login</h3>
-                <div id="login-form" class="login_form">
-                    <form class="grid-center" autocomplete="off" onsubmit="SendPasswordAndLogin('/log-in' , 'log_username', 'log_username', 'log_password', 'log_password'); event.preventDefault();">
-                        <label for="log_username">Username: </label>
-                        <input type="text" name="log_username" id="log_username" required>
-                        <label for="log_password">Password: </label>
-                        <input type="password" name="log_password" id="log_password" required minlength="6">
-                        <input class="submit_btn" type="submit" value="Log-in" name="Login" id="Login">
-                    </form>
-                </div>
-
-                <button class="close-popup-button" onclick="handlePopup(false)"> X</button>
             </div>
         </div>
-
-        <div class="bg_overlay" id="bg-overlay" onclick="closeAll()"></div>
-
     </div>
-
-
-    <script>
-        console.log("3")
-    </script>
 
 </section>
 

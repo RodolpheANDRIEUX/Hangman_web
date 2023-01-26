@@ -12,7 +12,7 @@ window.addEventListener('mousemove', moveCursor);
 // loading screen
 setTimeout(() => {
     document.querySelector("#loader").style.display = "none"
-}, 5000)
+}, 2000)
 
 
 function UpdateFirstPlan(route, name, id) {
