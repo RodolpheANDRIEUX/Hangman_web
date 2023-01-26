@@ -130,9 +130,8 @@
 }
 
 #hangmanState {
-    height: 30%;
-    top: 30vh;
-    border: red dashed;
+    height: 40%;
+    top: 15vh;
 }
 
 #guyRunning{
