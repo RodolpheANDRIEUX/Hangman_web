@@ -231,8 +231,8 @@ input[type="text"], input[type="password"] {
     justify-content: center;
     align-items: center;
     margin-top: 2px;
-    width: 37px;
-    height: 37px;
+    width: 36px;
+    height: 36px;
     border-radius: 100%;
     background-color: #aa0000;
     content: '<';

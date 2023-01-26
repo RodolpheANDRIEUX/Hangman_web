@@ -1,4 +1,4 @@
-console.log("2")
+
 
 // custom cursor
 const Light = document.querySelector('#Light');
@@ -54,7 +54,7 @@ function SendDifficulty(route, name, id){
 
 function FocusLetter(){
     setTimeout(() => {
-        document.getElementById("letter-input").focus();
+        document.getElementById("letter_input").focus();
     }, 100);
 }
 
