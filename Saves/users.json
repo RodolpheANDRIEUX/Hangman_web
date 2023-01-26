@@ -1,23 +1,16 @@
 {
-	"Rodolphe": {
-		"user_id": "Rodolphe",
-		"password": "OuiLePasswordOui",
-		"locale": "en",
-		"best_score": 42,
-		"score": 0
-	},
 	"flo": {
 		"user_id": "flo",
-		"password": "JDJhJDEwJGoyQld3dS5DdWtzRWw1SHpvSGUvWWVtMkx4RGV5cDZPY2k3dFJVMGJIZ0VlaU9uV2tmS3Iu",
-		"locale": "en",
-		"best_score": 7,
-		"score": 0
-	},
-	"toto": {
-		"user_id": "toto",
-		"password": "JDJhJDEwJGp5UUdYdWNLS0lTVFVQUVhCVDU2bE9qaW83OWVRMmNtUVYxbTBhbnRuaUEvU1o3SlVQME5h",
+		"password": "JDJhJDEwJHI3VWxRa2FRZWg5b2ZiWENHQTE5OU9TdHBMTFBVY1p4TWVuVDdjLzJxeHFPOVpPdGpabjY2",
 		"locale": "en",
 		"best_score": 2,
+		"score": 0
+	},
+	"kopenkinda": {
+		"user_id": "kopenkinda",
+		"password": "JDJhJDEwJHJ0T2pCNG1JVDRrWnpOVzk1ZE1xZ09qWkFXM1hLVzZyM05pZFV5SXZvSjlEWk1LNzNnR3ZX",
+		"locale": "en",
+		"best_score": 0,
 		"score": 0
 	}
 }

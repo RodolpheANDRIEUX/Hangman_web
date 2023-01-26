@@ -14,10 +14,8 @@ func (ptrData *WebData) DifficultyMenu(w http.ResponseWriter, r *http.Request) {
 func (ptrData *WebData) Login(w http.ResponseWriter, r *http.Request) {
 	PlayNow := r.FormValue("PlayNow")
 	if PlayNow != "" {
-		println("received")
 		http.Redirect(w, r, "difficulty", http.StatusFound)
 	}
-
 	RenderTemplate(w, "login")
 }
 

@@ -25,7 +25,8 @@ input[type="text"], input[type="password"] {
 }
 
 #container-play-form {
-    width: 10em;
+    display: grid;
+    justify-items: center;
 }
 
 .login_form input, .signup_form input{
@@ -38,6 +39,14 @@ input[type="text"], input[type="password"] {
     place-items: center;
     font-size: 1rem;
     margin: 1rem;
+}
+
+.signup_opened{
+    display: grid;
+}
+
+.form_expend{
+    width : 20em;
 }
 
 .signup_form input{
@@ -72,7 +81,7 @@ input[type="text"], input[type="password"] {
 .login-popup.opened{
     transform: scale(1);
     z-index: 999;
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .close-popup-button{
@@ -92,7 +101,7 @@ input[type="text"], input[type="password"] {
 }
 /* ------ bg overlay ------ */
 
-.bg-overlay {
+.bg_overlay {
     background: rgba(0, 0, 0, 0.6);
     display: none;
     z-index: -1;
@@ -109,9 +118,189 @@ input[type="text"], input[type="password"] {
     transition: background 0.15s linear;
 }
 
+.showed{
+    display: grid;
+    z-index: 0;
+}
+
 /*------- end -------*/
 
 .login_zone{
     display: grid;
     justify-items: center;
+}
+
+/*----- encart ------*/
+
+
+.encart-header {
+    text-align: center;
+    transition: ease, 500ms;
+    color: white;
+    font-size: 1.25rem;
+    margin: 0.8rem;
+    padding: 2rem 0;
+    width: 10em;
+    background-color: rgba(250, 234, 214, 0.2);
+    border-radius: 10%;
+    cursor: pointer;
+    font-family: "druktextwide-med", fantasy;
+    border: 0;
+}
+
+.encart-header:hover {
+    background-color: #ddd;
+}
+
+.encart-header:active {
+    background-color: #ccc;
+}
+
+#encart-toggle:checked+.encart-header+.encart-content {
+    display: block;
+    transition: ease, 500ms;
+}
+
+.encart-content {
+    display: none;
+    padding: 2rem;
+    background-color: rgba(250, 234, 214, 0.2);
+    border-radius: 1rem;
+}
+
+.encart-header:hover {
+    background-color: #ddd;
+}
+
+.encart-header:active {
+    background-color: #ccc;
+}
+
+#encart-toggle{
+    display: none;
+}
+
+#encart-toggle:checked+.encart-header+.encart-content {
+    display: block;
+}
+
+
+.container_buttons_play{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.signup_form_bis{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*---- switch login signup ---*/
+
+.switch_login_register{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.switch_selector{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.switch_txt{
+    text-align: center;
+    margin: 0 0.5rem;
+    width: 90px;
+}
+
+.card_container{
+    display: flex;
+}
+
+.toggle_login{
+    display: none;
+}
+
+.toggle_login:checked+label,
+.toggle_login:not(:checked)+label {
+    position: absolute;
+    width: 72px;
+    height: 36px;
+    border-radius: 100em;
+    cursor: pointer;
+}
+
+.toggle_login:checked+label:before,
+.toggle_login:not(:checked)+label:before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    width: 37px;
+    height: 37px;
+    border-radius: 100%;
+    background-color: #aa0000;
+    content: '<';
+    z-index: 20;
+    line-height: 36px;
+    text-align: center;
+    font-size: 24px;
+    transition: all 0.5s ease;
+}
+
+.toggle_login:checked+label:before {
+    transform: translateX(100%) rotate(180deg);
+}
+
+.background_switch {
+    border: 2px solid #a2a2a2;
+    width: 72px;
+    height: 36px;
+    border-radius: 100em;
+    cursor: pointer;
+    background-color: #ffffff;
+    box-shadow: inset 5px 0px 10px 2px rgba(0,0,0,0.59);
+}
+
+.card-3d-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 100%;
+    transform-style: preserve-3d;
+    margin-top: 1rem;
+}
+
+.card-3d-wrapper {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 600ms ease-out;
+}
+
+.card-front,
+.card-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 6px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.toggle_login:checked~.card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
 }

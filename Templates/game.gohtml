@@ -5,9 +5,8 @@
 
 
     <link rel="stylesheet" href="/Assets/Css/game.css">
-    <div id = debug>Data: {{.}}</div>
-
-
+   {{/* <div id = debug>Data: {{.}}</div>*/}}
+    <p>player : {{.User.Username}}</p>
 
     <div class="column" id="Inputs">
 
@@ -35,9 +34,9 @@
         {{ else }}
 
             <div class="sub_column">
-                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letter-input'); event.preventDefault(); FocusLetter()" >
-                    <label for="letter-input"></label>
-                    <input id="letter-input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letterInput'); event.preventDefault(); FocusLetter()" >
+                    <label for="letterInput"></label>
+                    <input id="letterInput" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
                     <input type="submit" name="Submit" value="↵">
                 </form>
                 {{ if eq .Error true}}
