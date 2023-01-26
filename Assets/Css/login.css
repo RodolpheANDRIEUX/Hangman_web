@@ -203,7 +203,9 @@ input[type="text"], input[type="password"] {
 }
 
 .switch_txt{
-    margin: 0 1rem;
+    text-align: center;
+    margin: 0 0.5rem;
+    width: 90px;
 }
 
 .card_container{
@@ -225,11 +227,14 @@ input[type="text"], input[type="password"] {
 
 .toggle_login:checked+label:before,
 .toggle_login:not(:checked)+label:before {
-    display: block;
-    width: 36px;
-    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    width: 37px;
+    height: 37px;
     border-radius: 100%;
-    background-color: #224cd5;
+    background-color: #aa0000;
     content: '<';
     z-index: 20;
     line-height: 36px;
@@ -243,11 +248,13 @@ input[type="text"], input[type="password"] {
 }
 
 .background_switch {
+    border: 2px solid #a2a2a2;
     width: 72px;
     height: 36px;
     border-radius: 100em;
     cursor: pointer;
-    background-color: #22a573;
+    background-color: #ffffff;
+    box-shadow: inset 5px 0px 10px 2px rgba(0,0,0,0.59);
 }
 
 .card-3d-wrap {
