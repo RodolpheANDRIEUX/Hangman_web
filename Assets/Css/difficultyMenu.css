@@ -40,3 +40,8 @@
 .HitboxCircle{
     display: none;
 }
+
+.red{
+    background: #ff0000 !important;
+    box-shadow: 0 0 50px 0 #ff0000 !important;
+}

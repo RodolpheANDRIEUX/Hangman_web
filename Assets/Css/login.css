@@ -4,6 +4,16 @@
     place-items: center;
 }
 
+#hangmanMainTitle h1{
+    animation: appearAfterLoad 6s ease-out;
+}
+
+@keyframes appearAfterLoad {
+    0% {transform: translate(0, 50vh)}
+    50% {transform: translate(0, 50vh)}
+    100% {transform: translate(0, 0)}
+}
+
 input[type="submit"]:hover{
     background: #000000;
 }

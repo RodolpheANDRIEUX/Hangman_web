@@ -3,13 +3,12 @@
 
 <section id="FirstPlan">
 
+
     <link rel="stylesheet" href="/Assets/Css/game.css">
    {{/* <div id = debug>Data: {{.}}</div>*/}}
 
-    {{ if eq .State "WIN"}}
-    <div class="hangmanTitle">
-        <h2>YOU SURVIVE</h2>
-    </div>
+    {{ if ne .User.Username ""}}
+    <p>player : {{.User.Username}}</p>
     {{ end }}
 
     <div class="column" id="Inputs">
@@ -38,14 +37,14 @@
         {{ else }}
 
             <div class="sub_column">
-                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letter_input'); event.preventDefault(); FocusLetter()" >
-                    <input id="letter_input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letterInput'); event.preventDefault(); FocusLetter()" >
+                    <label for="letterInput"></label>
+                    <input id="letterInput" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
                     <input type="submit" name="Submit" value="↵">
                 </form>
                 {{ if eq .Error true}}
                     <h4 id="error_text">{{.Message}}</h4>
                 {{end}}
-
             </div>
 
             <div class="sub_column" id="LettersSuggested">
@@ -58,11 +57,12 @@
 
     </div>
 
-
-    <div class="column" id="hangmanState">
-        {{ if ne .Game.Tries 0 }}
-            <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
-        {{ end }}
+    <div class="column" id="guyRunning">
+        <img src="/Assets/gif/ball.gif" alt="your character">
     </div>
-
+    <div class="column" id="hangmanState">
+        <img onload="UpdateHangman({{ .Game.Tries }})" src="/Assets/gif/ball.gif" alt="Monster">
+    </div>
 </section>
+
+

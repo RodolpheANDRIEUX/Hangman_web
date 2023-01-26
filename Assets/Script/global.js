@@ -1,5 +1,3 @@
-
-
 // custom cursor
 const Light = document.querySelector('#Light');
 const moveCursor = (e)=> {
@@ -36,8 +34,7 @@ function SendPasswordAndLogin(route, login, loginId, password, passwordId) {
     loginRequest.onload = function (event) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(event.target.response, "text/html");
-        const FirstPlan = doc.getElementById("FirstPlan");
-        document.getElementById("FirstPlan").innerHTML = FirstPlan.innerHTML;
+        document.getElementById("FirstPlan").innerHTML = doc.innerHTML;
     };
     const Data = new FormData();
     const input_login = document.getElementById(loginId)
@@ -54,10 +51,26 @@ function SendDifficulty(route, name, id){
 
 function FocusLetter(){
     setTimeout(() => {
-        document.getElementById("letter_input").focus();
+        document.getElementById("letter-input").focus();
     }, 100);
 }
 
 function refreshPage() {
     window.location.reload();
+}
+
+function hard(){
+    let moon = document.getElementsByClassName("moon")[0];
+    moon.classList.add("red");
+ }
+
+function UpdateHangman(number){
+    setTimeout(() => {
+        const myElement = document.getElementById("hangmanState");
+        number *= 8;
+        console.log(number);
+        console.log(myElement);
+        myElement.style.left = `${number}vw`;
+    }, 100);
+
 }
