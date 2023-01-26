@@ -51,13 +51,10 @@ function SendDifficulty(route, name, id){
 
 function FocusLetter(){
     setTimeout(() => {
-        document.getElementById("letter-input").focus();
+        document.getElementById("letter_input").focus();
     }, 100);
 }
 
-function refreshPage() {
-    window.location.reload();
-}
 
 function hard(){
     let moon = document.getElementsByClassName("moon")[0];

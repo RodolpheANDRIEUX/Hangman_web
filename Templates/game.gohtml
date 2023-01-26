@@ -5,6 +5,8 @@
 
 
     <link rel="stylesheet" href="/Assets/Css/game.css">
+    <script src="/Assets/Script/game.js" defer></script>
+
    {{/* <div id = debug>Data: {{.}}</div>*/}}
 
     {{ if ne .User.Username ""}}
@@ -37,9 +39,9 @@
         {{ else }}
 
             <div class="sub_column">
-                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letterInput'); event.preventDefault(); FocusLetter()" >
-                    <label for="letterInput"></label>
-                    <input id="letterInput" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
+                <form  class="form-hangman" id="form_hangman" onsubmit="UpdateFirstPlan('/hangman', 'Letter', 'letter_input'); event.preventDefault(); FocusLetter()" >
+                    <label for="letter_input"></label>
+                    <input id="letter_input" autofocus name="Letter" required autocomplete="off" placeholder="Choose a letter or guess a word">
                     <input type="submit" name="Submit" value="↵">
                 </form>
                 {{ if eq .Error true}}

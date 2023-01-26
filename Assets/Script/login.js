@@ -1,5 +1,3 @@
-console.log("1")
-
 const signup_form = document.getElementById('signup_form');
 const container_play_form = document.getElementById('container-play-form')
 const bg_overlay = document.getElementById('bg-overlay')

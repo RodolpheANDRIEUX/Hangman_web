@@ -55,10 +55,8 @@ body{
         letter-spacing: 10px !important;
     }
     .button_user{
-        font-size: 1rem;
-        margin: 0.8rem;
-        padding: 1rem 0;
-        width: 8em;
+        margin: 0.8rem !important;
+        padding: 1rem 0 !important;
     }
 }
 

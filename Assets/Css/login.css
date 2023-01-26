@@ -54,77 +54,6 @@ input[type="text"], input[type="password"] {
     margin: 10px;
 }
 
-/*------- Pop Up login form ----------*/
-
-.login-popup{
-    position: absolute;
-    background-color: #403e3b;
-    padding: 30px;
-    border-radius: 8px;
-    text-align: center;
-    width: 500px;
-    height: 500px;
-    box-sizing: border-box;
-    transition: all .4s;
-    z-index: -1;
-    opacity: 0;
-    transform: scale(0.4);
-    display : grid;
-    place-items: center;
-    align-content: space-evenly;
-}
-
-.login-popup p{
-    font-size: 18px;
-}
-
-.login-popup.opened{
-    transform: scale(1);
-    z-index: 999;
-    opacity: 1;
-}
-
-.close-popup-button{
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    font-family: druktextwide-med;
-    background: none;
-    border: 0;
-    font-size: 18px;
-    color: white;
-    transition: ease 500ms;
-}
-
-.close-popup-button:hover{
-    transform: scale(1.2);
-}
-/* ------ bg overlay ------ */
-
-.bg_overlay {
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
-    z-index: -1;
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0;
-    -webkit-transition: background 0.15s linear;
-    -o-transition: background 0.15s linear;
-    transition: background 0.15s linear;
-}
-
-.showed{
-    display: grid;
-    z-index: 0;
-}
-
-/*------- end -------*/
-
 .login_zone{
     display: grid;
     justify-items: center;
@@ -146,6 +75,13 @@ input[type="text"], input[type="password"] {
     cursor: pointer;
     font-family: "druktextwide-med", fantasy;
     border: 0;
+}
+
+@media only screen and (max-width: 750px) {
+    .encart-header {
+        margin: 0.8rem !important;
+        padding: 1rem 0 !important;
+    }
 }
 
 .encart-header:hover {
