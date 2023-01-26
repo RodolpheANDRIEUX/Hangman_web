@@ -34,7 +34,8 @@ function SendPasswordAndLogin(route, login, loginId, password, passwordId) {
     loginRequest.onload = function (event) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(event.target.response, "text/html");
-        document.getElementById("FirstPlan").innerHTML = doc.innerHTML;
+        const FirstPlan = doc.getElementById("FirstPlan");
+        document.getElementById("FirstPlan").innerHTML = FirstPlan.innerHTML;
     };
     const Data = new FormData();
     const input_login = document.getElementById(loginId)
@@ -68,6 +69,6 @@ function UpdateHangman(number){
         console.log(number);
         console.log(myElement);
         myElement.style.left = `${number}vw`;
-    }, 100);
+    }, 1);
 
 }
