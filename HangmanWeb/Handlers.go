@@ -2,6 +2,7 @@ package HangmanWeb
 
 import (
 	"bytes"
+	"fmt"
 	HangmanClassic "hangmanWeb/hangman-classic-for-web/Functions"
 	"html/template"
 	"net/http"
@@ -67,6 +68,11 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "login", http.StatusFound)
 		}
 
+	case "/logout":
+		Data.Logout(r)
+		fmt.Println(string("\033[31m"), "user logout", string("\033[0m"))
+		http.Redirect(w, r, "login", http.StatusFound)
+
 	case "/difficulty":
 		Data.DifficultyMenu(w, r)
 
@@ -78,11 +84,6 @@ func PathHandler(w http.ResponseWriter, r *http.Request) {
 
 	case "/gameMenu":
 		Data.gameMenu(w, r)
-
-		if r.FormValue("Logout") != "" {
-			Data.Logout(r)
-			http.Redirect(w, r, "login", http.StatusFound)
-		}
 
 	default: // redirect to the login page instead of error (currently mainMenu tho)
 		http.Redirect(w, r, "login", http.StatusFound)

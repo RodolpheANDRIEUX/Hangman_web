@@ -124,10 +124,10 @@ func SortTable(table [][]string) {
 	}
 }
 
+// Logout : Method to unlog the user and reset the data
 func (ptrData *WebData) Logout(r *http.Request) {
 	ptrData.User.Username = ""
 	ptrData.User.Password = nil
 	ptrData.User.Score = 0
 	ptrData.User.BestScore = 0
-	fmt.Println("user logout")
 }
