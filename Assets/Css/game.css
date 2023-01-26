@@ -123,7 +123,7 @@
     animation: fadeIn 3s;
 }
 
-#hangmanState img{
+.column img{
     height: 100%;
     vertical-align: center;
     overflow: auto;
@@ -131,7 +131,15 @@
 
 #hangmanState {
     height: 30%;
-    top: 20%;
+    top: 30vh;
+    border: red dashed;
+}
+
+#guyRunning{
+    height: 30%;
+    top: 30vh;
+    right: 10vw;
+    border: green dashed;
 }
 
 .button_play_again{

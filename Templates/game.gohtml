@@ -6,7 +6,10 @@
 
     <link rel="stylesheet" href="/Assets/Css/game.css">
    {{/* <div id = debug>Data: {{.}}</div>*/}}
+
+    {{ if ne .User.Username ""}}
     <p>player : {{.User.Username}}</p>
+    {{ end }}
 
     <div class="column" id="Inputs">
 
@@ -42,7 +45,6 @@
                 {{ if eq .Error true}}
                     <h4 id="error_text">{{.Message}}</h4>
                 {{end}}
-
             </div>
 
             <div class="sub_column" id="LettersSuggested">
@@ -55,11 +57,12 @@
 
     </div>
 
-
-    <div class="column" id="hangmanState">
-        {{ if ne .Game.Tries 0 }}
-            <img src="/Assets/Hangman_images/state_{{.Game.Tries}}.png" alt="hangman-{{.Game.Tries}}">
-        {{ end }}
+    <div class="column" id="guyRunning">
+        <img src="/Assets/gif/ball.gif" alt="your character">
     </div>
-
+    <div class="column" id="hangmanState">
+        <img onload="UpdateHangman({{ .Game.Tries }})" src="/Assets/gif/ball.gif" alt="Monster">
+    </div>
 </section>
+
+

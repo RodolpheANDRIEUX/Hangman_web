@@ -1,0 +1,3 @@
+function UpdateHangman(){
+    alert("boo");
+}
