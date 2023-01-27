@@ -8,9 +8,9 @@
 /*}*/
 
 .hangman_word{
-    letter-spacing: 4rem;
+    letter-spacing: 2rem;
     translate: 2rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
     /*transition: .5s;*/
 }
 
