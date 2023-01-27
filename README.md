@@ -3,8 +3,9 @@
 
 # HANGMAN WEB
 
-A brief description of what this project does and who it's for
+Slenderman tries to kill you. while you're playing hangman, each wrong letter makes the slenderman teleport closer!
 
+you have to survive as much time as you can to gain points!
 
 ## 🛠️ Installation and requirements
 
