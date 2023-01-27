@@ -130,11 +130,18 @@
     top: 15vh;
 }
 
+#pseudo{
+    font-size: 75%;
+    margin: 0;
+    padding: 0;
+    translate: 0 75px;
+}
+
 #guyRunning{
+    z-index: -15;
     height: 30%;
-    top: 30vh;
+    top: 26vh;
     right: 10vw;
-    border: green dashed;
 }
 
 @media only screen and (max-width: 750px) {

@@ -5,11 +5,7 @@
 
     <link rel="stylesheet" href="/Assets/Css/game.css">
 
-   <div class = "debug">Data: {{.}}</div>
-
-    {{ if ne .User.Username ""}}
-    <p>player : {{.User.Username}}</p>
-    {{ end }}
+{{/*   <div class = "debug">Data: {{.}}</div>*/}}
 
     <div class="column" id="Inputs">
 
@@ -58,7 +54,8 @@
     </div>
 
     <div class="column" id="guyRunning">
-        <img src="/Assets/gif/ball.gif" alt="your character">
+        <span id="pseudo">{{.User.Username}}</span>
+        <img src="/Assets/gif/runningman.gif" alt="your character">
     </div>
     <div class="column" id="hangmanState">
         <img onload="UpdateHangman({{ .Game.Tries }})" src="/Assets/gif/slender.gif" alt="Monster">
