@@ -4,6 +4,11 @@
 <section id="FirstPlan">
 
     <link rel="stylesheet" href="/Assets/Css/game.css">
+    {{ if eq .State "WIN" }}
+    <div class="hangmanTitle">
+        <h2>You survive</h2>
+    </div>
+    {{ end }}
 
 {{/*   <div class = "debug">Data: {{.}}</div>*/}}
 
