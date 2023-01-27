@@ -8,30 +8,41 @@
     src: url("https://cdn.shopify.com/s/files/1/0647/5815/3451/files/Zombie_Holocaust.ttf?v=1673207366") format("truetype");
 }
 
-html, body {margin: 0; height: 100%; overflow: hidden}
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
 
-body{
+body {
     background: #555555;
-    color : white;
+    color: white;
     font-family: "druktextwide-med", fantasy;
 }
 
-.large{
+.debug {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.large {
     width: 60%;
 }
 
-.grid-center{
+.grid-center {
     display: grid;
     place-items: center;
     align-items: center;
     text-align: center;
 }
 
-.hangmanTitle{
+.hangmanTitle {
     z-index: -25;
     text-align: center;
     position: absolute;
-    top : 20%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -46,15 +57,17 @@ body{
 }
 
 @media only screen and (max-width: 750px) {
-    .hangmanTitle h1{
+    .hangmanTitle h1 {
         font-size: 4rem !important;
         letter-spacing: 10px !important;
     }
-    .hangmanTitle h2{
+
+    .hangmanTitle h2 {
         font-size: 3.3rem !important;
         letter-spacing: 10px !important;
     }
-    .button_user{
+
+    .button_user {
         margin: 0.8rem !important;
         padding: 1rem 0 !important;
     }
@@ -70,23 +83,27 @@ body{
 }
 
 @keyframes appear {
-    0% {transform: translate(0, 50vh)}
-    100% {transform: translate(0, 0)}
+    0% {
+        transform: translate(0, 50vh)
+    }
+    100% {
+        transform: translate(0, 0)
+    }
 }
 
-.container{
+.container {
     display: flex;
     width: 100vw;
     height: 100vh;
     justify-content: center;
-    align-items:flex-end ;
+    align-items: flex-end;
 }
 
-.z-index-up{
+.z-index-up {
     z-index: 1;
 }
 
-.button_user{
+.button_user {
     text-align: center;
     transition: ease, 500ms;
     color: white;
@@ -96,26 +113,26 @@ body{
     width: 10em;
     background-color: rgba(250, 234, 214, 0.2);
     border-radius: 10%;
-    cursor:pointer;
+    cursor: pointer;
     font-family: "druktextwide-med", fantasy;
     border: 0;
 }
 
-.button_user .click_label{
+.button_user .click_label {
     cursor: pointer;
     padding: 2rem 2rem;
 }
 
-.button_user p{
+.button_user p {
     margin: 0;
     padding: 0;
 }
 
-.button_user:hover{
+.button_user:hover {
     background-color: rgba(250, 234, 214, 0.4);
 }
 
-.submit_btn{
+.submit_btn {
     margin-top: 1em;
     text-align: center;
     color: white;
@@ -126,7 +143,7 @@ body{
     justify-content: center;
 }
 
-.submit_btn:hover{
+.submit_btn:hover {
     background-color: rgba(250, 234, 214, 0.4);
 }
 
@@ -162,6 +179,7 @@ body{
     background: #aaaaaa;
     animation: rotate 1s linear infinite;
 }
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);

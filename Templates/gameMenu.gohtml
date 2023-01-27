@@ -2,14 +2,12 @@
 <section id="FirstPlan">
     <link rel="stylesheet" href="/Assets/Css/gameMenu.css">
 
-
     <div class="container">
         <div class="hangmanTitle">
             <h1 class="littleTitle">YOU LOSE</h1>
         </div>
 
         <div class="content_grid">
-
             <div class="score_board">
                 <h4>Hangman web - Leaderboard</h4>
                 <ol>
@@ -27,13 +25,26 @@
                 <span id="PlayAgain">PLAY AGAIN</span>
             </div>
 
+            <button id="btn_popup" class="button_play"><span>Credits</span></button>
+
+            <div class="popup-overlay-wrapper">
+                <div class="popup-content-wrapper">
+                    <button id="close">X</button>
+
+                    <h2>Thanks !</h2>
+                    <p>An hangman game created by:</p>
+                    <p>ANDRIEUX Rodolphe <br> and <br> ALBORA Florian</p>
+                    <p>at Ynov Toulouse.</p>
+                    <p>We hope you enjoyed our game.</p>
+
+                </div>
+            </div>
+
             <form id="Logout" method="post" action="/logout">
                 <input class="button_play" type="submit" id="logout" name="logout" value="logout">
             </form>
 
         </div>
     </div>
-
-
 
 </section>
