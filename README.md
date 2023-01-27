@@ -1,1 +1,37 @@
-# hangman-web
+
+![Logo](https://ytrack.learn.ynov.com/git/aflorian/hangman-web/raw/branch/master/Assets/gif/slender.gif)
+
+# HANGMAN WEB
+
+A brief description of what this project does and who it's for
+
+
+## 🛠️ Installation and requirements
+
+### With Gitea
+
+```bash
+git clone https://ytrack.learn.ynov.com/git/aflorian/hangman-web
+cd hangman-web/
+go run .
+```
+running the code should open your browser to the right page.
+> In some cases, you might have to delete the go.mod file in the "hangman-classic-for-web" folder
+## Features
+
+- login
+- responsive
+- leaderboard
+- animations
+
+> Even if the password is hashed, we do not recommend using your usual password for this game
+
+## Screenshots
+
+![App Screenshot]()
+
+## Authors
+
+- [@Florian](https://www.github.com/florian-alb)
+- [@Rodolphe](https://www.github.com/RodolpheANDRIEUX)
+
