@@ -1,5 +1,5 @@
 
-<img src="https://ytrack.learn.ynov.com/git/aflorian/hangman-web/raw/branch/master/Assets/gif/slender.gif" height="100" alt="">
+<img src="Assets/gif/slender.gif" height="100" alt="">
 
 # HANGMAN WEB
 
@@ -29,9 +29,9 @@ running the code should open your browser to the right page.
 
 ## Screenshots
 
-![App Screenshot](https://ytrack.learn.ynov.com/git/aflorian/hangman-web/raw/branch/dev/Assets/screenshots/Capture%20d’écran%202023-01-27%20152214.png)
-![App Screenshot](https://ytrack.learn.ynov.com/git/aflorian/hangman-web/raw/branch/dev/Assets/screenshots/Capture%20d’écran%202023-01-27%20152259.png)
-![App Screenshot](https://ytrack.learn.ynov.com/git/aflorian/hangman-web/raw/branch/dev/Assets/screenshots/Capture%20d’écran%202023-01-27%20152343.png)
+![App Screenshot](Assets/screenshots/Capture%20d’écran%202023-01-27%20152214.png)
+![App Screenshot](Assets/screenshots/Capture%20d’écran%202023-01-27%20152259.png)
+![App Screenshot](Assets/screenshots/Capture%20d’écran%202023-01-27%20152343.png)
 
 ## Authors
 
